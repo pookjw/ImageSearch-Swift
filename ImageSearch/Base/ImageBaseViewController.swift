@@ -33,7 +33,7 @@ extension ImageBaseViewController: UICollectionViewDataSource {
         
         cell.thumbnailImage.kf.indicatorType = .activity
         cell.thumbnailImage.kf.setImage(with: URL(string: i.thumbnail_url), placeholder: nil)
-        cell.contentView.backgroundColor = .red
+        //cell.contentView.backgroundColor = .red
         cell.siteName.text = i.display_sitename
         
         return cell
@@ -45,8 +45,17 @@ extension ImageBaseViewController: UICollectionViewDataSource {
     }
 }
 
-extension ImageBaseViewController: UICollectionViewDelegate {
-    
+extension ImageBaseViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let viewWidth = view.frame.width
+        let itemsInRow: CGFloat = CGFloat(Int(viewWidth / 150))
+        var spacing = (view.frame.width - 150 * itemsInRow) / (2 * itemsInRow)
+        
+        if spacing < CGFloat(0) { // minimum spacing
+            spacing = 0 // set to minumum spacing
+        }
+        return UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+    }
 }
 
 //

@@ -40,6 +40,7 @@
 		F3ED65CC2491FF9B00969F14 /* ImageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInfo.swift; sourceTree = "<group>"; };
 		F3ED65D8249217CC00969F14 /* InfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
 		F3ED65DA2492180400969F14 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		F3ED65DC2492261700969F14 /* ImageSearch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageSearch.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +93,7 @@
 		F356B9182491C92B00703B54 /* ImageSearch */ = {
 			isa = PBXGroup;
 			children = (
+				F3ED65DC2492261700969F14 /* ImageSearch.entitlements */,
 				F3ED65CB2491FF4400969F14 /* Base */,
 				F3ED65CA2491FF3C00969F14 /* Views */,
 				F3ED65C92491FF2400969F14 /* Sources */,
@@ -383,6 +385,7 @@
 			baseConfigurationReference = 2C9230805231DE313987081D /* Pods-ImageSearch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ImageSearch/ImageSearch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6Q9SP4M9H4;
 				INFOPLIST_FILE = ImageSearch/Info.plist;
@@ -392,6 +395,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinwoopeter.ImageSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -402,6 +406,7 @@
 			baseConfigurationReference = 61565CCF8F1DBA4E9927976B /* Pods-ImageSearch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ImageSearch/ImageSearch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6Q9SP4M9H4;
 				INFOPLIST_FILE = ImageSearch/Info.plist;
@@ -411,6 +416,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinwoopeter.ImageSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

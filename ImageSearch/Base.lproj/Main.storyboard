@@ -175,6 +175,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="x0F-Qv-KkW" id="av0-mU-Mip"/>
+                        <outlet property="bulbButton" destination="Nc6-hM-QyH" id="YBM-n1-17y"/>
                         <outlet property="collectionView" destination="jIH-go-Qs7" id="Q6y-dI-8ib"/>
                     </connections>
                 </viewController>
