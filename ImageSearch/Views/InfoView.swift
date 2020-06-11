@@ -31,7 +31,11 @@ class InfoView: UIView {
         
         sharedView.textLabel.text = message
         
-        (sharedView.textLabel.textColor, sharedView.backgroundColor) = getRamdomColor()
+        let (random_color, inversed_color) = getRamdomColor()
+        
+        sharedView.textLabel.textColor = random_color
+        sharedView.backgroundColor = inversed_color
+        sharedView.closeButton.tintColor = random_color
         
         if sharedView?.superview == nil {
             let y = displayVC.view.frame.height - sharedView.frame.size.height - 60
