@@ -5,7 +5,7 @@ class InfoView: UIView {
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     
-    private static var sharedView: InfoView!
+    static var sharedView: InfoView!
     
     static func loadFromNib() -> InfoView {
         let nibName = "\(self)".split { $0 == "." }.map(String.init).last!
@@ -31,8 +31,10 @@ class InfoView: UIView {
         
         sharedView.textLabel.text = message
         
+        (sharedView.textLabel.textColor, sharedView.backgroundColor) = getRamdomColor()
+        
         if sharedView?.superview == nil {
-            let y = displayVC.view.frame.height - sharedView.frame.size.height - 12 - 49
+            let y = displayVC.view.frame.height - sharedView.frame.size.height - 60
             
             sharedView.frame = CGRect(
                 x: 12,
@@ -71,5 +73,12 @@ class InfoView: UIView {
             self.removeFromSuperview()
         }
         )
+    }
+    
+    static func getRamdomColor() -> (UIColor, UIColor) {
+        let r = CGFloat(arc4random_uniform(256)) / 255
+        let g = CGFloat(arc4random_uniform(256)) / 255
+        let b = CGFloat(arc4random_uniform(256)) / 255
+        return (UIColor(red: r, green: g, blue: b, alpha: 1.0), UIColor(red: 1-r, green: 1-g, blue: 1-b, alpha: 1.0))
     }
 }
