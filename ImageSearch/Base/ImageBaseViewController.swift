@@ -35,6 +35,10 @@ extension ImageBaseViewController: UICollectionViewDataSource {
         cell.thumbnailImage.kf.setImage(with: URL(string: i.thumbnail_url), placeholder: nil)
         //cell.contentView.backgroundColor = .red
         cell.siteName.text = i.display_sitename
+        cell.layer.shadowColor = getRamdomColor().color.cgColor
+        cell.layer.shadowOpacity = 1
+        cell.layer.shadowOffset = .zero
+        cell.layer.shadowRadius = 15
         
         return cell
     }
