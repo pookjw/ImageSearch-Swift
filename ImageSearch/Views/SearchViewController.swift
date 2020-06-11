@@ -20,5 +20,6 @@ class SearchViewController: ImageBaseViewController {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
+        InfoView.showIn(viewController: self, message: "Test")
     }
 }
