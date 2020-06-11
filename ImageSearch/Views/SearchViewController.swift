@@ -34,11 +34,18 @@ class SearchViewController: ImageBaseViewController {
         let controller = UIAlertController(title: "Select Action", message: nil, preferredStyle: .alert)
         
         let showInfoViewAction = UIAlertAction(title: "Show InfoView", style: .default, handler: { _ in InfoView.showIn(viewController: self, message: "Test")})
-        let showAI = UIAlertAction(title: "Show AI", style: .default, handler: { _ in self.activityIndicator.isHidden = false })
+        let showActivitorIndicator = UIAlertAction(title: "Show Activity Indicator", style: .default, handler: { _ in self.activityIndicator.isHidden = false })
+        let randomizeAllCellColours = UIAlertAction(title: "Randomize All Colours", style: .default, handler: { _ in
+            for idx in 0..<super.imageInfo.count {
+                let indexPath = IndexPath(row: idx, section: 0)
+                self.collectionView.cellForItem(at: indexPath)?.layer.shadowColor = getRamdomColor().color.cgColor
+            }
+        })
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         controller.addAction(showInfoViewAction)
-        controller.addAction(showAI)
+        controller.addAction(showActivitorIndicator)
+        controller.addAction(randomizeAllCellColours)
         controller.addAction(cancelButton)
         
         present(controller, animated: true, completion: nil)

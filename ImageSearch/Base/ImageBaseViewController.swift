@@ -54,7 +54,7 @@ extension ImageBaseViewController: UICollectionViewDelegateFlowLayout {
         let viewWidth = view.frame.width
         let itemsInRow: CGFloat = CGFloat(Int(viewWidth / 150))
         var spacing = (view.frame.width - 150 * itemsInRow) / (2 * itemsInRow)
-        
+
         if spacing < CGFloat(0) { // minimum spacing
             spacing = 0 // set to minumum spacing
         }

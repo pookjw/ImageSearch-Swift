@@ -38,7 +38,7 @@ class InfoView: UIView {
         sharedView.closeButton.tintColor = random_color
         
         if sharedView?.superview == nil {
-            let y = displayVC.view.frame.height - sharedView.frame.size.height - 60
+            let y = displayVC.view.frame.height - sharedView.frame.size.height - 80
             
             sharedView.frame = CGRect(
                 x: 12,
@@ -52,7 +52,7 @@ class InfoView: UIView {
             displayVC.view.addSubview(sharedView)
             sharedView.fadeIn()
             
-            sharedView.perform(#selector(fadeOut), with: nil, afterDelay: 3.0)
+            sharedView.perform(#selector(fadeOut), with: nil, afterDelay: 10.0)
         }
     }
     
