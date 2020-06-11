@@ -33,12 +33,16 @@ extension ImageBaseViewController: UICollectionViewDataSource {
         
         cell.thumbnailImage.kf.indicatorType = .activity
         cell.thumbnailImage.kf.setImage(with: URL(string: i.thumbnail_url), placeholder: nil)
+        cell.contentView.backgroundColor = .red
         cell.siteName.text = i.display_sitename
         
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let i = self.imageInfo[indexPath.row]
+        print(i.display_sitename)
+    }
 }
 
 extension ImageBaseViewController: UICollectionViewDelegate {

@@ -98,28 +98,28 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageBaseCollectionViewCell" id="WIm-3V-IOK" customClass="ImageBaseCollectionViewCell" customModule="ImageSearch" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageBaseCollectionViewCell" id="dzq-YW-V4W" customClass="ImageBaseCollectionViewCell" customModule="ImageSearch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="180"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PmG-oR-U7t">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xXc-LB-9W5">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="180"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GOz-Ov-csb">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u9e-Dg-J4M">
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="180"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="akz-fF-g7R">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GOR-NM-2jH">
                                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="150" id="uMa-nH-TW3"/>
-                                                                <constraint firstAttribute="height" constant="150" id="yJl-Bi-cT0"/>
+                                                                <constraint firstAttribute="height" constant="150" id="Vg5-c8-nYf"/>
+                                                                <constraint firstAttribute="width" constant="150" id="iEi-U1-W2C"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gy1-ey-RrI">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZ1-P2-l7I">
                                                             <rect key="frame" x="0.0" y="150" width="150" height="30"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="150" id="GO9-Ns-lo6"/>
-                                                                <constraint firstAttribute="height" constant="30" id="njr-yS-VHg"/>
+                                                                <constraint firstAttribute="width" constant="150" id="5Ye-O2-S9h"/>
+                                                                <constraint firstAttribute="height" constant="30" id="yB6-mr-2dk"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -127,21 +127,21 @@
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="180" id="P0s-cg-FMR"/>
-                                                        <constraint firstAttribute="width" constant="150" id="eyf-Zk-JaU"/>
+                                                        <constraint firstAttribute="height" constant="180" id="Eoy-Q6-wOI"/>
+                                                        <constraint firstAttribute="width" constant="150" id="bpF-Rb-Gpt"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="GOz-Ov-csb" secondAttribute="bottom" id="Hmw-3X-FK0"/>
-                                                <constraint firstAttribute="trailing" secondItem="GOz-Ov-csb" secondAttribute="trailing" id="W73-RQ-2C4"/>
-                                                <constraint firstItem="GOz-Ov-csb" firstAttribute="top" secondItem="PmG-oR-U7t" secondAttribute="top" id="g0L-dx-ixb"/>
-                                                <constraint firstItem="GOz-Ov-csb" firstAttribute="leading" secondItem="PmG-oR-U7t" secondAttribute="leading" id="pCb-A0-jbL"/>
+                                                <constraint firstAttribute="bottom" secondItem="u9e-Dg-J4M" secondAttribute="bottom" id="Dse-BQ-b6K"/>
+                                                <constraint firstItem="u9e-Dg-J4M" firstAttribute="top" secondItem="xXc-LB-9W5" secondAttribute="top" id="H6t-fS-ZLb"/>
+                                                <constraint firstAttribute="trailing" secondItem="u9e-Dg-J4M" secondAttribute="trailing" id="eWP-vi-AqH"/>
+                                                <constraint firstItem="u9e-Dg-J4M" firstAttribute="leading" secondItem="xXc-LB-9W5" secondAttribute="leading" id="qCN-YC-0cP"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="siteName" destination="gy1-ey-RrI" id="oJn-vJ-WJh"/>
-                                            <outlet property="thumbnailImage" destination="akz-fF-g7R" id="1se-wS-4LC"/>
+                                            <outlet property="siteName" destination="lZ1-P2-l7I" id="CkY-at-ytY"/>
+                                            <outlet property="thumbnailImage" destination="GOR-NM-2jH" id="YPa-N6-51f"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -165,14 +165,6 @@
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1597" y="-376"/>
-        </scene>
-        <!--ImageBaseViewController-->
-        <scene sceneID="PWA-Kj-2Ed">
-            <objects>
-                <viewControllerPlaceholder storyboardName="ImageBaseViewController" id="XO3-9Y-Cob" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3KN-JM-IMm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1559" y="27"/>
         </scene>
     </scenes>
     <resources>

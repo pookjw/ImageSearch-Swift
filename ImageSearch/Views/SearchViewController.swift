@@ -15,6 +15,7 @@ class SearchViewController: ImageBaseViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.collectionView.dataSource = self
+        self.collectionView.delegate = self
         super.imageInfo = ImageInfo.getSampleImageInfo()
         DispatchQueue.main.async {
             self.collectionView.reloadData()
