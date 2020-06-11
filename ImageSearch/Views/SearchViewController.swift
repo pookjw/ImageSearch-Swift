@@ -12,6 +12,7 @@ class SearchViewController: ImageBaseViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: MyActivityIndicator!
+    @IBOutlet weak var bulbButton: UIBarButtonItem!
     
     @IBAction func bulbAction(_ sender: Any) {
         self.showActionSheet()
@@ -30,7 +31,7 @@ class SearchViewController: ImageBaseViewController {
     }
     
     private func showActionSheet() {
-        let controller = UIAlertController(title: "Select Action", message: nil, preferredStyle: .actionSheet)
+        let controller = UIAlertController(title: "Select Action", message: nil, preferredStyle: .alert)
         
         let showInfoViewAction = UIAlertAction(title: "Show InfoView", style: .default, handler: { _ in InfoView.showIn(viewController: self, message: "Test")})
         let showAI = UIAlertAction(title: "Show AI", style: .default, handler: { _ in self.activityIndicator.isHidden = false })
