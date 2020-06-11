@@ -78,11 +78,4 @@ class InfoView: UIView {
         }
         )
     }
-    
-    static func getRamdomColor() -> (UIColor, UIColor) {
-        let r = CGFloat(arc4random_uniform(256)) / 255
-        let g = CGFloat(arc4random_uniform(256)) / 255
-        let b = CGFloat(arc4random_uniform(256)) / 255
-        return (UIColor(red: r, green: g, blue: b, alpha: 1.0), UIColor(red: 1-r, green: 1-g, blue: 1-b, alpha: 1.0))
-    }
 }

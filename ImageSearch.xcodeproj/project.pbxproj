@@ -20,6 +20,7 @@
 		F3ED65CD2491FF9B00969F14 /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65CC2491FF9B00969F14 /* ImageInfo.swift */; };
 		F3ED65D9249217CC00969F14 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3ED65D8249217CC00969F14 /* InfoView.xib */; };
 		F3ED65DB2492180400969F14 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65DA2492180400969F14 /* InfoView.swift */; };
+		F3ED65DE24922A9500969F14 /* getRandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65DD24922A9500969F14 /* getRandomColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		F3ED65D8249217CC00969F14 /* InfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
 		F3ED65DA2492180400969F14 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		F3ED65DC2492261700969F14 /* ImageSearch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageSearch.entitlements; sourceTree = "<group>"; };
+		F3ED65DD24922A9500969F14 /* getRandomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getRandomColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				F3ED65CC2491FF9B00969F14 /* ImageInfo.swift */,
+				F3ED65DD24922A9500969F14 /* getRandomColor.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				F3ED65DB2492180400969F14 /* InfoView.swift in Sources */,
 				F3ED65C82491FEA800969F14 /* SearchViewController.swift in Sources */,
 				F356B9202491C92B00703B54 /* SecondViewController.swift in Sources */,
+				F3ED65DE24922A9500969F14 /* getRandomColor.swift in Sources */,
 				F3ED65C32491FD3000969F14 /* ImageBaseViewController.swift in Sources */,
 				F3ED65CD2491FF9B00969F14 /* ImageInfo.swift in Sources */,
 				F356B9322491CC1400703B54 /* ImageBaseCollectionViewCell.swift in Sources */,
