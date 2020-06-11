@@ -98,37 +98,25 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageBaseCollectionViewCell" id="dzq-YW-V4W" customClass="ImageBaseCollectionViewCell" customModule="ImageSearch" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="180"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="179"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xXc-LB-9W5">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="180"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="179"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u9e-Dg-J4M">
-                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="180"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="179"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GOR-NM-2jH">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GOR-NM-2jH">
                                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="150" id="Vg5-c8-nYf"/>
-                                                                <constraint firstAttribute="width" constant="150" id="iEi-U1-W2C"/>
-                                                            </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZ1-P2-l7I">
-                                                            <rect key="frame" x="0.0" y="150" width="150" height="30"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="150" id="5Ye-O2-S9h"/>
-                                                                <constraint firstAttribute="height" constant="30" id="yB6-mr-2dk"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <rect key="frame" x="0.0" y="150" width="150" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="180" id="Eoy-Q6-wOI"/>
-                                                        <constraint firstAttribute="width" constant="150" id="bpF-Rb-Gpt"/>
-                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
