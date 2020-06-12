@@ -12,6 +12,7 @@ import Kingfisher
 class ImageBaseViewController: UIViewController {
 
     var imageInfo: [ImageInfo] = []
+    weak var cv: UICollectionView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,10 @@ extension ImageBaseViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let i = self.imageInfo[indexPath.row]
-        print(i.display_sitename)
+        
+        if let cell = self.cv?.cellForItem(at: indexPath) as? ImageBaseCollectionViewCell {
+            cell.starImage.image = UIImage(systemName: "star.fill")
+        }
     }
 }
 

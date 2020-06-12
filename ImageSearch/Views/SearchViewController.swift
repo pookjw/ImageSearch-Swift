@@ -20,6 +20,7 @@ class SearchViewController: ImageBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        super.cv = self.collectionView
         // Do any additional setup after loading the view.
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
