@@ -42,11 +42,32 @@ class SearchViewController: ImageBaseViewController {
                 self.collectionView.cellForItem(at: indexPath)?.layer.shadowColor = getRamdomColor().color.cgColor
             }
         })
+        
+        let toggleInfoViewQueueType = UIAlertAction(
+            title: {
+                switch InfoView.timer {
+                case .TM:
+                    return "Toggle queueType (TM to DSTM)"
+                case .DS:
+                    return "Toogle queueType (DS to TM)"
+                }
+        }(),
+            style: .default,
+            handler: { _ in
+                switch InfoView.timer {
+                case .TM:
+                    InfoView.timer = .DS
+                case .DS:
+                    InfoView.timer = .TM
+                }
+        })
+        
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         controller.addAction(showInfoViewAction)
         controller.addAction(showActivitorIndicator)
         controller.addAction(randomizeAllCellColours)
+        controller.addAction(toggleInfoViewQueueType)
         controller.addAction(cancelButton)
         
         present(controller, animated: true, completion: nil)
