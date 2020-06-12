@@ -13,6 +13,10 @@ class WebViewController: UIViewController {
     
     @IBOutlet weak var web: WKWebView!
     
+    @IBAction func doneBtn(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func reloadBtn(_ sender: UIBarButtonItem) {
         web.reload()
     }
