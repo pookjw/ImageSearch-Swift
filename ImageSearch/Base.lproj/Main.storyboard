@@ -109,20 +109,12 @@
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GOR-NM-2jH">
                                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="150" id="olB-dc-fvS"/>
-                                                                <constraint firstAttribute="height" constant="150" id="v1q-EC-si0"/>
-                                                            </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8N-pZ-ylL">
                                                             <rect key="frame" x="0.0" y="150" width="150" height="30"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZ1-P2-l7I">
                                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="30" id="ZQa-Ca-juF"/>
-                                                                        <constraint firstAttribute="width" constant="120" id="y03-Jl-7RR"/>
-                                                                    </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -136,10 +128,6 @@
                                                                     </constraints>
                                                                 </imageView>
                                                             </subviews>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="150" id="MkK-Rr-crE"/>
-                                                                <constraint firstAttribute="height" constant="30" id="b2I-Kf-GIf"/>
-                                                            </constraints>
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
