@@ -55,9 +55,12 @@ class SearchViewController: ImageBaseViewController {
             let action_3 = UIAlertAction(title: "Method 3", style: .default, handler: { _ in
                 InfoView.timer = .three
             })
+            let action_4 = UIAlertAction(title: "Method 4", style: .default, handler: { _ in
+                InfoView.timer = .three
+            })
             let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             
-            for a in [action_1, action_2, action_3, cancelButton] {
+            for a in [action_1, action_2, action_3, action_4, cancelButton] {
                 controller.addAction(a)
             }
             

@@ -13,7 +13,7 @@ class InfoView: UIView {
         return nib.instantiate(withOwner: self, options: nil).first as! InfoView
     }
     
-    static var timer: TimerType = .one
+    static var timer: TimerType = .two
     
     static func showIn(viewController: UIViewController, message: String) {
         var displayVC = viewController
@@ -72,6 +72,8 @@ class InfoView: UIView {
                         sharedView.fadeOut()
                     }
                 })
+            case .four:
+                sharedView.perform(#selector(fadeOut), with: nil, afterDelay: 3.0)
             }
             
         }
@@ -104,5 +106,6 @@ class InfoView: UIView {
         case one
         case two
         case three
+        case four
     }
 }
