@@ -30,3 +30,15 @@ struct ImageInfo {
         return [WWDC_2020, Phone, Phone, Phone, Phone, Phone, Phone, Phone, Phone, Phone, Phone, Phone, Phone, Phone, Phone, Phone, Phone, Phone, Phone, Phone, Phone, Phone, Phone, Phone, Phone, Phone]
     }
 }
+
+extension ImageInfo: Equatable {
+    static func == (lhs: ImageInfo, rhs: ImageInfo) -> Bool {
+        if (lhs.display_sitename == rhs.display_sitename) &&
+            (lhs.doc_url == rhs.doc_url) &&
+            (lhs.thumbnail_url == rhs.thumbnail_url) &&
+            (lhs.image_url == rhs.image_url) {
+            return true
+        }
+        return false
+    }
+}
