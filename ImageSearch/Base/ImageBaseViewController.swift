@@ -54,20 +54,30 @@ extension ImageBaseViewController: UICollectionViewDataSource {
         let i = self.imageInfo[indexPath.row]
         
         if let cell = self.cv?.cellForItem(at: indexPath) as? ImageBaseCollectionViewCell {
-            cell.starImage.image = UIImage(systemName: "star.fill")
-            InfoView.showIn(viewController: self, message: "New Favorite: \(i.display_sitename), Opening doc...")
+            self.performSegue(withIdentifier: "ShowDetail", sender: cell)
         }
         
-        DispatchQueue.global().asyncAfter(deadline: .now() + 2, execute: {
-            if let url = URL(string: i.doc_url) {
-                DispatchQueue.main.async {
-                    if UIApplication.shared.canOpenURL(url) {
-                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                    }
-                }
-            }
-        })
+        
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        switch segue.identifier ?? "" {
+        case "ShowDetail":
+            guard let cell = sender as? ImageBaseCollectionViewCell, let indexPath = cv?.indexPath(for: cell) else {
+                fatalError("Unexpected cell.")
+            }
+            guard let destNC = segue.destination as? UINavigationController else {
+                fatalError("Unexpected destination.")
+            }
+            let destVC = destNC.topViewController as! DetailViewController
+            
+            destVC.imageInfo = self.imageInfo[indexPath.row]
+        default:
+            fatalError("Unexpected destination.")
+        }
+    }
+    
 }
 
 extension ImageBaseViewController: UICollectionViewDelegateFlowLayout {

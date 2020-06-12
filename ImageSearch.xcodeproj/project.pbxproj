@@ -11,10 +11,13 @@
 		F356B91A2491C92B00703B54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F356B9192491C92B00703B54 /* AppDelegate.swift */; };
 		F356B91C2491C92B00703B54 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F356B91B2491C92B00703B54 /* SceneDelegate.swift */; };
 		F356B9202491C92B00703B54 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F356B91F2491C92B00703B54 /* SecondViewController.swift */; };
-		F356B9232491C92B00703B54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F356B9212491C92B00703B54 /* Main.storyboard */; };
 		F356B9252491C92C00703B54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F356B9242491C92C00703B54 /* Assets.xcassets */; };
 		F356B9282491C92C00703B54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F356B9262491C92C00703B54 /* LaunchScreen.storyboard */; };
 		F356B9322491CC1400703B54 /* ImageBaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F356B9312491CC1400703B54 /* ImageBaseCollectionViewCell.swift */; };
+		F3D1BACB2493B4030060FF8B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D1BACA2493B4030060FF8B /* DetailViewController.swift */; };
+		F3D1BACD2493B7FE0060FF8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3D1BACC2493B7FE0060FF8B /* Main.storyboard */; };
+		F3D1BACF2493C5050060FF8B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D1BACE2493C5050060FF8B /* WebViewController.swift */; };
+		F3D1BAD12493C65E0060FF8B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3D1BAD02493C65E0060FF8B /* WebKit.framework */; };
 		F3ED65C32491FD3000969F14 /* ImageBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65C12491FD3000969F14 /* ImageBaseViewController.swift */; };
 		F3ED65C82491FEA800969F14 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65C72491FEA800969F14 /* SearchViewController.swift */; };
 		F3ED65CD2491FF9B00969F14 /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65CC2491FF9B00969F14 /* ImageInfo.swift */; };
@@ -32,11 +35,14 @@
 		F356B9192491C92B00703B54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F356B91B2491C92B00703B54 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F356B91F2491C92B00703B54 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		F356B9222491C92B00703B54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F356B9242491C92C00703B54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F356B9272491C92C00703B54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F356B9292491C92C00703B54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F356B9312491CC1400703B54 /* ImageBaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		F3D1BACA2493B4030060FF8B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F3D1BACC2493B7FE0060FF8B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F3D1BACE2493C5050060FF8B /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		F3D1BAD02493C65E0060FF8B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		F3ED65C12491FD3000969F14 /* ImageBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBaseViewController.swift; sourceTree = "<group>"; };
 		F3ED65C72491FEA800969F14 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F3ED65CC2491FF9B00969F14 /* ImageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInfo.swift; sourceTree = "<group>"; };
@@ -52,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3D1BAD12493C65E0060FF8B /* WebKit.framework in Frameworks */,
 				68F1E45AD1450FB19A185450 /* libPods-ImageSearch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +78,7 @@
 		116A5382E827C45644149CAE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F3D1BAD02493C65E0060FF8B /* WebKit.framework */,
 				53846E5094E88B2E983A3AB2 /* libPods-ImageSearch.a */,
 			);
 			name = Frameworks;
@@ -103,8 +111,8 @@
 				F3ED65C92491FF2400969F14 /* Sources */,
 				F356B9192491C92B00703B54 /* AppDelegate.swift */,
 				F356B91B2491C92B00703B54 /* SceneDelegate.swift */,
-				F356B9212491C92B00703B54 /* Main.storyboard */,
 				F356B9242491C92C00703B54 /* Assets.xcassets */,
+				F3D1BACC2493B7FE0060FF8B /* Main.storyboard */,
 				F356B9262491C92C00703B54 /* LaunchScreen.storyboard */,
 				F356B9292491C92C00703B54 /* Info.plist */,
 			);
@@ -128,6 +136,8 @@
 				F3ED65C72491FEA800969F14 /* SearchViewController.swift */,
 				F356B91F2491C92B00703B54 /* SecondViewController.swift */,
 				F3ED65DA2492180400969F14 /* InfoView.swift */,
+				F3D1BACA2493B4030060FF8B /* DetailViewController.swift */,
+				F3D1BACE2493C5050060FF8B /* WebViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,7 +213,7 @@
 				F356B9282491C92C00703B54 /* LaunchScreen.storyboard in Resources */,
 				F3ED65D9249217CC00969F14 /* InfoView.xib in Resources */,
 				F356B9252491C92C00703B54 /* Assets.xcassets in Resources */,
-				F356B9232491C92B00703B54 /* Main.storyboard in Resources */,
+				F3D1BACD2493B7FE0060FF8B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,12 +249,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3D1BACB2493B4030060FF8B /* DetailViewController.swift in Sources */,
 				F3ED65DB2492180400969F14 /* InfoView.swift in Sources */,
 				F3ED65C82491FEA800969F14 /* SearchViewController.swift in Sources */,
 				F356B9202491C92B00703B54 /* SecondViewController.swift in Sources */,
 				F3ED65DE24922A9500969F14 /* getRandomColor.swift in Sources */,
 				F3ED65C32491FD3000969F14 /* ImageBaseViewController.swift in Sources */,
 				F3ED65CD2491FF9B00969F14 /* ImageInfo.swift in Sources */,
+				F3D1BACF2493C5050060FF8B /* WebViewController.swift in Sources */,
 				F356B9322491CC1400703B54 /* ImageBaseCollectionViewCell.swift in Sources */,
 				F3ED65E02492310B00969F14 /* FavortiesManager.swift in Sources */,
 				F356B91A2491C92B00703B54 /* AppDelegate.swift in Sources */,
@@ -255,14 +267,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F356B9212491C92B00703B54 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F356B9222491C92B00703B54 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F356B9262491C92C00703B54 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -16,8 +16,8 @@ struct ImageInfo {
     
     static func getSampleImageInfo() -> [ImageInfo] {
         let WWDC_2020 = ImageInfo(
-            display_sitename: "이지이",
-            doc_url: "http://post.naver.com/viewer/postView.nhn?memberNo=535\\u0026volumeNo=28199276",
+            display_sitename: "Apple",
+            doc_url: "http://apple.com",
             thumbnail_url: "https://search1.kakaocdn.net/argon/130x130_85_c/83vAVPIZ3Lg",
             image_url: "https://post-phinf.pstatic.net/MjAyMDA1MDZfNDgg/MDAxNTg4NzI3NDM2Mzcy.GIopmZ7Eqk1Lid1sqXZq9XfxZbg0q6wUBg337zj-eM8g.35sFrPTI4Zpfz0JOxUoW6NT64UcyYbnKYN_Ww83Fra0g.JPEG/apple_wwdc-announcement_ready-set-code_05052020_big.jpg.large.jpg?type=w1200"
         )
