@@ -16,6 +16,7 @@ class ImageBaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
 
@@ -83,11 +84,11 @@ extension ImageBaseViewController: UICollectionViewDataSource {
 extension ImageBaseViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let viewWidth = view.frame.width
-        let itemsInRow: CGFloat = CGFloat(Int(viewWidth / 150))
-        var spacing = (view.frame.width - 150 * itemsInRow) / (2 * itemsInRow)
+        let itemsInRow: CGFloat = CGFloat(Int(viewWidth / 120))
+        var spacing = (view.frame.width - 120 * itemsInRow) / (2 * itemsInRow)
 
-        if spacing < CGFloat(5) { // minimum spacing
-            spacing = 5.0 // set to minumum spacing
+        if spacing < CGFloat(0) { // minimum spacing
+            spacing = 0 // set to minumum spacing
         }
         return UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
     }
