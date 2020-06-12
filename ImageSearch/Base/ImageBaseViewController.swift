@@ -40,7 +40,7 @@ extension ImageBaseViewController: UICollectionViewDataSource {
         cell.siteName.textColor = rancom_color.inverted
         cell.layer.shadowOpacity = 1
         cell.layer.shadowOffset = .zero
-        cell.layer.shadowRadius = 15
+        cell.layer.shadowRadius = 8
         
         cell.layer.cornerRadius = 8.0
         cell.layer.borderWidth = 1
