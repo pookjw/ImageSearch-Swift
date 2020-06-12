@@ -55,7 +55,18 @@ extension ImageBaseViewController: UICollectionViewDataSource {
         
         if let cell = self.cv?.cellForItem(at: indexPath) as? ImageBaseCollectionViewCell {
             cell.starImage.image = UIImage(systemName: "star.fill")
+            InfoView.showIn(viewController: self, message: "New Favorite: \(i.display_sitename), Opening doc...")
         }
+        
+        DispatchQueue.global().asyncAfter(deadline: .now() + 2, execute: {
+            if let url = URL(string: i.doc_url) {
+                DispatchQueue.main.async {
+                    if UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    }
+                }
+            }
+        })
     }
 }
 
