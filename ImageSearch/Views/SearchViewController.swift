@@ -48,15 +48,19 @@ class SearchViewController: ImageBaseViewController {
             
             let action_1 = UIAlertAction(title: "Method 1", style: .default, handler: { _ in
                 InfoView.timer = .one
+                InfoView.showIn(viewController: self, message: "This is Method 1.")
             })
             let action_2 = UIAlertAction(title: "Method 2", style: .default, handler: { _ in
                 InfoView.timer = .two
+                InfoView.showIn(viewController: self, message: "This is Method 2.")
             })
             let action_3 = UIAlertAction(title: "Method 3", style: .default, handler: { _ in
                 InfoView.timer = .three
+                InfoView.showIn(viewController: self, message: "This is Method 3.")
             })
             let action_4 = UIAlertAction(title: "Method 4", style: .default, handler: { _ in
                 InfoView.timer = .three
+                InfoView.showIn(viewController: self, message: "This is Method 4.")
             })
             let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             
