@@ -45,7 +45,7 @@ extension ImageBaseViewController: UICollectionViewDataSource {
         
         cell.layer.cornerRadius = 8.0
         cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor.systemGray.cgColor
+        cell.layer.borderColor = rancom_color.inverted.cgColor
         
         return cell
     }
