@@ -35,10 +35,16 @@ extension ImageBaseViewController: UICollectionViewDataSource {
         cell.thumbnailImage.kf.setImage(with: URL(string: i.thumbnail_url), placeholder: nil)
         //cell.contentView.backgroundColor = .red
         cell.siteName.text = i.display_sitename
-        cell.layer.shadowColor = getRamdomColor().color.cgColor
+        let rancom_color = getRamdomColor()
+        cell.layer.shadowColor = rancom_color.color.cgColor
+        cell.siteName.textColor = rancom_color.inverted
         cell.layer.shadowOpacity = 1
         cell.layer.shadowOffset = .zero
         cell.layer.shadowRadius = 15
+        
+        cell.layer.cornerRadius = 8.0
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor.systemGray.cgColor
         
         return cell
     }
@@ -55,8 +61,8 @@ extension ImageBaseViewController: UICollectionViewDelegateFlowLayout {
         let itemsInRow: CGFloat = CGFloat(Int(viewWidth / 150))
         var spacing = (view.frame.width - 150 * itemsInRow) / (2 * itemsInRow)
 
-        if spacing < CGFloat(0) { // minimum spacing
-            spacing = 0 // set to minumum spacing
+        if spacing < CGFloat(5) { // minimum spacing
+            spacing = 5.0 // set to minumum spacing
         }
         return UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
     }
