@@ -43,32 +43,32 @@ class SearchViewController: ImageBaseViewController {
             }
         })
         
-        let toggleInfoViewQueueType = UIAlertAction(
-            title: {
-                switch InfoView.timer {
-                case .TM:
-                    return "Toggle queueType (TM to DSTM)"
-                case .DS:
-                    return "Toogle queueType (DS to TM)"
-                }
-        }(),
-            style: .default,
-            handler: { _ in
-                switch InfoView.timer {
-                case .TM:
-                    InfoView.timer = .DS
-                case .DS:
-                    InfoView.timer = .TM
-                }
+        let changeTimerMethod = UIAlertAction(title: "Change Timer Method", style: .default, handler: { _ in
+             let controller = UIAlertController(title: "Select Method", message: nil, preferredStyle: .alert)
+            
+            let action_1 = UIAlertAction(title: "Method 1", style: .default, handler: { _ in
+                InfoView.timer = .one
+            })
+            let action_2 = UIAlertAction(title: "Method 2", style: .default, handler: { _ in
+                InfoView.timer = .two
+            })
+            let action_3 = UIAlertAction(title: "Method 3", style: .default, handler: { _ in
+                InfoView.timer = .three
+            })
+            let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            
+            for a in [action_1, action_2, action_3, cancelButton] {
+                controller.addAction(a)
+            }
+            
+            self.present(controller, animated: true, completion: nil)
         })
         
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        controller.addAction(showInfoViewAction)
-        controller.addAction(showActivitorIndicator)
-        controller.addAction(randomizeAllCellColours)
-        controller.addAction(toggleInfoViewQueueType)
-        controller.addAction(cancelButton)
+        for a in [showInfoViewAction, showActivitorIndicator, randomizeAllCellColours, changeTimerMethod, (cancelButton)] {
+            controller.addAction(a)
+        }
         
         present(controller, animated: true, completion: nil)
     }

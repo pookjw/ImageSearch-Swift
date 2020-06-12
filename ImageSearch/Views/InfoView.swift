@@ -13,7 +13,7 @@ class InfoView: UIView {
         return nib.instantiate(withOwner: self, options: nil).first as! InfoView
     }
     
-    static var timer: TimerType = .TM
+    static var timer: TimerType = .one
     
     static func showIn(viewController: UIViewController, message: String) {
         var displayVC = viewController
@@ -54,9 +54,8 @@ class InfoView: UIView {
             displayVC.view.addSubview(sharedView)
             sharedView.fadeIn()
             
-            
             switch timer {
-            case .TM:
+            case .one:
                 var count = 0
                 Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
                     count += 1
@@ -65,17 +64,12 @@ class InfoView: UIView {
                         sharedView.fadeOut()
                     }
                 })
-            case .DS:
-                var count = 0
-                let timer = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.global())
-                timer.schedule(deadline: .now(), repeating: 3)
-                timer.setEventHandler(handler: {
-                    Thread.sleep(forTimeInterval: 1.0)
-                    count += 1
-                    if count == 3 {
-                        DispatchQueue.main.async {
-                            sharedView.fadeOut()
-                        }
+            case .two:
+                Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { _ in sharedView.fadeOut()})
+            case .three:
+                DispatchQueue.global().asyncAfter(deadline: .now() + 3, execute: {
+                    DispatchQueue.main.async {
+                        sharedView.fadeOut()
                     }
                 })
             }
@@ -107,7 +101,8 @@ class InfoView: UIView {
     }
     
     enum TimerType {
-        case TM
-        case DS
+        case one
+        case two
+        case three
     }
 }
