@@ -5,6 +5,8 @@ class InfoView: UIView {
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     
+    static var currentViewCount = 0
+    
     static func loadFromNib() -> InfoView {
         let nibName = "\(self)".split { $0 == "." }.map(String.init).last!
         let nib = UINib(nibName: nibName, bundle: nil)
@@ -36,7 +38,7 @@ class InfoView: UIView {
         currentView.backgroundColor = inversed_color
         currentView.closeButton.tintColor = random_color
         
-        let y = displayVC.view.frame.height - currentView.frame.size.height - 80
+        let y = displayVC.view.frame.height - currentView.frame.size.height - CGFloat(80 * (currentViewCount + 1))
         
         currentView.frame = CGRect(
             x: 12,
@@ -48,6 +50,7 @@ class InfoView: UIView {
         currentView.alpha = 0.0
         
         displayVC.view.addSubview(currentView)
+        currentViewCount += 1
         currentView.fadeIn()
         
         switch timer {
@@ -58,14 +61,19 @@ class InfoView: UIView {
                 if count == 3 {
                     timer.invalidate()
                     currentView.fadeOut()
+                    currentViewCount -= 1
                 }
             })
         case .two:
-            Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { _ in currentView.fadeOut()})
+            Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { _ in
+                currentView.fadeOut()
+                currentViewCount -= 1
+            })
         case .three:
             DispatchQueue.global().asyncAfter(deadline: .now() + 3, execute: {
                 DispatchQueue.main.async {
                     currentView.fadeOut()
+                    currentViewCount -= 1
                 }
             })
         case .four:

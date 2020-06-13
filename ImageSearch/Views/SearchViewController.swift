@@ -28,7 +28,9 @@ class SearchViewController: ImageBaseViewController {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
-        InfoView.showIn(viewController: self, message: "Welcome!")
+        for n in 0..<5 {
+            InfoView.showIn(viewController: self, message: "Hi! (\(n))")
+        }
     }
     
     private func showActionSheet() {
