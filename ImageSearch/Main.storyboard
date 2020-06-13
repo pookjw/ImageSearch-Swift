@@ -169,29 +169,12 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="dqP-17-bBP">
-                                        <rect key="frame" x="0.0" y="99.5" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dqP-17-bBP" id="m09-jZ-43k">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remove All Favorites" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ah-uy-6qG">
-                                                    <rect key="frame" x="20" y="11.5" width="374" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Settings" id="FEk-Hk-aoD">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="KZi-hs-tbv">
-                                        <rect key="frame" x="0.0" y="199.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="155.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KZi-hs-tbv" id="vdU-C3-jAd">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
@@ -426,7 +409,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="sYu-3A-TBB"/>
-                                    <barButtonItem image="star" catalog="system" id="oSB-8u-uhG"/>
+                                    <barButtonItem image="star" catalog="system" id="oSB-8u-uhG">
+                                        <connections>
+                                            <action selector="starBtn:" destination="O73-3U-e8q" id="UhI-Ro-F4V"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="8M4-pq-0Je"/>
                                     <barButtonItem image="safari" catalog="system" id="in9-Uu-aMP">
                                         <connections>
@@ -461,6 +448,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="largeImage" destination="qH8-c3-lXH" id="Tg5-Jx-718"/>
+                        <outlet property="starBarBtn" destination="oSB-8u-uhG" id="9Ld-Gk-zpb"/>
                         <segue destination="85a-pM-NX0" kind="show" identifier="ShowWeb" id="saw-Re-Bfg"/>
                     </connections>
                 </viewController>
@@ -542,7 +530,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="E0r-Dz-xvm"/>
+        <segue reference="YBU-Ch-uZ3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.left" catalog="system" width="128" height="98"/>

@@ -46,6 +46,16 @@ class DetailViewController: UIViewController {
         }
     }
     
+    @IBAction func starBtn(_ sender: Any) {
+        FavoritesManager.update(self.imageInfo)
+        if FavoritesManager.list.contains(imageInfo) {
+            InfoView.showIn(viewController: self, message: "Favorited!")
+        } else {
+            InfoView.showIn(viewController: self, message: "Removed!")
+        }
+    }
+    @IBOutlet weak var starBarBtn: UIBarButtonItem!
+    
     @IBAction func safariBtn(_ sender: Any) {
         self.performSegue(withIdentifier: "ShowWeb", sender: self)
     }
@@ -55,6 +65,9 @@ class DetailViewController: UIViewController {
         self.title = imageInfo.display_sitename
         self.largeImage.kf.indicatorType = .activity
         self.largeImage.kf.setImage(with: URL(string: imageInfo.image_url))
+        
+        FavoritesManager.delegates.append(self)
+        self.performFavoritesChange(self.imageInfo)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -84,5 +97,14 @@ class DetailViewController: UIViewController {
     private enum ImageError: Error {
         case FailedToParseURL, FailedToParseImage
     }
-    
+}
+
+extension DetailViewController: FavortiesDelegate {
+    func performFavoritesChange(_ new: ImageInfo) {
+        if FavoritesManager.list.contains(new) {
+            self.starBarBtn.image = UIImage(systemName: "star.fill")
+        } else {
+            self.starBarBtn.image = UIImage(systemName: "star")
+        }
+    }
 }

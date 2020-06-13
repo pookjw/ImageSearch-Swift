@@ -32,6 +32,7 @@ extension ImageBaseViewController: UICollectionViewDataSource {
         }
         
         let i = self.imageInfo[indexPath.row]
+        cell.imageInfo = i
         
         cell.thumbnailImage.kf.indicatorType = .activity
         cell.thumbnailImage.kf.setImage(with: URL(string: i.thumbnail_url), placeholder: nil)
@@ -48,17 +49,19 @@ extension ImageBaseViewController: UICollectionViewDataSource {
         cell.layer.borderWidth = 1
         cell.layer.borderColor = rancom_color.inverted.cgColor
         
+        if FavoritesManager.list.contains(i) {
+            cell.starImage.image = UIImage(systemName: "star.fill")
+        } else {
+            cell.starImage.image = UIImage(systemName: "star")
+        }
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let i = self.imageInfo[indexPath.row]
-        
         if let cell = self.cv?.cellForItem(at: indexPath) as? ImageBaseCollectionViewCell {
             self.performSegue(withIdentifier: "ShowDetail", sender: cell)
         }
-        
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -93,5 +96,3 @@ extension ImageBaseViewController: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
     }
 }
-
-//

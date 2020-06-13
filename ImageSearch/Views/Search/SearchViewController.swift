@@ -27,6 +27,7 @@ class SearchViewController: ImageBaseViewController {
         self.collectionView.delegate = self
         self.searchController.searchResultsUpdater = self
         self.searchController.searchBar.delegate = self
+        FavoritesManager.delegates.append(self)
         self.navigationItem.searchController = searchController
     }
     
@@ -88,3 +89,24 @@ extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
         self.searchController.isActive = false
     }
 }
+
+extension SearchViewController: FavortiesDelegate {
+    func performFavoritesChange(_ new: ImageInfo) {
+        guard let cells = self.collectionView.visibleCells as? [ImageBaseCollectionViewCell] else {
+            return
+        }
+        
+        cells.forEach { cell in
+            if cell.imageInfo == new {
+                cell.favorited.toggle()
+                if cell.favorited {
+                    cell.starImage.image = UIImage(systemName: "star.fill")
+                } else {
+                    cell.starImage.image = UIImage(systemName: "star")
+                }
+                return
+            }
+        }
+    }
+}
+

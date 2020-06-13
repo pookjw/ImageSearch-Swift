@@ -87,7 +87,7 @@ class SearchManaer {
             let decoder = JSONDecoder()
             do {
                 let decoded = try decoder.decode(SearchResult.self, from: data)
-                Thread.sleep(forTimeInterval: 3.0)
+                //Thread.sleep(forTimeInterval: 3.0)
                 completion(decoded)
             } catch {
                 errorHandler(error)

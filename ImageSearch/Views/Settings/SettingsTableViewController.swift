@@ -22,8 +22,6 @@ class SettingsTableViewController: UITableViewController {
             case 0:
                 InfoView.showIn(viewController: self, message: "Hi!")
                 tableView.deselectRow(at: indexPath, animated: true)
-            case 1:
-                tableView.deselectRow(at: indexPath, animated: true)
             default:
                 ()
             }
