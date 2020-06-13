@@ -16,7 +16,7 @@ class InfoView: UIView {
     static var timer: TimerType = .two
     
     static func showIn(viewController: UIViewController, message: String) {
-        var displayVC = viewController
+        unowned var displayVC = viewController
         
         if let tabController = viewController as? UITabBarController {
             displayVC = tabController.selectedViewController ?? viewController
@@ -28,8 +28,6 @@ class InfoView: UIView {
         currentView.layer.shadowColor = UIColor.darkGray.cgColor
         currentView.layer.shadowOpacity = 1
         currentView.layer.shadowOffset = CGSize(width: 0, height: 3)
-        
-        
         currentView.textLabel.text = "\(message)"
         
         let (random_color, inversed_color) = getRamdomColor()
@@ -95,20 +93,24 @@ class InfoView: UIView {
     }
     
     func fadeIn() {
-        UIView.animate(withDuration: 0.33, animations: {
-            self.alpha = 1.0
+        UIView.animate(withDuration: 0.33, animations: { [weak self] in
+            self?.alpha = 1.0
         })
     }
     
+//    deinit {
+//        print("deinit!!!")
+//    }
+    
     @objc func fadeOut() {
+//
+//        // [1] Counter balance previous perform:with:afterDelay
+//        NSObject.cancelPreviousPerformRequests(withTarget: self)
         
-        // [1] Counter balance previous perform:with:afterDelay
-        NSObject.cancelPreviousPerformRequests(withTarget: self)
-        
-        UIView.animate(withDuration: 0.33, animations: {
-            self.alpha = 0.0
-        }, completion: { _ in
-            self.removeFromSuperview()
+        UIView.animate(withDuration: 0.33, animations: { [weak self] in
+            self?.alpha = 0.0
+        }, completion: { [weak self] _ in
+            self?.removeFromSuperview()
         }
         )
     }

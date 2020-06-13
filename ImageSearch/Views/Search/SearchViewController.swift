@@ -29,8 +29,8 @@ class SearchViewController: ImageBaseViewController {
         self.searchController.searchBar.delegate = self
         self.navigationItem.searchController = searchController
         super.imageInfo = ImageInfo.getSampleImageInfo()
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
         }
     }
     

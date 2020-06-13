@@ -19,8 +19,8 @@ class FavoirtesViewController: ImageBaseViewController {
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         super.imageInfo = ImageInfo.getSampleImageInfo()
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
         }
     }
 }
