@@ -38,7 +38,8 @@ class InfoView: UIView {
         currentView.backgroundColor = inversed_color
         currentView.closeButton.tintColor = random_color
         
-        let y = displayVC.view.frame.height - currentView.frame.size.height - CGFloat(80 * (currentViewCount + 1))
+        //let y = displayVC.view.frame.height - currentView.frame.size.height - CGFloat(80 * (currentViewCount + 1))
+        let y = currentView.frame.size.height + CGFloat(80 * (currentViewCount + 1))
         
         currentView.frame = CGRect(
             x: 12,
