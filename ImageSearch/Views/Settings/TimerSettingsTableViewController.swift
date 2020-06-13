@@ -43,8 +43,8 @@ class TimerSettingsTableViewController: UITableViewController {
         switch section {
         case 0:
             return """
-            Description
-            `Timer.scheduledTimer with withTimeInterval: 1.0` repeats 3 times, so InfoView will disappear after 3 seconds.
+            Description:
+            - `Timer.scheduledTimer with withTimeInterval: 1.0` repeats 3 times, so InfoView will disappear after 3 seconds.
             """
         default:
             return ""
@@ -85,7 +85,7 @@ class TimerSettingsTableViewController: UITableViewController {
         }
         InfoView.timer = newValue
         self.updateCheckMark()
-        InfoView.showIn(viewController: self, message: "Updated to new timer!")
+        InfoView.showIn(viewController: self, message: "Updated to new Timer!")
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
