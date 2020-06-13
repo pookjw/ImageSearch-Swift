@@ -5,7 +5,7 @@ class InfoView: UIView {
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     
-    static var currentViewCount = 0
+    static var currentViewCount: [Int] = []
     
     static func loadFromNib() -> InfoView {
         let nibName = "\(self)".split { $0 == "." }.map(String.init).last!
@@ -22,7 +22,7 @@ class InfoView: UIView {
             displayVC = tabController.selectedViewController ?? viewController
         }
         
-        let currentView = loadFromNib()
+        unowned let currentView = loadFromNib()
         
         currentView.layer.masksToBounds = false
         currentView.layer.shadowColor = UIColor.darkGray.cgColor
@@ -30,7 +30,7 @@ class InfoView: UIView {
         currentView.layer.shadowOffset = CGSize(width: 0, height: 3)
         
         
-        currentView.textLabel.text = "[\(timer.rawValue)] \(message)"
+        currentView.textLabel.text = "\(message)"
         
         let (random_color, inversed_color) = getRamdomColor()
         
@@ -39,7 +39,9 @@ class InfoView: UIView {
         currentView.closeButton.tintColor = random_color
         
         //let y = displayVC.view.frame.height - currentView.frame.size.height - CGFloat(80 * (currentViewCount + 1))
-        let y = currentView.frame.size.height + CGFloat(80 * (currentViewCount + 1))
+        var current_view_idx = 0
+        while currentViewCount.contains(current_view_idx) { current_view_idx += 1 }
+        let y = currentView.frame.size.height + CGFloat(80 * (current_view_idx + 1))
         
         currentView.frame = CGRect(
             x: 12,
@@ -51,7 +53,7 @@ class InfoView: UIView {
         currentView.alpha = 0.0
         
         displayVC.view.addSubview(currentView)
-        currentViewCount += 1
+        currentViewCount.append(current_view_idx)
         currentView.fadeIn()
         
         switch timer {
@@ -62,26 +64,30 @@ class InfoView: UIView {
                 if count == 3 {
                     timer.invalidate()
                     currentView.fadeOut()
-                    currentViewCount -= 1
+                    if let idx = currentViewCount.firstIndex(of: current_view_idx) {
+                        currentViewCount.remove(at: idx)
+                    }
                 }
             })
         case .two:
             Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { _ in
                 currentView.fadeOut()
-                currentViewCount -= 1
+                if let idx = currentViewCount.firstIndex(of: current_view_idx) {
+                    currentViewCount.remove(at: idx)
+                }
             })
         case .three:
             DispatchQueue.global().asyncAfter(deadline: .now() + 3, execute: {
                 DispatchQueue.main.async {
                     currentView.fadeOut()
-                    currentViewCount -= 1
+                    if let idx = currentViewCount.firstIndex(of: current_view_idx) {
+                        currentViewCount.remove(at: idx)
+                    }
                 }
             })
         case .four:
             currentView.perform(#selector(fadeOut), with: nil, afterDelay: 3.0)
         }
-        
-        
     }
     
     @IBAction func closePressed(_ sender: UIButton) {

@@ -9,20 +9,20 @@
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
-
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
             switch indexPath.row {
             case 0:
-                for _ in 0..<3 {
-                    InfoView.showIn(viewController: self, message: "Hi!")
-                }
+                InfoView.showIn(viewController: self, message: "Hi!")
+                tableView.deselectRow(at: indexPath, animated: true)
+            case 1:
                 tableView.deselectRow(at: indexPath, animated: true)
             default:
                 ()
@@ -33,5 +33,5 @@ class SettingsTableViewController: UITableViewController {
             ()
         }
     }
-
+    
 }

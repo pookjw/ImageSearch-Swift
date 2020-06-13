@@ -53,9 +53,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="S13-Wc-lVF">
-                                <rect key="frame" x="0.0" y="85" width="414" height="725"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="S13-Wc-lVF">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KXP-Gj-jy4">
                                     <size key="itemSize" width="128" height="128"/>
@@ -124,6 +123,12 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="S13-Wc-lVF" firstAttribute="top" secondItem="16Z-bb-Rta" secondAttribute="top" id="ZiW-Bl-HQD"/>
+                            <constraint firstItem="S13-Wc-lVF" firstAttribute="leading" secondItem="3pN-Y3-e7q" secondAttribute="leading" id="hff-3T-nMc"/>
+                            <constraint firstItem="3pN-Y3-e7q" firstAttribute="bottom" secondItem="S13-Wc-lVF" secondAttribute="bottom" id="pSk-fs-erJ"/>
+                            <constraint firstItem="S13-Wc-lVF" firstAttribute="trailing" secondItem="3pN-Y3-e7q" secondAttribute="trailing" id="qIZ-bJ-FNU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3pN-Y3-e7q"/>
                     </view>
                     <navigationItem key="navigationItem" title="Favorties" id="1KJ-fd-h5d"/>
@@ -537,7 +542,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="YBU-Ch-uZ3"/>
+        <segue reference="E0r-Dz-xvm"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.left" catalog="system" width="128" height="98"/>
