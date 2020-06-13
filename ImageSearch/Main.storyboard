@@ -261,7 +261,7 @@
             </objects>
             <point key="canvasLocation" x="749" y="-376"/>
         </scene>
-        <!--ImageSearch-->
+        <!--Search-->
         <scene sceneID="AU9-4u-9yC">
             <objects>
                 <viewController id="Z1y-s3-04g" customClass="SearchViewController" customModule="ImageSearch" customModuleProvider="target" sceneMemberID="viewController">
@@ -358,7 +358,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xFz-uJ-fvq"/>
                     </view>
-                    <navigationItem key="navigationItem" title="ImageSearch" id="auW-Y7-Bfr">
+                    <navigationItem key="navigationItem" title="Search" id="auW-Y7-Bfr">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="lightbulb" catalog="system" id="Nc6-hM-QyH">
                             <connections>
                                 <action selector="bulbAction:" destination="Z1y-s3-04g" id="Dwp-Hn-kJE"/>
