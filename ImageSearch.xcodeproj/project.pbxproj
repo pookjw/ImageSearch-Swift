@@ -20,6 +20,7 @@
 		F3D1BACD2493B7FE0060FF8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3D1BACC2493B7FE0060FF8B /* Main.storyboard */; };
 		F3D1BACF2493C5050060FF8B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D1BACE2493C5050060FF8B /* WebViewController.swift */; };
 		F3D1BAD12493C65E0060FF8B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3D1BAD02493C65E0060FF8B /* WebKit.framework */; };
+		F3E9D41B2494DC87004DBC81 /* MyActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9D41A2494DC87004DBC81 /* MyActivityIndicator.swift */; };
 		F3ED65C32491FD3000969F14 /* ImageBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65C12491FD3000969F14 /* ImageBaseViewController.swift */; };
 		F3ED65C82491FEA800969F14 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65C72491FEA800969F14 /* SearchViewController.swift */; };
 		F3ED65CD2491FF9B00969F14 /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65CC2491FF9B00969F14 /* ImageInfo.swift */; };
@@ -47,6 +48,7 @@
 		F3D1BACC2493B7FE0060FF8B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F3D1BACE2493C5050060FF8B /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		F3D1BAD02493C65E0060FF8B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
+		F3E9D41A2494DC87004DBC81 /* MyActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyActivityIndicator.swift; sourceTree = "<group>"; };
 		F3ED65C12491FD3000969F14 /* ImageBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBaseViewController.swift; sourceTree = "<group>"; };
 		F3ED65C72491FEA800969F14 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F3ED65CC2491FF9B00969F14 /* ImageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInfo.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				F3ED65C72491FEA800969F14 /* SearchViewController.swift */,
+				F3E9D41A2494DC87004DBC81 /* MyActivityIndicator.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				F3ED65DE24922A9500969F14 /* getRandomColor.swift in Sources */,
 				F350ACAC2494CA3300311652 /* TimerSettingsTableViewController.swift in Sources */,
 				F3ED65C32491FD3000969F14 /* ImageBaseViewController.swift in Sources */,
+				F3E9D41B2494DC87004DBC81 /* MyActivityIndicator.swift in Sources */,
 				F3ED65CD2491FF9B00969F14 /* ImageInfo.swift in Sources */,
 				F3D1BACF2493C5050060FF8B /* WebViewController.swift in Sources */,
 				F356B9322491CC1400703B54 /* ImageBaseCollectionViewCell.swift in Sources */,

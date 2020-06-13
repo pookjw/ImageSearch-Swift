@@ -52,8 +52,3 @@ class SearchViewController: ImageBaseViewController {
     }
 }
 
-class MyActivityIndicator: UIActivityIndicatorView {
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.isHidden = true
-    }
-}
