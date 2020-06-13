@@ -9,7 +9,8 @@ class InfoView: UIView {
     var current_view_idx = 0
     
     static func loadFromNib() -> InfoView {
-        let nibName = "\(self)".split { $0 == "." }.map(String.init).last!
+        //let nibName = "\(self)".split { $0 == "." }.map(String.init).last!
+        let nibName = "InfoView"
         let nib = UINib(nibName: nibName, bundle: nil)
         return nib.instantiate(withOwner: self, options: nil).first as! InfoView
     }
