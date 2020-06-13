@@ -14,6 +14,7 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
         InfoView.showIn(viewController: self, message: "Welcome!")
+        print("Hello")
     }
 
 
@@ -23,7 +24,7 @@ class SettingsTableViewController: UITableViewController {
             switch indexPath.row {
             case 0:
                 InfoView.showIn(viewController: self, message: "Test")
-                //tableView.deselectRow(at: indexPath, animated: true)
+                tableView.deselectRow(at: indexPath, animated: true)
             default:
                 ()
             }
