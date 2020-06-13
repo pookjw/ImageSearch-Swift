@@ -42,7 +42,10 @@ class TimerSettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "Description"
+            return """
+            Description
+            `Timer.scheduledTimer with withTimeInterval: 1.0` repeats 3 times, so InfoView will disappear after 3 seconds.
+            """
         default:
             return ""
         }
@@ -57,7 +60,13 @@ class TimerSettingsTableViewController: UITableViewController {
         case 0:
             switch indexPath.row {
             case 0:
-                ()
+                cell.textLabel?.text = "Timer.scheduledTimer with withTimeInterval: 1.0"
+                case 1:
+                cell.textLabel?.text = "Timer.scheduledTimer with withTimeInterval: 3.0"
+                case 2:
+                cell.textLabel?.text = "DispatchQueue.global().asyncAfter"
+                case 3:
+                cell.textLabel?.text = "perform with afterDelay: 3.0"
             default:
                 ()
             }
@@ -77,6 +86,7 @@ class TimerSettingsTableViewController: UITableViewController {
         InfoView.timer = newValue
         self.updateCheckMark()
         InfoView.showIn(viewController: self, message: "Updated to new timer!")
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     private func updateCheckMark() {
