@@ -5,7 +5,8 @@ class InfoView: UIView {
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     
-    static var currentViewCount: [Int] = []
+    static var view_idx: [Int] = []
+    var current_view_idx = 0
     
     static func loadFromNib() -> InfoView {
         let nibName = "\(self)".split { $0 == "." }.map(String.init).last!
@@ -36,10 +37,8 @@ class InfoView: UIView {
         currentView.backgroundColor = inversed_color
         currentView.closeButton.tintColor = random_color
         
-        //let y = displayVC.view.frame.height - currentView.frame.size.height - CGFloat(80 * (currentViewCount + 1))
-        var current_view_idx = 0
-        while currentViewCount.contains(current_view_idx) { current_view_idx += 1 }
-        let y = currentView.frame.size.height + CGFloat(80 * (current_view_idx + 1))
+        while view_idx.contains(currentView.current_view_idx) { currentView.current_view_idx += 1 }
+        let y = currentView.frame.size.height + CGFloat(80 * (currentView.current_view_idx + 1))
         
         currentView.frame = CGRect(
             x: 12,
@@ -51,7 +50,7 @@ class InfoView: UIView {
         currentView.alpha = 0.0
         
         displayVC.view.addSubview(currentView)
-        currentViewCount.append(current_view_idx)
+        view_idx.append(currentView.current_view_idx)
         currentView.fadeIn()
         
         switch timer {
@@ -62,24 +61,24 @@ class InfoView: UIView {
                 if count == 3 {
                     timer.invalidate()
                     currentView.fadeOut()
-                    if let idx = currentViewCount.firstIndex(of: current_view_idx) {
-                        currentViewCount.remove(at: idx)
+                    if let idx = view_idx.firstIndex(of: currentView.current_view_idx) {
+                        view_idx.remove(at: idx)
                     }
                 }
             })
         case .two:
             Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { _ in
                 currentView.fadeOut()
-                if let idx = currentViewCount.firstIndex(of: current_view_idx) {
-                    currentViewCount.remove(at: idx)
+                if let idx = view_idx.firstIndex(of: currentView.current_view_idx) {
+                    view_idx.remove(at: idx)
                 }
             })
         case .three:
             DispatchQueue.global().asyncAfter(deadline: .now() + 3, execute: {
                 DispatchQueue.main.async {
                     currentView.fadeOut()
-                    if let idx = currentViewCount.firstIndex(of: current_view_idx) {
-                        currentViewCount.remove(at: idx)
+                    if let idx = view_idx.firstIndex(of: currentView.current_view_idx) {
+                        view_idx.remove(at: idx)
                     }
                 }
             })
@@ -87,8 +86,8 @@ class InfoView: UIView {
             currentView.perform(#selector(fadeOut), with: nil, afterDelay: 3.0)
             DispatchQueue.global().asyncAfter(deadline: .now() + 3, execute: {
                 DispatchQueue.main.async {
-                    if let idx = currentViewCount.firstIndex(of: current_view_idx) {
-                        currentViewCount.remove(at: idx)
+                    if let idx = view_idx.firstIndex(of: currentView.current_view_idx) {
+                        view_idx.remove(at: idx)
                     }
                 }
             })
@@ -97,8 +96,8 @@ class InfoView: UIView {
                 Thread.sleep(forTimeInterval: 3.0)
                 DispatchQueue.main.async {
                     currentView.fadeOut()
-                    if let idx = currentViewCount.firstIndex(of: current_view_idx) {
-                        currentViewCount.remove(at: idx)
+                    if let idx = view_idx.firstIndex(of: currentView.current_view_idx) {
+                        view_idx.remove(at: idx)
                     }
                 }
             }
@@ -115,21 +114,16 @@ class InfoView: UIView {
         })
     }
     
-    deinit {
-        print("deinit!!!")
-    }
+//    deinit {
+//        print("deinit!!!")
+//    }
     
     @objc func fadeOut() {
-//
-//        // [1] Counter balance previous perform:with:afterDelay
-//        NSObject.cancelPreviousPerformRequests(withTarget: self)
-        
         UIView.animate(withDuration: 0.33, animations: { [weak self] in
             self?.alpha = 0.0
         }, completion: { [weak self] _ in
             self?.removeFromSuperview()
-        }
-        )
+        })
     }
     
     enum TimerType: Int, CaseIterable {
