@@ -13,6 +13,7 @@ class SearchViewController: ImageBaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: MyActivityIndicator!
     @IBOutlet weak var bulbButton: UIBarButtonItem!
+    let searchController = UISearchController(searchResultsController: nil)
     
     @IBAction func bulbAction(_ sender: Any) {
         self.showActionSheet()
@@ -24,6 +25,9 @@ class SearchViewController: ImageBaseViewController {
         // Do any additional setup after loading the view.
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        self.searchController.searchResultsUpdater = self
+        self.searchController.searchBar.delegate = self
+        self.navigationItem.searchController = searchController
         super.imageInfo = ImageInfo.getSampleImageInfo()
         DispatchQueue.main.async {
             self.collectionView.reloadData()
@@ -52,3 +56,11 @@ class SearchViewController: ImageBaseViewController {
     }
 }
 
+extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) { }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        self.searchController.isActive = false
+    }
+}
