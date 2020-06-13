@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		68F1E45AD1450FB19A185450 /* libPods-ImageSearch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53846E5094E88B2E983A3AB2 /* libPods-ImageSearch.a */; };
 		F350AC9A2494C05600311652 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350AC992494C05600311652 /* SettingsTableViewController.swift */; };
+		F350ACAC2494CA3300311652 /* TimerSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350ACAB2494CA3300311652 /* TimerSettingsTableViewController.swift */; };
 		F356B91A2491C92B00703B54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F356B9192491C92B00703B54 /* AppDelegate.swift */; };
 		F356B91C2491C92B00703B54 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F356B91B2491C92B00703B54 /* SceneDelegate.swift */; };
 		F356B9202491C92B00703B54 /* FavoirtesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F356B91F2491C92B00703B54 /* FavoirtesViewController.swift */; };
@@ -33,6 +34,7 @@
 		53846E5094E88B2E983A3AB2 /* libPods-ImageSearch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ImageSearch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61565CCF8F1DBA4E9927976B /* Pods-ImageSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageSearch.release.xcconfig"; path = "Target Support Files/Pods-ImageSearch/Pods-ImageSearch.release.xcconfig"; sourceTree = "<group>"; };
 		F350AC992494C05600311652 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		F350ACAB2494CA3300311652 /* TimerSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSettingsTableViewController.swift; sourceTree = "<group>"; };
 		F356B9162491C92B00703B54 /* ImageSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F356B9192491C92B00703B54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F356B91B2491C92B00703B54 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,49 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F350ACA62494C9EA00311652 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F350AC992494C05600311652 /* SettingsTableViewController.swift */,
+				F350ACAB2494CA3300311652 /* TimerSettingsTableViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		F350ACA72494C9F700311652 /* InfoView */ = {
+			isa = PBXGroup;
+			children = (
+				F3ED65D8249217CC00969F14 /* InfoView.xib */,
+				F3ED65DA2492180400969F14 /* InfoView.swift */,
+			);
+			path = InfoView;
+			sourceTree = "<group>";
+		};
+		F350ACA82494CA0300311652 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F3ED65C72491FEA800969F14 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		F350ACA92494CA0A00311652 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				F356B91F2491C92B00703B54 /* FavoirtesViewController.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		F350ACAA2494CA1100311652 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				F3D1BACA2493B4030060FF8B /* DetailViewController.swift */,
+				F3D1BACE2493C5050060FF8B /* WebViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		F356B90D2491C92B00703B54 = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				F3ED65DC2492261700969F14 /* ImageSearch.entitlements */,
-				F3ED65CB2491FF4400969F14 /* Base */,
 				F3ED65CA2491FF3C00969F14 /* Views */,
 				F3ED65C92491FF2400969F14 /* Sources */,
 				F356B9192491C92B00703B54 /* AppDelegate.swift */,
@@ -134,13 +178,12 @@
 		F3ED65CA2491FF3C00969F14 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F3ED65D8249217CC00969F14 /* InfoView.xib */,
-				F3ED65C72491FEA800969F14 /* SearchViewController.swift */,
-				F356B91F2491C92B00703B54 /* FavoirtesViewController.swift */,
-				F3ED65DA2492180400969F14 /* InfoView.swift */,
-				F3D1BACA2493B4030060FF8B /* DetailViewController.swift */,
-				F3D1BACE2493C5050060FF8B /* WebViewController.swift */,
-				F350AC992494C05600311652 /* SettingsTableViewController.swift */,
+				F3ED65CB2491FF4400969F14 /* Base */,
+				F350ACAA2494CA1100311652 /* Detail */,
+				F350ACA92494CA0A00311652 /* Favorites */,
+				F350ACA82494CA0300311652 /* Search */,
+				F350ACA72494C9F700311652 /* InfoView */,
+				F350ACA62494C9EA00311652 /* Settings */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -258,6 +301,7 @@
 				F3ED65C82491FEA800969F14 /* SearchViewController.swift in Sources */,
 				F356B9202491C92B00703B54 /* FavoirtesViewController.swift in Sources */,
 				F3ED65DE24922A9500969F14 /* getRandomColor.swift in Sources */,
+				F350ACAC2494CA3300311652 /* TimerSettingsTableViewController.swift in Sources */,
 				F3ED65C32491FD3000969F14 /* ImageBaseViewController.swift in Sources */,
 				F3ED65CD2491FF9B00969F14 /* ImageInfo.swift in Sources */,
 				F3D1BACF2493C5050060FF8B /* WebViewController.swift in Sources */,

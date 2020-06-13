@@ -30,7 +30,7 @@ class InfoView: UIView {
         currentView.layer.shadowOffset = CGSize(width: 0, height: 3)
         
         
-        currentView.textLabel.text = message
+        currentView.textLabel.text = "[\(timer.rawValue)] \(message)"
         
         let (random_color, inversed_color) = getRamdomColor()
         
@@ -106,8 +106,8 @@ class InfoView: UIView {
         )
     }
     
-    enum TimerType {
-        case one
+    enum TimerType: Int, CaseIterable {
+        case one = 0
         case two
         case three
         case four

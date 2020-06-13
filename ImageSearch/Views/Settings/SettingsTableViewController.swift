@@ -13,21 +13,24 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        InfoView.showIn(viewController: self, message: "Welcome!")
-        print("Hello")
     }
 
-
-
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
+        switch indexPath.section {
+        case 0:
             switch indexPath.row {
             case 0:
-                InfoView.showIn(viewController: self, message: "Test")
+                for _ in 0..<3 {
+                    InfoView.showIn(viewController: self, message: "Hi!")
+                }
                 tableView.deselectRow(at: indexPath, animated: true)
             default:
                 ()
             }
+        case 1:
+            ()
+        default:
+            ()
         }
     }
 

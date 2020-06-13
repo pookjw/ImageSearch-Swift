@@ -175,7 +175,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGd-Up-ygC">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change InfoView Timer Method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGd-Up-ygC">
                                                     <rect key="frame" x="20" y="11" width="374" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -185,7 +185,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="aT3-5q-VV2" kind="show" id="ILS-za-UdY"/>
+                                            <segue destination="1mK-g5-sVX" kind="show" id="Jkw-lH-HYY"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -202,32 +202,23 @@
             </objects>
             <point key="canvasLocation" x="1595.6521739130435" y="1212.7232142857142"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="gcQ-EL-zrC">
+        <!--Timer-->
+        <scene sceneID="Pvz-Vl-I7y">
             <objects>
-                <tableViewController id="aT3-5q-VV2" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Bfy-qb-cTG">
+                <tableViewController id="1mK-g5-sVX" customClass="TimerSettingsTableViewController" customModule="ImageSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="NdF-R5-KZS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="UHD-rb-dbm">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UHD-rb-dbm" id="lPd-wN-wVv">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections/>
                         <connections>
-                            <outlet property="dataSource" destination="aT3-5q-VV2" id="WkN-el-p8Q"/>
-                            <outlet property="delegate" destination="aT3-5q-VV2" id="J2P-Rb-kfb"/>
+                            <outlet property="dataSource" destination="1mK-g5-sVX" id="sgX-mD-Vos"/>
+                            <outlet property="delegate" destination="1mK-g5-sVX" id="78G-uu-Wtd"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="20G-bs-81w"/>
+                    <navigationItem key="navigationItem" title="Timer" id="ygl-xM-fvZ"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MYT-H2-X2b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bpS-f6-YcG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2954" y="1213"/>
         </scene>
