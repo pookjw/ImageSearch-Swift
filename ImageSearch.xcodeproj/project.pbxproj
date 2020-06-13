@@ -27,7 +27,7 @@
 		F3ED65CD2491FF9B00969F14 /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65CC2491FF9B00969F14 /* ImageInfo.swift */; };
 		F3ED65D9249217CC00969F14 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3ED65D8249217CC00969F14 /* InfoView.xib */; };
 		F3ED65DB2492180400969F14 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65DA2492180400969F14 /* InfoView.swift */; };
-		F3ED65DE24922A9500969F14 /* getRandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65DD24922A9500969F14 /* getRandomColor.swift */; };
+		F3ED65DE24922A9500969F14 /* UIColor+getRandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65DD24922A9500969F14 /* UIColor+getRandomColor.swift */; };
 		F3ED65E02492310B00969F14 /* FavortiesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65DF2492310B00969F14 /* FavortiesManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +57,7 @@
 		F3ED65D8249217CC00969F14 /* InfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
 		F3ED65DA2492180400969F14 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		F3ED65DC2492261700969F14 /* ImageSearch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageSearch.entitlements; sourceTree = "<group>"; };
-		F3ED65DD24922A9500969F14 /* getRandomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getRandomColor.swift; sourceTree = "<group>"; };
+		F3ED65DD24922A9500969F14 /* UIColor+getRandomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+getRandomColor.swift"; sourceTree = "<group>"; };
 		F3ED65DF2492310B00969F14 /* FavortiesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavortiesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,7 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				F3ED65CC2491FF9B00969F14 /* ImageInfo.swift */,
-				F3ED65DD24922A9500969F14 /* getRandomColor.swift */,
+				F3ED65DD24922A9500969F14 /* UIColor+getRandomColor.swift */,
 				F3ED65DF2492310B00969F14 /* FavortiesManager.swift */,
 				F3E9D42F24951684004DBC81 /* SearchManager.swift */,
 			);
@@ -306,7 +306,7 @@
 				F3ED65DB2492180400969F14 /* InfoView.swift in Sources */,
 				F3ED65C82491FEA800969F14 /* SearchViewController.swift in Sources */,
 				F356B9202491C92B00703B54 /* FavoirtesViewController.swift in Sources */,
-				F3ED65DE24922A9500969F14 /* getRandomColor.swift in Sources */,
+				F3ED65DE24922A9500969F14 /* UIColor+getRandomColor.swift in Sources */,
 				F350ACAC2494CA3300311652 /* TimerSettingsTableViewController.swift in Sources */,
 				F3ED65C32491FD3000969F14 /* ImageBaseViewController.swift in Sources */,
 				F3E9D41B2494DC87004DBC81 /* MyActivityIndicator.swift in Sources */,

@@ -31,7 +31,7 @@ class InfoView: UIView {
         currentView.layer.shadowOffset = CGSize(width: 0, height: 3)
         currentView.textLabel.text = "\(message)"
         
-        let (random_color, inversed_color) = getRamdomColor()
+        let (random_color, inversed_color) = UIColor.getRamdomColor()
         
         currentView.textLabel.textColor = random_color
         currentView.backgroundColor = inversed_color

@@ -38,7 +38,7 @@ class SearchViewController: ImageBaseViewController {
         let randomizeAllCellColours = UIAlertAction(title: "Randomize All Colours", style: .default, handler: { _ in
             for idx in 0..<super.imageInfo.count {
                 let indexPath = IndexPath(row: idx, section: 0)
-                self.collectionView.cellForItem(at: indexPath)?.layer.shadowColor = getRamdomColor().color.cgColor
+                self.collectionView.cellForItem(at: indexPath)?.layer.shadowColor = UIColor.getRamdomColor().color.cgColor
             }
         })
         

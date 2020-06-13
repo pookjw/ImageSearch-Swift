@@ -37,7 +37,7 @@ extension ImageBaseViewController: UICollectionViewDataSource {
         cell.thumbnailImage.kf.setImage(with: URL(string: i.thumbnail_url), placeholder: nil)
         //cell.contentView.backgroundColor = .red
         cell.siteName.text = i.display_sitename
-        let rancom_color = getRamdomColor()
+        let rancom_color = UIColor.getRamdomColor()
         cell.layer.shadowColor = rancom_color.color.cgColor
         cell.siteName.textColor = rancom_color.inverted
         cell.layer.shadowOpacity = 1
