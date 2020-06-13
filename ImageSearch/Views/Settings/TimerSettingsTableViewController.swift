@@ -43,6 +43,7 @@ class TimerSettingsTableViewController: UITableViewController {
             return """
             Description:
             - `Timer.scheduledTimer with withTimeInterval: 1.0` repeats 3 times, so InfoView will disappear after 3 seconds.
+            - `DispatchQueue.glocal().async` sleeps during 3 seconds on global Thread, then InfoView will disappear.
             """
         default:
             return ""
@@ -65,6 +66,8 @@ class TimerSettingsTableViewController: UITableViewController {
                 cell.textLabel?.text = "DispatchQueue.global().asyncAfter"
             case 3:
                 cell.textLabel?.text = "perform with afterDelay: 3.0"
+            case 4:
+                cell.textLabel?.text = "DispatchQueue.glocal().async"
             default:
                 ()
             }

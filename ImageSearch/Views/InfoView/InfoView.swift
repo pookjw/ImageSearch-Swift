@@ -22,7 +22,7 @@ class InfoView: UIView {
             displayVC = tabController.selectedViewController ?? viewController
         }
         
-        unowned let currentView = loadFromNib()
+        let currentView = loadFromNib()
         
         currentView.layer.masksToBounds = false
         currentView.layer.shadowColor = UIColor.darkGray.cgColor
@@ -85,6 +85,23 @@ class InfoView: UIView {
             })
         case .four:
             currentView.perform(#selector(fadeOut), with: nil, afterDelay: 3.0)
+            DispatchQueue.global().asyncAfter(deadline: .now() + 3, execute: {
+                DispatchQueue.main.async {
+                    if let idx = currentViewCount.firstIndex(of: current_view_idx) {
+                        currentViewCount.remove(at: idx)
+                    }
+                }
+            })
+        case .five:
+            DispatchQueue.global().async {
+                Thread.sleep(forTimeInterval: 3.0)
+                DispatchQueue.main.async {
+                    currentView.fadeOut()
+                    if let idx = currentViewCount.firstIndex(of: current_view_idx) {
+                        currentViewCount.remove(at: idx)
+                    }
+                }
+            }
         }
     }
     
@@ -98,9 +115,9 @@ class InfoView: UIView {
         })
     }
     
-//    deinit {
-//        print("deinit!!!")
-//    }
+    deinit {
+        print("deinit!!!")
+    }
     
     @objc func fadeOut() {
 //
@@ -116,9 +133,6 @@ class InfoView: UIView {
     }
     
     enum TimerType: Int, CaseIterable {
-        case one = 0
-        case two
-        case three
-        case four
+        case one = 0, two, three, four, five
     }
 }
