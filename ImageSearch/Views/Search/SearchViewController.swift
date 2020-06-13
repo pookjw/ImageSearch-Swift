@@ -82,6 +82,7 @@ extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
                     guard let self = self else { return }
                     self.collectionView.reloadData()
                     self.activityIndicator.isHidden = true
+                    self.title = text
                     InfoView.showIn(viewController: self, message: "Success!")
                 }
         })
