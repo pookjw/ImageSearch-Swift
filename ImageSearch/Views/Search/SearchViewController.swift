@@ -42,37 +42,9 @@ class SearchViewController: ImageBaseViewController {
             }
         })
         
-        let changeTimerMethod = UIAlertAction(title: "Change Timer Method", style: .default, handler: { _ in
-             let controller = UIAlertController(title: "Select Method", message: nil, preferredStyle: .alert)
-            
-            let action_1 = UIAlertAction(title: "Method 1", style: .default, handler: { _ in
-                InfoView.timer = .one
-                InfoView.showIn(viewController: self, message: "This is Method 1.")
-            })
-            let action_2 = UIAlertAction(title: "Method 2", style: .default, handler: { _ in
-                InfoView.timer = .two
-                InfoView.showIn(viewController: self, message: "This is Method 2.")
-            })
-            let action_3 = UIAlertAction(title: "Method 3", style: .default, handler: { _ in
-                InfoView.timer = .three
-                InfoView.showIn(viewController: self, message: "This is Method 3.")
-            })
-            let action_4 = UIAlertAction(title: "Method 4", style: .default, handler: { _ in
-                InfoView.timer = .three
-                InfoView.showIn(viewController: self, message: "This is Method 4.")
-            })
-            let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            
-            for a in [action_1, action_2, action_3, action_4, cancelButton] {
-                controller.addAction(a)
-            }
-            
-            self.present(controller, animated: true, completion: nil)
-        })
-        
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        for a in [showInfoViewAction, showActivitorIndicator, randomizeAllCellColours, changeTimerMethod, (cancelButton)] {
+        for a in [showInfoViewAction, showActivitorIndicator, randomizeAllCellColours, cancelButton] {
             controller.addAction(a)
         }
         
