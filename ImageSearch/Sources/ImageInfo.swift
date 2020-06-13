@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ImageInfo {
+struct ImageInfo: Decodable {
     var display_sitename: String
     var doc_url: String
     var thumbnail_url: String

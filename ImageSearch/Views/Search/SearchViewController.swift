@@ -9,7 +9,7 @@
 import UIKit
 
 class SearchViewController: ImageBaseViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: MyActivityIndicator!
     @IBOutlet weak var bulbButton: UIBarButtonItem!
@@ -28,10 +28,6 @@ class SearchViewController: ImageBaseViewController {
         self.searchController.searchResultsUpdater = self
         self.searchController.searchBar.delegate = self
         self.navigationItem.searchController = searchController
-        super.imageInfo = ImageInfo.getSampleImageInfo()
-        DispatchQueue.main.async { [weak self] in
-            self?.collectionView.reloadData()
-        }
     }
     
     private func showActionSheet() {
@@ -60,7 +56,35 @@ extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) { }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        
+        self.activityIndicator.isHidden = false
+        guard let text = searchBar.text else { return }
+        SearchManaer.shared.request(
+            text: text,
+            page: 1,
+            errorHandler: { (error) in
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    InfoView.showIn(viewController: self, message: error.localizedDescription)
+                }
+        },
+            completion: { (decoded) in
+                DispatchQueue.main.async { //[weak super] in
+                    super.imageInfo = decoded.documents
+                }
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.collectionView.reloadData()
+                    self.activityIndicator.isHidden = true
+                    InfoView.showIn(viewController: self, message: "Success!")
+                }
+        })
+        
         self.searchController.isActive = false
     }
 }
