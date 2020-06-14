@@ -426,9 +426,19 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <activityIndicatorView hidden="YES" opaque="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="3IE-Xc-tCz" customClass="MyActivityIndicator" customModule="ImageSearch" customModuleProvider="target">
+                                <rect key="frame" x="182" y="423" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8E7-TM-egL"/>
+                                    <constraint firstAttribute="width" constant="50" id="oZF-5F-HfH"/>
+                                </constraints>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="3IE-Xc-tCz" firstAttribute="centerX" secondItem="Csa-YJ-fCU" secondAttribute="centerX" id="8C3-Ud-CqR"/>
                             <constraint firstItem="qH8-c3-lXH" firstAttribute="leading" secondItem="ATu-SW-57P" secondAttribute="leading" id="8wC-Vk-qn4"/>
                             <constraint firstItem="NvZ-BS-7kC" firstAttribute="leading" secondItem="ATu-SW-57P" secondAttribute="leading" id="IO0-gV-pKP"/>
                             <constraint firstItem="ATu-SW-57P" firstAttribute="trailing" secondItem="NvZ-BS-7kC" secondAttribute="trailing" id="KmL-Wf-Vc2"/>
@@ -436,6 +446,7 @@
                             <constraint firstItem="ATu-SW-57P" firstAttribute="bottom" secondItem="qH8-c3-lXH" secondAttribute="bottom" id="c4O-cB-9hE"/>
                             <constraint firstItem="qH8-c3-lXH" firstAttribute="top" secondItem="ATu-SW-57P" secondAttribute="top" id="iGT-79-aaZ"/>
                             <constraint firstItem="ATu-SW-57P" firstAttribute="bottom" secondItem="NvZ-BS-7kC" secondAttribute="bottom" id="pdM-Hu-qrK"/>
+                            <constraint firstItem="3IE-Xc-tCz" firstAttribute="centerY" secondItem="Csa-YJ-fCU" secondAttribute="centerY" id="xsI-r5-on2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ATu-SW-57P"/>
                     </view>
@@ -447,6 +458,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="3IE-Xc-tCz" id="Xj2-ld-PKd"/>
                         <outlet property="largeImage" destination="qH8-c3-lXH" id="Tg5-Jx-718"/>
                         <outlet property="starBarBtn" destination="oSB-8u-uhG" id="9Ld-Gk-zpb"/>
                         <segue destination="85a-pM-NX0" kind="show" identifier="ShowWeb" id="saw-Re-Bfg"/>

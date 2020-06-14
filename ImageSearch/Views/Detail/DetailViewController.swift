@@ -19,30 +19,40 @@ class DetailViewController: UIViewController {
         self.dismiss(animated: true, completion: {})
     }
     @IBAction func saveButton(_ sender: Any) {
-        do {
-            guard let url = URL(string: imageInfo.image_url) else {
-                throw ImageError.FailedToParseURL
-            }
-            let data = try Data(contentsOf: url)
+        self.activityIndicator.isHidden = false
+        DispatchQueue.global().async { [weak self] in
+            guard let self = self else { return }
             
-            guard let image = UIImage(data: data) else {
-                throw ImageError.FailedToParseImage
+            do {
+                guard let url = URL(string: self.imageInfo.image_url) else {
+                    throw ImageError.FailedToParseURL
+                }
+                let data = try Data(contentsOf: url)
+                
+                guard let image = UIImage(data: data) else {
+                    throw ImageError.FailedToParseImage
+                }
+                let photos = PHPhotoLibrary.authorizationStatus()
+                if photos == .notDetermined {
+                    PHPhotoLibrary.requestAuthorization({status in
+                        if status == .authorized{
+                            UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.savedView(_:didFinishSavingWithError:contextInfo:)), nil)
+                        } else {
+                            InfoView.showIn(viewController: self, message: "Authorization failed")
+                        }
+                    })
+                } else {
+                    UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.savedView(_:didFinishSavingWithError:contextInfo:)), nil)
+                }
+            } catch {
+                print(error.localizedDescription)
+                InfoView.showIn(viewController: self, message: error.localizedDescription)
             }
-            let photos = PHPhotoLibrary.authorizationStatus()
-            if photos == .notDetermined {
-                PHPhotoLibrary.requestAuthorization({status in
-                    if status == .authorized{
-                        UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.savedView(_:didFinishSavingWithError:contextInfo:)), nil)
-                    } else {
-                        InfoView.showIn(viewController: self, message: "Authorization failed")
-                    }
-                })
-            } else {
-                UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.savedView(_:didFinishSavingWithError:contextInfo:)), nil)
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.activityIndicator.isHidden = true
             }
-        } catch {
-            print(error.localizedDescription)
-            InfoView.showIn(viewController: self, message: error.localizedDescription)
         }
     }
     
@@ -59,6 +69,8 @@ class DetailViewController: UIViewController {
     @IBAction func safariBtn(_ sender: Any) {
         self.performSegue(withIdentifier: "ShowWeb", sender: self)
     }
+    
+    @IBOutlet weak var activityIndicator: MyActivityIndicator!
     
     override func viewDidLoad() {
         super.viewDidLoad()
