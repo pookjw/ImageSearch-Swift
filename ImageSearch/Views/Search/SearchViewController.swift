@@ -8,6 +8,8 @@
 
 import UIKit
 
+// 검색하는 View 입니다.
+
 class SearchViewController: ImageBaseViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -60,6 +62,8 @@ class SearchViewController: ImageBaseViewController {
         present(controller, animated: true, completion: nil)
     }
     
+    // 새로운 검색어가 들어오면 현재 collectionView를 reset 합니다. 만약 next page를 불러오고 싶다면 reset을 안하면 됩니다.
+    // show_success는 InfoView로 Success!를 보여줄지 말지 입니다.
     private func doSearch(reset: Bool, show_success: Bool) {
         guard self.max_page >= self.current_page else { return }
         if reset {

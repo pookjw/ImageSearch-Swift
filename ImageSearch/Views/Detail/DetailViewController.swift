@@ -10,6 +10,9 @@ import UIKit
 import Kingfisher
 import Photos
 
+// SearchViewController와 FavoritesViewController에서 cell를 눌렀을 때 나오는 View 입니다.
+// 사진을 크게 볼 수 있고, Favorite 지정, 사진 저장, 문서를 WebViewController로 열여주는 역할을 합니다.
+
 class DetailViewController: UIViewController {
     
     var imageInfo: ImageInfo!

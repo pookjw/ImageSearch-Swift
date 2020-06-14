@@ -9,6 +9,9 @@
 import UIKit
 import Kingfisher
 
+// ImageBaseViewController는 SearchViewController와 FavoritesViewController가 inherit하는 클래스 입니다.
+// 두 View는 공통적으로 UICollectionView를 사용하기 때문에 서로 공유하는 method를 여기에 넣었습니다.
+
 class ImageBaseViewController: UIViewController {
 
     var imageInfo: [ImageInfo] = []

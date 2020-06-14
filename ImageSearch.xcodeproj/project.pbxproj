@@ -23,6 +23,7 @@
 		F3E9D41B2494DC87004DBC81 /* MyActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9D41A2494DC87004DBC81 /* MyActivityIndicator.swift */; };
 		F3E9D43024951684004DBC81 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9D42F24951684004DBC81 /* SearchManager.swift */; };
 		F3E9D447249607C7004DBC81 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9D446249607C7004DBC81 /* SettingsManager.swift */; };
+		F3E9D44924962EA1004DBC81 /* NetworkSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9D44824962EA1004DBC81 /* NetworkSettingsTableViewController.swift */; };
 		F3ED65C32491FD3000969F14 /* ImageBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65C12491FD3000969F14 /* ImageBaseViewController.swift */; };
 		F3ED65C82491FEA800969F14 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65C72491FEA800969F14 /* SearchViewController.swift */; };
 		F3ED65CD2491FF9B00969F14 /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65CC2491FF9B00969F14 /* ImageInfo.swift */; };
@@ -53,6 +54,7 @@
 		F3E9D41A2494DC87004DBC81 /* MyActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyActivityIndicator.swift; sourceTree = "<group>"; };
 		F3E9D42F24951684004DBC81 /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
 		F3E9D446249607C7004DBC81 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		F3E9D44824962EA1004DBC81 /* NetworkSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSettingsTableViewController.swift; sourceTree = "<group>"; };
 		F3ED65C12491FD3000969F14 /* ImageBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBaseViewController.swift; sourceTree = "<group>"; };
 		F3ED65C72491FEA800969F14 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F3ED65CC2491FF9B00969F14 /* ImageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInfo.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				F350AC992494C05600311652 /* SettingsTableViewController.swift */,
 				F350ACAB2494CA3300311652 /* TimerSettingsTableViewController.swift */,
+				F3E9D44824962EA1004DBC81 /* NetworkSettingsTableViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				F3E9D41B2494DC87004DBC81 /* MyActivityIndicator.swift in Sources */,
 				F3E9D447249607C7004DBC81 /* SettingsManager.swift in Sources */,
 				F3ED65CD2491FF9B00969F14 /* ImageInfo.swift in Sources */,
+				F3E9D44924962EA1004DBC81 /* NetworkSettingsTableViewController.swift in Sources */,
 				F3D1BACF2493C5050060FF8B /* WebViewController.swift in Sources */,
 				F356B9322491CC1400703B54 /* ImageBaseCollectionViewCell.swift in Sources */,
 				F3ED65E02492310B00969F14 /* FavortiesManager.swift in Sources */,

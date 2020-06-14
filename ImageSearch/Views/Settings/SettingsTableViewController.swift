@@ -8,6 +8,8 @@
 
 import UIKit
 
+// App 설정을 하는 View 입니다. 설정값은 SearchManager에게 전달됩니다.
+
 class SettingsTableViewController: UITableViewController {
     
     
@@ -28,6 +30,9 @@ class SettingsTableViewController: UITableViewController {
             switch indexPath.row {
             case 0:
                 InfoView.showIn(viewController: self, message: "Hi!")
+                tableView.deselectRow(at: indexPath, animated: true)
+            case 2:
+                SearchManaer.shared.request(text: "Hi", page: 1, errorHandler: {_ in}, completion: {_ in})
                 tableView.deselectRow(at: indexPath, animated: true)
             default:
                 ()

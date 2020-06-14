@@ -8,6 +8,8 @@
 
 import UIKit
 
+// InfoView의 Timer를 설정하는 View 입니다. 설정값은 SearchManager에게 전달됩니다.
+
 class TimerSettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {

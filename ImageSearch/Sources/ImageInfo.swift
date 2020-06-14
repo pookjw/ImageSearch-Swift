@@ -8,6 +8,7 @@
 
 import Foundation
 
+// 사진 데이터
 struct ImageInfo: Decodable {
     var display_sitename: String
     var doc_url: String

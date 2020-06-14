@@ -8,6 +8,8 @@
 
 import UIKit
 
+// Favorite된 사진들을 모아보는 View 입니다.
+
 class FavoirtesViewController: ImageBaseViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!

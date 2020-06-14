@@ -1,5 +1,7 @@
 import UIKit
 
+// 화면에 알림창을 띄우는 View 입니다.
+
 class InfoView: UIView {
     
     @IBOutlet weak var textLabel: UILabel!

@@ -212,12 +212,39 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uTk-u9-2FZ">
+                                        <rect key="frame" x="0.0" y="143.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uTk-u9-2FZ" id="gYT-Pv-0wP">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="70C-wP-xEY">
+                                                    <rect key="frame" x="20" y="10" width="374" height="23.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Something" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXO-QM-me7">
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="23.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="70C-wP-xEY" firstAttribute="top" secondItem="gYT-Pv-0wP" secondAttribute="top" constant="10" id="McM-bQ-1eL"/>
+                                                <constraint firstAttribute="trailing" secondItem="70C-wP-xEY" secondAttribute="trailing" constant="20" id="TXU-1v-1Hl"/>
+                                                <constraint firstAttribute="bottom" secondItem="70C-wP-xEY" secondAttribute="bottom" constant="10" id="g5g-AU-kWc"/>
+                                                <constraint firstItem="70C-wP-xEY" firstAttribute="leading" secondItem="gYT-Pv-0wP" secondAttribute="leading" constant="20" id="jbk-lh-UIw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Settings" id="FEk-Hk-aoD">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="KZi-hs-tbv">
-                                        <rect key="frame" x="0.0" y="199.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="243.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KZi-hs-tbv" id="vdU-C3-jAd">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
@@ -244,6 +271,36 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="1mK-g5-sVX" kind="show" id="Jkw-lH-HYY"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="PPT-dG-TFK">
+                                        <rect key="frame" x="0.0" y="287.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PPT-dG-TFK" id="1qe-F8-Q1B">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59P-Fv-92z">
+                                                    <rect key="frame" x="20" y="10" width="343" height="23.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network Method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Tf-Um-tc1">
+                                                            <rect key="frame" x="0.0" y="0.0" width="343" height="23.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="59P-Fv-92z" firstAttribute="top" secondItem="1qe-F8-Q1B" secondAttribute="top" constant="10" id="Tgo-Y9-X5B"/>
+                                                <constraint firstAttribute="trailing" secondItem="59P-Fv-92z" secondAttribute="trailing" constant="20" id="eVT-ck-axY"/>
+                                                <constraint firstItem="59P-Fv-92z" firstAttribute="leading" secondItem="1qe-F8-Q1B" secondAttribute="leading" constant="20" id="gdm-FH-jlo"/>
+                                                <constraint firstAttribute="bottom" secondItem="59P-Fv-92z" secondAttribute="bottom" constant="10" id="nNL-90-Yqw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="ehk-7G-TJH" kind="show" id="gf9-UG-cmp"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -282,6 +339,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bpS-f6-YcG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2954" y="1213"/>
+        </scene>
+        <!--Network-->
+        <scene sceneID="fGP-tT-gVv">
+            <objects>
+                <tableViewController id="ehk-7G-TJH" customClass="NetworkSettingsTableViewController" customModule="ImageSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="pfF-xg-w74">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="ehk-7G-TJH" id="zFH-lk-Nht"/>
+                            <outlet property="delegate" destination="ehk-7G-TJH" id="YCt-t2-xXP"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Network" id="LR7-yD-xez"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V5R-y5-I8h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2954" y="1947"/>
         </scene>
         <!--Settings-->
         <scene sceneID="wVF-eX-sXK">
