@@ -15,8 +15,6 @@ class InfoView: UIView {
         return nib.instantiate(withOwner: self, options: nil).first as! InfoView
     }
     
-    static var timer: TimerType = .two
-    
     static func showIn(viewController: UIViewController, message: String) {
         unowned var displayVC = viewController
         
@@ -54,7 +52,7 @@ class InfoView: UIView {
         view_idx.append(currentView.current_view_idx)
         currentView.fadeIn()
         
-        switch timer {
+        switch SettingsManager.infoview_timer {
         case .one:
             var count = 0
             Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
@@ -115,9 +113,11 @@ class InfoView: UIView {
         })
     }
     
-//    deinit {
-//        print("deinit!!!")
-//    }
+    deinit {
+        if SettingsManager.show_deinit_log_message {
+            print("deinit: InfoView")
+        }
+    }
     
     @objc func fadeOut() {
         UIView.animate(withDuration: 0.33, animations: { [weak self] in

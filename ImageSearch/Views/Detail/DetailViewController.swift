@@ -90,10 +90,6 @@ class DetailViewController: UIViewController {
         FavoritesManager.shared.delegates[idx] = nil
     }
     
-//    deinit {
-//        print("deinit!!!")
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         switch segue.identifier ?? "" {
@@ -120,6 +116,12 @@ class DetailViewController: UIViewController {
     
     private enum ImageError: Error {
         case FailedToParseURL, FailedToParseImage
+    }
+    
+    deinit {
+        if SettingsManager.show_deinit_log_message {
+            print("deinit: DetailViewController")
+        }
     }
 }
 

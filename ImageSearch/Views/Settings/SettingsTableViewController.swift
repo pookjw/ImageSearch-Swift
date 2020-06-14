@@ -10,9 +10,16 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
     
+    
+    @IBOutlet weak var deinitLogToggleBtn: UISwitch!
+    
+    @IBAction func deinitLogToggle(_ sender: UISwitch) {
+        SettingsManager.show_deinit_log_message = sender.isOn
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.deinitLogToggleBtn.isOn = SettingsManager.show_deinit_log_message
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -29,6 +36,12 @@ class SettingsTableViewController: UITableViewController {
             ()
         default:
             ()
+        }
+    }
+    
+    deinit {
+        if SettingsManager.show_deinit_log_message {
+            print("deinit: SettingsTableViewController")
         }
     }
     

@@ -33,6 +33,12 @@ class FavoirtesViewController: ImageBaseViewController {
         }
         FavoritesManager.shared.delegates[idx] = nil
     }
+    
+    deinit {
+        if SettingsManager.show_deinit_log_message {
+            print("deinit: FavoirtesViewController")
+        }
+    }
 }
 
 extension FavoirtesViewController: FavortiesDelegate {

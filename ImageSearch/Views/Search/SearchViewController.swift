@@ -60,6 +60,12 @@ class SearchViewController: ImageBaseViewController {
         }
         FavoritesManager.shared.delegates[idx] = nil
     }
+    
+    deinit {
+        if SettingsManager.show_deinit_log_message {
+            print("deinit: SearchViewController")
+        }
+    }
 }
 
 extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {

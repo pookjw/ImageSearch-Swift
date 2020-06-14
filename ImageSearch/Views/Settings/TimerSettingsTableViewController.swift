@@ -84,7 +84,7 @@ class TimerSettingsTableViewController: UITableViewController {
         guard let newValue = InfoView.TimerType(rawValue: indexPath.row) else {
             fatalError("Invalid TimerType index.")
         }
-        InfoView.timer = newValue
+        SettingsManager.infoview_timer = newValue
         self.updateCheckMark()
         InfoView.showIn(viewController: self, message: "Updated to a new Timer!")
         tableView.deselectRow(at: indexPath, animated: true)
@@ -93,11 +93,17 @@ class TimerSettingsTableViewController: UITableViewController {
     private func updateCheckMark() {
         for n in 0..<InfoView.TimerType.allCases.count {
             let indexPath = IndexPath(row: n, section: 0)
-            if InfoView.timer.rawValue == n {
+            if SettingsManager.infoview_timer.rawValue == n {
                 tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
             } else {
                 tableView.cellForRow(at: indexPath)?.accessoryType = .none
             }
+        }
+    }
+    
+    deinit {
+        if SettingsManager.show_deinit_log_message {
+            print("deinit: TimerSettingsTableViewController")
         }
     }
 }
