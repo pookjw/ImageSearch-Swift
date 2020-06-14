@@ -49,7 +49,7 @@ extension ImageBaseViewController: UICollectionViewDataSource {
         cell.layer.borderWidth = 1
         cell.layer.borderColor = rancom_color.inverted.cgColor
         
-        if FavoritesManager.list.contains(i) {
+        if FavoritesManager.shared.list.contains(i) {
             cell.starImage.image = UIImage(systemName: "star.fill")
         } else {
             cell.starImage.image = UIImage(systemName: "star")

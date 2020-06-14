@@ -47,8 +47,8 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func starBtn(_ sender: Any) {
-        FavoritesManager.update(self.imageInfo)
-        if FavoritesManager.list.contains(imageInfo) {
+        FavoritesManager.shared.update(self.imageInfo)
+        if FavoritesManager.shared.list.contains(imageInfo) {
             InfoView.showIn(viewController: self, message: "Favorited!")
         } else {
             InfoView.showIn(viewController: self, message: "Removed!")
@@ -66,7 +66,7 @@ class DetailViewController: UIViewController {
         self.largeImage.kf.indicatorType = .activity
         self.largeImage.kf.setImage(with: URL(string: imageInfo.image_url))
         
-        FavoritesManager.delegates.append(self)
+        FavoritesManager.shared.delegates.append(self)
         self.performFavoritesChange(self.imageInfo)
     }
     
@@ -101,7 +101,7 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController: FavortiesDelegate {
     func performFavoritesChange(_ new: ImageInfo) {
-        if FavoritesManager.list.contains(new) {
+        if FavoritesManager.shared.list.contains(new) {
             self.starBarBtn.image = UIImage(systemName: "star.fill")
         } else {
             self.starBarBtn.image = UIImage(systemName: "star")

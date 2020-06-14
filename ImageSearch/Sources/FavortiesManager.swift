@@ -9,13 +9,23 @@
 import Foundation
 
 class FavoritesManager {
-    static var list: [ImageInfo] = []
-    static var delegates: [FavortiesDelegate] = []
-    static func update(_ new: ImageInfo) {
+    var list: [ImageInfo] {
+        get {
+            return self.private_list
+        }
+    }
+    
+    private var private_list: [ImageInfo] = []
+    
+    static var shared = FavoritesManager()
+    
+    var delegates: [FavortiesDelegate] = []
+    
+    func update(_ new: ImageInfo) {
         if let idx = list.firstIndex(of: new) {
-            list.remove(at: idx)
+            self.private_list.remove(at: idx)
         } else {
-            list.append(new)
+            self.private_list.append(new)
         }
         delegates.forEach { a in
             a.performFavoritesChange(new)

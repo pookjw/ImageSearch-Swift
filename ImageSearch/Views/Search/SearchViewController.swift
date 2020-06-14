@@ -27,7 +27,7 @@ class SearchViewController: ImageBaseViewController {
         self.collectionView.delegate = self
         self.searchController.searchResultsUpdater = self
         self.searchController.searchBar.delegate = self
-        FavoritesManager.delegates.append(self)
+        FavoritesManager.shared.delegates.append(self)
         self.navigationItem.searchController = searchController
     }
     

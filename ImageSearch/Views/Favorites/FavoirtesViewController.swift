@@ -18,8 +18,8 @@ class FavoirtesViewController: ImageBaseViewController {
         // Do any additional setup after loading the view.
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-        FavoritesManager.delegates.append(self)
-        super.imageInfo = FavoritesManager.list
+        FavoritesManager.shared.delegates.append(self)
+        super.imageInfo = FavoritesManager.shared.list
         DispatchQueue.main.async { [weak self] in
             self?.collectionView.reloadData()
         }
@@ -28,7 +28,7 @@ class FavoirtesViewController: ImageBaseViewController {
 
 extension FavoirtesViewController: FavortiesDelegate {
     func performFavoritesChange(_ new: ImageInfo) {
-        super.imageInfo = FavoritesManager.list
+        super.imageInfo = FavoritesManager.shared.list
         DispatchQueue.main.async { [weak self] in
             self?.collectionView.reloadData()
         }
