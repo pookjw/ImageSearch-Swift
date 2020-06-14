@@ -16,9 +16,11 @@ class DetailViewController: UIViewController {
     private var FBM_delegate_idx: Int?
     
     @IBOutlet weak var largeImage: UIImageView!
+    
     @IBAction func closeButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: {})
     }
+    
     @IBAction func saveButton(_ sender: Any) {
         self.activityIndicator.isHidden = false
         DispatchQueue.global().async { [weak self] in
@@ -65,6 +67,7 @@ class DetailViewController: UIViewController {
             InfoView.showIn(viewController: self, message: "Removed!")
         }
     }
+    
     @IBOutlet weak var starBarBtn: UIBarButtonItem!
     
     @IBAction func safariBtn(_ sender: Any) {
@@ -88,6 +91,12 @@ class DetailViewController: UIViewController {
             fatalError("Failed to deallocate!")
         }
         FavoritesManager.shared.delegates[idx] = nil
+    }
+    
+    deinit {
+        if SettingsManager.show_deinit_log_message {
+            print("deinit: DetailViewController")
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -116,12 +125,6 @@ class DetailViewController: UIViewController {
     
     private enum ImageError: Error {
         case FailedToParseURL, FailedToParseImage
-    }
-    
-    deinit {
-        if SettingsManager.show_deinit_log_message {
-            print("deinit: DetailViewController")
-        }
     }
 }
 

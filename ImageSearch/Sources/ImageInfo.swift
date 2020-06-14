@@ -27,7 +27,7 @@ struct ImageInfo: Decodable {
             thumbnail_url: "https://search3.kakaocdn.net/argon/130x130_85_c/K0YPUn9Mgn0",
             image_url: "http://postfiles3.naver.net/MjAxOTA4MDlfMjc3/MDAxNTY1MzM0MzUyOTgy.CjFwlSdhxbGg8Plc7I-3bjqjVPPvRWGORRT4gRocyw0g.XbmjQ2FmqUG8FjYca_OkIcIvE25HomfeC2EJwkV5BFog.JPEG.hiris4/55%ED%8E%9C.jpg?type=w966"
         )
-        return [WWDC_2020, Phone, WWDC_2020, Phone, WWDC_2020, Phone, WWDC_2020, Phone, Phone, WWDC_2020, Phone, WWDC_2020, Phone, WWDC_2020, WWDC_2020, Phone, WWDC_2020, Phone, WWDC_2020, Phone, Phone, WWDC_2020, Phone, WWDC_2020, Phone, Phone]
+        return [WWDC_2020, Phone]
     }
 }
 

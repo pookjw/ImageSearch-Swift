@@ -32,7 +32,7 @@ class WebViewController: UIViewController {
     }
     @IBAction func exSafariBtn(_ sender: UIBarButtonItem) {
         if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(web.url ?? URL(string: "")!, options: [:], completionHandler: nil)
+            UIApplication.shared.open(web.url ?? URL(string: "https://smoothy.co/ko")!, options: [:], completionHandler: nil)
         }
     }
     

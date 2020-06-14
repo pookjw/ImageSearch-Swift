@@ -26,19 +26,6 @@ class FavoirtesViewController: ImageBaseViewController {
             self?.collectionView.reloadData()
         }
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        guard let idx = self.FBM_delegate_idx else {
-            fatalError("Failed to deallocate!")
-        }
-        FavoritesManager.shared.delegates[idx] = nil
-    }
-    
-    deinit {
-        if SettingsManager.show_deinit_log_message {
-            print("deinit: FavoirtesViewController")
-        }
-    }
 }
 
 extension FavoirtesViewController: FavortiesDelegate {

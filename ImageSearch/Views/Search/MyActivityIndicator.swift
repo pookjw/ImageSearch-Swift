@@ -10,6 +10,6 @@ import UIKit
 
 class MyActivityIndicator: UIActivityIndicatorView {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.isHidden = true
+//        self.isHidden = true
     }
 }

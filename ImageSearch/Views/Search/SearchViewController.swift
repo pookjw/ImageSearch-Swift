@@ -60,20 +60,7 @@ class SearchViewController: ImageBaseViewController {
         present(controller, animated: true, completion: nil)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        guard let idx = self.FBM_delegate_idx else {
-            fatalError("Failed to deallocate!")
-        }
-        FavoritesManager.shared.delegates[idx] = nil
-    }
-    
-    deinit {
-        if SettingsManager.show_deinit_log_message {
-            print("deinit: SearchViewController")
-        }
-    }
-    
-    private func getSearch(reset: Bool, show_success: Bool = false) {
+    private func doSearch(reset: Bool, show_success: Bool) {
         guard self.max_page >= self.current_page else { return }
         if reset {
             self.current_page = 1
@@ -114,7 +101,7 @@ class SearchViewController: ImageBaseViewController {
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
         if (maximumOffset - contentOffset <= threshold) && (maximumOffset - contentOffset != -5.0) && self.search_text != "" {
             self.current_page += 1
-            self.getSearch(reset: false)
+            self.doSearch(reset: false, show_success: false)
         }
     }
 }
@@ -132,7 +119,7 @@ extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
         self.activityIndicator.isHidden = false
         guard let text = searchBar.text else { return }
         self.search_text = text
-        self.getSearch(reset: false, show_success: true)
+        self.doSearch(reset: true, show_success: true)
         self.searchController.isActive = false
     }
 }

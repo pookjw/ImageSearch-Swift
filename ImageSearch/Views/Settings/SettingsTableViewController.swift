@@ -39,10 +39,4 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
-    deinit {
-        if SettingsManager.show_deinit_log_message {
-            print("deinit: SettingsTableViewController")
-        }
-    }
-    
 }
