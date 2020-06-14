@@ -13,6 +13,7 @@ import Photos
 class DetailViewController: UIViewController {
     
     var imageInfo: ImageInfo!
+    private var FBM_delegate_idx: Int?
     
     @IBOutlet weak var largeImage: UIImageView!
     @IBAction func closeButton(_ sender: UIBarButtonItem) {
@@ -77,9 +78,16 @@ class DetailViewController: UIViewController {
         self.title = imageInfo.display_sitename
         self.largeImage.kf.indicatorType = .activity
         self.largeImage.kf.setImage(with: URL(string: imageInfo.image_url))
-        
+        FBM_delegate_idx = FavoritesManager.shared.delegates.count
         FavoritesManager.shared.delegates.append(self)
         self.performFavoritesChange(self.imageInfo)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        guard let idx = self.FBM_delegate_idx else {
+            fatalError("Failed to deallocate!")
+        }
+        FavoritesManager.shared.delegates.remove(at: idx)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

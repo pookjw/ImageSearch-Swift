@@ -11,6 +11,7 @@ import UIKit
 class FavoirtesViewController: ImageBaseViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    private var FBM_delegate_idx: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,11 +19,19 @@ class FavoirtesViewController: ImageBaseViewController {
         // Do any additional setup after loading the view.
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        FBM_delegate_idx = FavoritesManager.shared.delegates.count
         FavoritesManager.shared.delegates.append(self)
         super.imageInfo = FavoritesManager.shared.list
         DispatchQueue.main.async { [weak self] in
             self?.collectionView.reloadData()
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        guard let idx = self.FBM_delegate_idx else {
+            fatalError("Failed to deallocate!")
+        }
+        FavoritesManager.shared.delegates.remove(at: idx)
     }
 }
 

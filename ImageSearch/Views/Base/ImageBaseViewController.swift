@@ -89,8 +89,8 @@ extension ImageBaseViewController: UICollectionViewDataSource {
 extension ImageBaseViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let viewWidth = view.frame.width
-        let itemsInRow: CGFloat = CGFloat(Int(viewWidth / 120))
-        var spacing = (view.frame.width - 120 * itemsInRow) / (2 * itemsInRow)
+        let itemsInRow: CGFloat = CGFloat(Int(viewWidth / 115))
+        var spacing = (view.frame.width - 115 * itemsInRow) / (2 * itemsInRow)
 
         if spacing < CGFloat(0) { // minimum spacing
             spacing = 0 // set to minumum spacing

@@ -64,29 +64,29 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageBaseCollectionViewCell" id="zOm-Ox-zoO" customClass="ImageBaseCollectionViewCell" customModule="ImageSearch" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="150"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="115" height="145"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wGs-H4-XA5">
-                                            <rect key="frame" x="0.0" y="0.0" width="120" height="150"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="115" height="145"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KoT-wA-jqu">
-                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="150"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="115" height="145"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gaD-O8-fyL">
-                                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="115" height="115"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="120" id="Zlh-Ps-2tk"/>
-                                                                <constraint firstAttribute="height" constant="120" id="s4X-xa-MkJ"/>
+                                                                <constraint firstAttribute="width" constant="115" id="Zlh-Ps-2tk"/>
+                                                                <constraint firstAttribute="height" constant="115" id="s4X-xa-MkJ"/>
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eUR-U8-Ps1">
-                                                            <rect key="frame" x="0.0" y="120" width="120" height="30"/>
+                                                            <rect key="frame" x="0.0" y="115" width="115" height="30"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2Z-ug-kBI">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="85" height="30"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="90" id="OG6-CX-ch8"/>
+                                                                        <constraint firstAttribute="width" constant="85" id="OG6-CX-ch8"/>
                                                                         <constraint firstAttribute="height" constant="30" id="R1h-td-NIP"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -94,7 +94,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YFi-nV-wDV">
-                                                                    <rect key="frame" x="90" y="0.0" width="30" height="30"/>
+                                                                    <rect key="frame" x="85" y="0.0" width="30" height="30"/>
                                                                     <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="30" id="IeH-6w-SwB"/>
@@ -280,37 +280,37 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageBaseCollectionViewCell" id="dzq-YW-V4W" customClass="ImageBaseCollectionViewCell" customModule="ImageSearch" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="150"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="115" height="145"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xXc-LB-9W5">
-                                            <rect key="frame" x="0.0" y="0.0" width="120" height="150"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="115" height="145"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u9e-Dg-J4M">
-                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="150"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="115" height="145"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GOR-NM-2jH">
-                                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="115" height="115"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="120" id="3rc-Lf-5IK"/>
-                                                                <constraint firstAttribute="width" constant="120" id="VTd-jH-lRg"/>
+                                                                <constraint firstAttribute="height" constant="115" id="3rc-Lf-5IK"/>
+                                                                <constraint firstAttribute="width" constant="115" id="VTd-jH-lRg"/>
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8N-pZ-ylL">
-                                                            <rect key="frame" x="0.0" y="120" width="120" height="30"/>
+                                                            <rect key="frame" x="0.0" y="115" width="115" height="30"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZ1-P2-l7I">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="85" height="30"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="58m-h2-0CO"/>
-                                                                        <constraint firstAttribute="width" constant="90" id="sFc-A1-YxP"/>
+                                                                        <constraint firstAttribute="width" constant="85" id="sFc-A1-YxP"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yFj-ho-UGv">
-                                                                    <rect key="frame" x="90" y="0.0" width="30" height="30"/>
+                                                                    <rect key="frame" x="85" y="0.0" width="30" height="30"/>
                                                                     <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="30" id="inF-pA-sCj"/>

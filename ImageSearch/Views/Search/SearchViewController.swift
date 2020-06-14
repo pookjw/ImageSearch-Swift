@@ -14,6 +14,7 @@ class SearchViewController: ImageBaseViewController {
     @IBOutlet weak var activityIndicator: MyActivityIndicator!
     @IBOutlet weak var bulbButton: UIBarButtonItem!
     let searchController = UISearchController(searchResultsController: nil)
+    private var FBM_delegate_idx: Int?
     
     @IBAction func bulbAction(_ sender: Any) {
         self.showActionSheet()
@@ -27,6 +28,7 @@ class SearchViewController: ImageBaseViewController {
         self.collectionView.delegate = self
         self.searchController.searchResultsUpdater = self
         self.searchController.searchBar.delegate = self
+        FBM_delegate_idx = FavoritesManager.shared.delegates.count
         FavoritesManager.shared.delegates.append(self)
         self.navigationItem.searchController = searchController
     }
@@ -50,6 +52,13 @@ class SearchViewController: ImageBaseViewController {
         }
         
         present(controller, animated: true, completion: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        guard let idx = self.FBM_delegate_idx else {
+            fatalError("Failed to deallocate!")
+        }
+        FavoritesManager.shared.delegates.remove(at: idx)
     }
 }
 
