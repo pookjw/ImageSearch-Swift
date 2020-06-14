@@ -16,6 +16,12 @@ class SearchViewController: ImageBaseViewController {
     let searchController = UISearchController(searchResultsController: nil)
     private var FBM_delegate_idx: Int?
     
+    //
+    var current_page = 1
+    var max_page = 1
+    var search_text = ""
+    //
+    
     @IBAction func bulbAction(_ sender: Any) {
         self.showActionSheet()
     }
@@ -66,6 +72,51 @@ class SearchViewController: ImageBaseViewController {
             print("deinit: SearchViewController")
         }
     }
+    
+    private func getSearch(reset: Bool, show_success: Bool = false) {
+        guard self.max_page >= self.current_page else { return }
+        if reset {
+            self.current_page = 1
+            self.max_page = 1
+        }
+        
+        SearchManaer.shared.request(
+            text: self.search_text,
+            page: self.current_page,
+            errorHandler: { (error) in
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    InfoView.showIn(viewController: self, message: error.localizedDescription)
+                }
+        },
+            completion: { (decoded) in
+                DispatchQueue.main.async { //[weak super] in
+                    if reset {
+                        super.imageInfo = decoded.documents
+                    } else {
+                        super.imageInfo.append(contentsOf: decoded.documents)
+                    }
+                }
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.max_page = decoded.meta.pageable_count
+                    self.collectionView.reloadData()
+                    self.activityIndicator.isHidden = true
+                    self.title = self.search_text
+                    if show_success { InfoView.showIn(viewController: self, message: "Success!") }
+                }
+        })
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let threshold = 10.0 as CGFloat
+        let contentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+        if (maximumOffset - contentOffset <= threshold) && (maximumOffset - contentOffset != -5.0) && self.search_text != "" {
+            self.current_page += 1
+            self.getSearch(reset: false)
+        }
+    }
 }
 
 extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
@@ -80,28 +131,8 @@ extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
         
         self.activityIndicator.isHidden = false
         guard let text = searchBar.text else { return }
-        SearchManaer.shared.request(
-            text: text,
-            page: 1,
-            errorHandler: { (error) in
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
-                    InfoView.showIn(viewController: self, message: error.localizedDescription)
-                }
-        },
-            completion: { (decoded) in
-                DispatchQueue.main.async { //[weak super] in
-                    super.imageInfo = decoded.documents
-                }
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
-                    self.collectionView.reloadData()
-                    self.activityIndicator.isHidden = true
-                    self.title = text
-                    InfoView.showIn(viewController: self, message: "Success!")
-                }
-        })
-        
+        self.search_text = text
+        self.getSearch(reset: false, show_success: true)
         self.searchController.isActive = false
     }
 }
