@@ -87,8 +87,12 @@ class DetailViewController: UIViewController {
         guard let idx = self.FBM_delegate_idx else {
             fatalError("Failed to deallocate!")
         }
-        FavoritesManager.shared.delegates.remove(at: idx)
+        FavoritesManager.shared.delegates[idx] = nil
     }
+    
+//    deinit {
+//        print("deinit!!!")
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)

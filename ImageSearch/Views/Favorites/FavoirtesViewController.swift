@@ -31,7 +31,7 @@ class FavoirtesViewController: ImageBaseViewController {
         guard let idx = self.FBM_delegate_idx else {
             fatalError("Failed to deallocate!")
         }
-        FavoritesManager.shared.delegates.remove(at: idx)
+        FavoritesManager.shared.delegates[idx] = nil
     }
 }
 

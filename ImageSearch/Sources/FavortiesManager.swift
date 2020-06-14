@@ -19,7 +19,7 @@ class FavoritesManager {
     
     static var shared = FavoritesManager()
     
-    var delegates: [FavortiesDelegate] = []
+    var delegates: [FavortiesDelegate?] = []
     
     func update(_ new: ImageInfo) {
         if let idx = list.firstIndex(of: new) {
@@ -28,7 +28,7 @@ class FavoritesManager {
             self.private_list.append(new)
         }
         delegates.forEach { a in
-            a.performFavoritesChange(new)
+            a?.performFavoritesChange(new)
         }
     }
 }

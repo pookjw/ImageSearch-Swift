@@ -58,7 +58,7 @@ class SearchViewController: ImageBaseViewController {
         guard let idx = self.FBM_delegate_idx else {
             fatalError("Failed to deallocate!")
         }
-        FavoritesManager.shared.delegates.remove(at: idx)
+        FavoritesManager.shared.delegates[idx] = nil
     }
 }
 
@@ -68,8 +68,8 @@ extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         
     }
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    
         searchBar.resignFirstResponder()
         
         self.activityIndicator.isHidden = false
