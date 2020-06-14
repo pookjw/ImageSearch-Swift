@@ -51,8 +51,10 @@ extension ImageBaseViewController: UICollectionViewDataSource {
         
         if FavoritesManager.shared.list.contains(i) {
             cell.starImage.image = UIImage(systemName: "star.fill")
+            cell.favorited = true
         } else {
             cell.starImage.image = UIImage(systemName: "star")
+            cell.favorited = false
         }
         
         return cell
