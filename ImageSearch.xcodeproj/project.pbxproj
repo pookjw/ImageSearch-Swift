@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		68F1E45AD1450FB19A185450 /* libPods-ImageSearch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53846E5094E88B2E983A3AB2 /* libPods-ImageSearch.a */; };
+		8B88F0D61B72E9A873787AE7 /* Pods_ImageSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484E5D114E441FE20F4FCD0A /* Pods_ImageSearch.framework */; };
 		F321EF48249700C600B8699B /* InfoViewSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F321EF47249700C600B8699B /* InfoViewSettingsTableViewController.swift */; };
 		F350AC9A2494C05600311652 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350AC992494C05600311652 /* SettingsTableViewController.swift */; };
 		F350ACAC2494CA3300311652 /* TimerSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350ACAB2494CA3300311652 /* TimerSettingsTableViewController.swift */; };
@@ -36,7 +36,7 @@
 
 /* Begin PBXFileReference section */
 		2C9230805231DE313987081D /* Pods-ImageSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageSearch.debug.xcconfig"; path = "Target Support Files/Pods-ImageSearch/Pods-ImageSearch.debug.xcconfig"; sourceTree = "<group>"; };
-		53846E5094E88B2E983A3AB2 /* libPods-ImageSearch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ImageSearch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		484E5D114E441FE20F4FCD0A /* Pods_ImageSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61565CCF8F1DBA4E9927976B /* Pods-ImageSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageSearch.release.xcconfig"; path = "Target Support Files/Pods-ImageSearch/Pods-ImageSearch.release.xcconfig"; sourceTree = "<group>"; };
 		F321EF47249700C600B8699B /* InfoViewSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewSettingsTableViewController.swift; sourceTree = "<group>"; };
 		F350AC992494C05600311652 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3D1BAD12493C65E0060FF8B /* WebKit.framework in Frameworks */,
-				68F1E45AD1450FB19A185450 /* libPods-ImageSearch.a in Frameworks */,
+				8B88F0D61B72E9A873787AE7 /* Pods_ImageSearch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,7 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				F3D1BAD02493C65E0060FF8B /* WebKit.framework */,
-				53846E5094E88B2E983A3AB2 /* libPods-ImageSearch.a */,
+				484E5D114E441FE20F4FCD0A /* Pods_ImageSearch.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -223,6 +223,7 @@
 				F356B9122491C92B00703B54 /* Sources */,
 				F356B9132491C92B00703B54 /* Frameworks */,
 				F356B9142491C92B00703B54 /* Resources */,
+				0A2CCD0E6EBCD8EB925AE1D2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -281,6 +282,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0A2CCD0E6EBCD8EB925AE1D2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ImageSearch/Pods-ImageSearch-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ImageSearch/Pods-ImageSearch-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ImageSearch/Pods-ImageSearch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BEDE2EB20C6B3859B9221FDB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

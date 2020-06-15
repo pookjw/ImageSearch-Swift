@@ -1,4 +1,4 @@
-module Pods_ImageSearch {
+framework module Pods_ImageSearch {
   umbrella header "Pods-ImageSearch-umbrella.h"
 
   export *
