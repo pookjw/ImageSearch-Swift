@@ -13,4 +13,5 @@ class SettingsManager {
     static var show_deinit_log_message: Bool = true
     static var infoview_timer: InfoView.TimerType = .two
     static var nekwork_type: SearchManaer.NetworkType = .alamofire
+    static var infoview_type: InfoView.ViewType = .snapkit
 }

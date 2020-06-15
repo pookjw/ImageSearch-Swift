@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		68F1E45AD1450FB19A185450 /* libPods-ImageSearch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53846E5094E88B2E983A3AB2 /* libPods-ImageSearch.a */; };
+		F321EF48249700C600B8699B /* InfoViewSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F321EF47249700C600B8699B /* InfoViewSettingsTableViewController.swift */; };
 		F350AC9A2494C05600311652 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350AC992494C05600311652 /* SettingsTableViewController.swift */; };
 		F350ACAC2494CA3300311652 /* TimerSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350ACAB2494CA3300311652 /* TimerSettingsTableViewController.swift */; };
 		F356B91A2491C92B00703B54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F356B9192491C92B00703B54 /* AppDelegate.swift */; };
@@ -37,6 +38,7 @@
 		2C9230805231DE313987081D /* Pods-ImageSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageSearch.debug.xcconfig"; path = "Target Support Files/Pods-ImageSearch/Pods-ImageSearch.debug.xcconfig"; sourceTree = "<group>"; };
 		53846E5094E88B2E983A3AB2 /* libPods-ImageSearch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ImageSearch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61565CCF8F1DBA4E9927976B /* Pods-ImageSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageSearch.release.xcconfig"; path = "Target Support Files/Pods-ImageSearch/Pods-ImageSearch.release.xcconfig"; sourceTree = "<group>"; };
+		F321EF47249700C600B8699B /* InfoViewSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewSettingsTableViewController.swift; sourceTree = "<group>"; };
 		F350AC992494C05600311652 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		F350ACAB2494CA3300311652 /* TimerSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSettingsTableViewController.swift; sourceTree = "<group>"; };
 		F356B9162491C92B00703B54 /* ImageSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +104,7 @@
 				F350AC992494C05600311652 /* SettingsTableViewController.swift */,
 				F350ACAB2494CA3300311652 /* TimerSettingsTableViewController.swift */,
 				F3E9D44824962EA1004DBC81 /* NetworkSettingsTableViewController.swift */,
+				F321EF47249700C600B8699B /* InfoViewSettingsTableViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				F3ED65C32491FD3000969F14 /* ImageBaseViewController.swift in Sources */,
 				F3E9D41B2494DC87004DBC81 /* MyActivityIndicator.swift in Sources */,
 				F3E9D447249607C7004DBC81 /* SettingsManager.swift in Sources */,
+				F321EF48249700C600B8699B /* InfoViewSettingsTableViewController.swift in Sources */,
 				F3ED65CD2491FF9B00969F14 /* ImageInfo.swift in Sources */,
 				F3E9D44924962EA1004DBC81 /* NetworkSettingsTableViewController.swift in Sources */,
 				F3D1BACF2493C5050060FF8B /* WebViewController.swift in Sources */,

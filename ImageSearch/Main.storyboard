@@ -45,7 +45,7 @@
             </objects>
             <point key="canvasLocation" x="748" y="452"/>
         </scene>
-        <!--Favorties-->
+        <!--Favorites-->
         <scene sceneID="wdb-Av-IMN">
             <objects>
                 <viewController id="paG-Rb-OVJ" customClass="FavoirtesViewController" customModule="ImageSearch" customModuleProvider="target" sceneMemberID="viewController">
@@ -131,7 +131,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3pN-Y3-e7q"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Favorties" id="1KJ-fd-h5d"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="1KJ-fd-h5d"/>
                     <connections>
                         <outlet property="collectionView" destination="S13-Wc-lVF" id="d4f-hW-QrA"/>
                         <segue destination="0HU-Bd-h5L" kind="showDetail" identifier="ShowDetail" id="E0r-Dz-xvm"/>
@@ -273,8 +273,38 @@
                                             <segue destination="1mK-g5-sVX" kind="show" id="Jkw-lH-HYY"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="PPT-dG-TFK">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="19R-M7-kEG">
                                         <rect key="frame" x="0.0" y="287.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="19R-M7-kEG" id="rRK-V1-5us">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVI-ij-VZg">
+                                                    <rect key="frame" x="20" y="10" width="343" height="23.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="InfoView Method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUx-dP-s1T">
+                                                            <rect key="frame" x="0.0" y="0.0" width="343" height="23.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="LVI-ij-VZg" firstAttribute="top" secondItem="rRK-V1-5us" secondAttribute="top" constant="10" id="5Am-lT-Zc1"/>
+                                                <constraint firstAttribute="bottom" secondItem="LVI-ij-VZg" secondAttribute="bottom" constant="10" id="JPk-8X-Dj7"/>
+                                                <constraint firstItem="LVI-ij-VZg" firstAttribute="leading" secondItem="rRK-V1-5us" secondAttribute="leading" constant="20" id="kB6-54-VxK"/>
+                                                <constraint firstAttribute="trailing" secondItem="LVI-ij-VZg" secondAttribute="trailing" constant="20" id="qP2-IV-AeI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="3Il-xI-xDF" kind="show" id="V6U-Vf-qtU"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="PPT-dG-TFK">
+                                        <rect key="frame" x="0.0" y="331.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PPT-dG-TFK" id="1qe-F8-Q1B">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
@@ -339,6 +369,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bpS-f6-YcG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2954" y="1213"/>
+        </scene>
+        <!--InfoView-->
+        <scene sceneID="8Qp-oS-aNy">
+            <objects>
+                <tableViewController id="3Il-xI-xDF" customClass="InfoViewSettingsTableViewController" customModule="ImageSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="987-Ab-OfI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="3Il-xI-xDF" id="Kqd-JG-zQJ"/>
+                            <outlet property="delegate" destination="3Il-xI-xDF" id="h5d-V8-muX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="InfoView" id="zA8-8l-Z6a"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PCa-rg-T8Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1596" y="1947"/>
         </scene>
         <!--Network-->
         <scene sceneID="fGP-tT-gVv">

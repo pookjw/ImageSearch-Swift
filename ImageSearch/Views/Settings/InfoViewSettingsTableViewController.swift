@@ -1,15 +1,15 @@
 //
-//  NetworkSettingsTableViewController.swift
+//  InfoViewSettingsTableViewController.swift
 //  ImageSearch
 //
-//  Created by pook on 6/14/20.
+//  Created by pook on 6/15/20.
 //  Copyright © 2020 jinwoopeter. All rights reserved.
 //
 
 import UIKit
 
-class NetworkSettingsTableViewController: UITableViewController {
-    
+class InfoViewSettingsTableViewController: UITableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.reloadData()
@@ -24,7 +24,7 @@ class NetworkSettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return SearchManaer.NetworkType.allCases.count
+            return InfoView.ViewType.allCases.count
         default:
             return 0
         }
@@ -55,9 +55,11 @@ class NetworkSettingsTableViewController: UITableViewController {
         case 0:
             switch indexPath.row {
             case 0:
-                cell.textLabel?.text = "URLSession"
+                cell.textLabel?.text = "Frame"
             case 1:
-                cell.textLabel?.text = "Alamofire"
+                cell.textLabel?.text = "NSLayoutConstraint"
+            case 2:
+                cell.textLabel?.text = "SnapKit"
             default:
                 ()
             }
@@ -71,19 +73,19 @@ class NetworkSettingsTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let newValue = SearchManaer.NetworkType(rawValue: indexPath.row) else {
-            fatalError("Invalid NetworkType index.")
+        guard let newValue = InfoView.ViewType(rawValue: indexPath.row) else {
+            fatalError("Invalid ViewType index.")
         }
-        SettingsManager.nekwork_type = newValue
+        SettingsManager.infoview_type = newValue
         self.updateCheckMark()
         InfoView.showIn(viewController: self, message: "Updated!")
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     private func updateCheckMark() {
-        for n in 0..<InfoView.TimerType.allCases.count {
+        for n in 0..<InfoView.ViewType.allCases.count {
             let indexPath = IndexPath(row: n, section: 0)
-            if SettingsManager.nekwork_type.rawValue == n {
+            if SettingsManager.infoview_type.rawValue == n {
                 tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
             } else {
                 tableView.cellForRow(at: indexPath)?.accessoryType = .none
@@ -93,7 +95,8 @@ class NetworkSettingsTableViewController: UITableViewController {
     
     deinit {
         if SettingsManager.show_deinit_log_message {
-            print("deinit: NetworkSettingsTableViewController")
+            print("deinit: InfoViewSettingsTableViewController")
         }
     }
+
 }
