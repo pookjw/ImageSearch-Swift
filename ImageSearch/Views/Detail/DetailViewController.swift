@@ -72,7 +72,7 @@ class DetailViewController: UIViewController {
         if FavoritesManager.shared.list.contains(imageInfo) {
             InfoView.showIn(viewController: self, message: "Favorited!")
         } else {
-            InfoView.showIn(viewController: self, message: "Removed!")
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
