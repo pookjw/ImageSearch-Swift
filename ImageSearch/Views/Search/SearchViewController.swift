@@ -17,6 +17,14 @@ class SearchViewController: ImageBaseViewController {
     
     //
     
+    var current_page = 1
+    var max_page = 1
+    var search_text = ""
+    var search_done = false
+    var scroll_done = false
+    
+    //
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: MyActivityIndicator!
     @IBOutlet weak var bulbButton: UIBarButtonItem!
@@ -75,26 +83,18 @@ extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
         self.activityIndicator.isHidden = false
         guard let text = searchBar.text else { return }
         self.search_text = text
-        self.doSearch(reset: true, show_success: true)
+        self.current_page = 1
+        self.max_page = 1
+        self.doSearch(reset: true)
         self.searchController.isActive = false
     }
 }
 
+// 검색
 extension SearchViewController {
-    
-    var current_page = 1
-    var max_page = 1
-    var search_text = ""
-    
-    // 새로운 검색어가 들어오면 현재 collectionView를 reset 합니다. 만약 next page를 불러오고 싶다면 reset을 안하면 됩니다.
-    // show_success는 InfoView로 Success!를 보여줄지 말지 입니다.
-    private func doSearch(reset: Bool, show_success: Bool) {
+    // 새로운 검색어가 들어오면 현재 collectionView를 reset 합니다 (reset = true). 만약 collectionView에 검색 결과를 추가하면서 next page를 불러오고 싶다면 reset을 false로 하면 됩니다.
+    private func doSearch(reset: Bool) {
         guard self.max_page >= self.current_page else { return }
-        if reset {
-            self.current_page = 1
-            self.max_page = 1
-        }
-        
         SearchManaer.shared.request(
             text: self.search_text,
             page: self.current_page,
@@ -107,9 +107,11 @@ extension SearchViewController {
             completion: { (decoded) in
                 DispatchQueue.main.async { //[weak super] in
                     if reset {
-                        super.imageInfo = decoded.documents
-                    } else {
-                        super.imageInfo.append(contentsOf: decoded.documents)
+                        super.imageInfo = []
+                    }
+                    decoded.documents.forEach { foo in
+                        let imageInfo = ImageInfo(display_sitename: foo.display_sitename, doc_url: foo.doc_url, thumbnail_url: foo.thumbnail_url, image_url: foo.image_url)
+                        super.imageInfo.append(imageInfo)
                     }
                 }
                 DispatchQueue.main.async { [weak self] in
@@ -123,14 +125,10 @@ extension SearchViewController {
                     self.search_done = true
                     self.scroll_done = false
                     
-                    if show_success { InfoView.showIn(viewController: self, message: "Success!") }
+                    InfoView.showIn(viewController: self, message: "Success!")
                 }
         })
     }
-    
-    var search_done = false
-    var scroll_done = false
-    var count = 0
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.item == super.imageInfo.count - 3 {
@@ -138,12 +136,9 @@ extension SearchViewController {
                 search_done = false
                 scroll_done = false
                 
-                count += 1
-                print("Load \(count)")
-                
                 self.activityIndicator.isHidden = false
                 self.current_page += 1
-                self.doSearch(reset: false, show_success: false)
+                self.doSearch(reset: false)
             } else {
                 scroll_done = false
             }
@@ -155,6 +150,7 @@ extension SearchViewController {
     }
 }
 
+// 새로운 Favorite이 들어오면 실행
 extension SearchViewController: FavortiesDelegate {
     func performFavoritesChange(_ new: ImageInfo) {
         guard let cells = self.collectionView.visibleCells as? [ImageBaseCollectionViewCell] else {

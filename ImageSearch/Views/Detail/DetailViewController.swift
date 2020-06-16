@@ -136,6 +136,7 @@ class DetailViewController: UIViewController {
     }
 }
 
+// 새로운 Favorite이 들어오면 실행
 extension DetailViewController: FavortiesDelegate {
     func performFavoritesChange(_ new: ImageInfo) {
         if FavoritesManager.shared.list.contains(new) {

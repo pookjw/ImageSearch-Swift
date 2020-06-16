@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
         
         let realmManager = RealmManager()
-        realmManager.realm?.objects(ImageInfoObject.self).forEach {
+        realmManager.realm?.objects(ImageInfo.self).forEach {
             let imageInfo = ImageInfo(
                 display_sitename: $0.display_sitename,
                 doc_url: $0.doc_url,

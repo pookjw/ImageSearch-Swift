@@ -21,10 +21,17 @@ class SearchManaer {
     
     struct SearchResult: Decodable {
         let meta: Meta
-        let documents: [ImageInfo]
+        let documents: [Documents]
         
         struct Meta: Decodable {
             let pageable_count: Int
+        }
+        
+        struct Documents: Decodable {
+            var display_sitename: String
+            var doc_url: String
+            var thumbnail_url: String
+            var image_url: String
         }
     }
     

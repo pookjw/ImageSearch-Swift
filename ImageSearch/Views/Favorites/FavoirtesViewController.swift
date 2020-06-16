@@ -35,6 +35,7 @@ class FavoirtesViewController: ImageBaseViewController {
     }
 }
 
+// 새로운 Favorite이 들어오면 실행
 extension FavoirtesViewController: FavortiesDelegate {
     func performFavoritesChange(_ new: ImageInfo) {
         super.imageInfo = FavoritesManager.shared.list
