@@ -59,6 +59,9 @@ class RealmManager {
         
         if !removed {
             do {
+                // Realm에서 deleted된 object는 다시 add가 안 되기 때문에, 새로 정의를 해줘야함
+                // *** Terminating app due to uncaught exception 'RLMException', reason: 'Adding a deleted or invalidated object to a Realm is not permitted'
+                let new = ImageInfo(display_sitename: new.display_sitename, doc_url: new.doc_url, thumbnail_url: new.thumbnail_url, image_url: new.image_url)
                 try realm.write { realm.add(new) }
                 return
             } catch {
