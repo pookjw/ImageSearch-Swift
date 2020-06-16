@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // 즐겨찾기를 관리하는 class 입니다.
 // RxSwift의 Observable을 쓰면 안 되어서, 각 View에서 들어오는 ImageInfo를 어떻게 한꺼번에 처리할 수 있을까를 생각하다가, Delegate를 써보자고 생각했습니다.

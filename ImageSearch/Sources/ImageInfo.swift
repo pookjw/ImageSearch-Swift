@@ -29,10 +29,16 @@ class ImageInfo: Object {
         self.thumbnail_url = ""
         self.image_url = ""
     }
+    
+    deinit {
+        if SettingsManager.show_deinit_log_message {
+            print("deinit: ImageInfo (\(self.display_sitename))")
+        }
+    }
 }
 
 // 이러면 Reference 비교는 못하게 되지만, 이 앱에서는 Value 비교를 원하므로...
 func == (lhs: ImageInfo, rhs: ImageInfo) -> Bool {
-    return true
+    return (lhs.display_sitename == rhs.display_sitename) && (lhs.doc_url == rhs.doc_url) && (lhs.thumbnail_url == rhs.thumbnail_url) && (lhs.image_url == rhs.image_url)
 }
 

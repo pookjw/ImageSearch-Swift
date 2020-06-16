@@ -24,13 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let realmManager = RealmManager()
         realmManager.realm?.objects(ImageInfo.self).forEach {
-            let imageInfo = ImageInfo(
-                display_sitename: $0.display_sitename,
-                doc_url: $0.doc_url,
-                thumbnail_url: $0.thumbnail_url,
-                image_url: $0.image_url
-            )
-            FavoritesManager.shared.update(imageInfo)
+            FavoritesManager.shared.update($0)
         }
         FavoritesManager.shared.delegates.append(realmManager)
     
