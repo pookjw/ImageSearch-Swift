@@ -17,6 +17,11 @@ class DetailViewController: UIViewController {
     
     var imageInfo: ImageInfo!
     private var FBM_delegate_idx: Int?
+    private enum ImageError: Error {
+        case FailedToParseURL, FailedToParseImage
+    }
+    
+    //
     
     @IBOutlet weak var largeImage: UIImageView!
     
@@ -42,13 +47,13 @@ class DetailViewController: UIViewController {
                 if photos == .notDetermined {
                     PHPhotoLibrary.requestAuthorization({status in
                         if status == .authorized{
-                            UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.savedView(_:didFinishSavingWithError:contextInfo:)), nil)
+                            UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.savedPhotoCompletion(_:didFinishSavingWithError:contextInfo:)), nil)
                         } else {
                             InfoView.showIn(viewController: self, message: "Authorization failed")
                         }
                     })
                 } else {
-                    UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.savedView(_:didFinishSavingWithError:contextInfo:)), nil)
+                    UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.savedPhotoCompletion(_:didFinishSavingWithError:contextInfo:)), nil)
                 }
             } catch {
                 print(error.localizedDescription)
@@ -78,6 +83,8 @@ class DetailViewController: UIViewController {
     }
     
     @IBOutlet weak var activityIndicator: MyActivityIndicator!
+    
+    //
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,8 +122,10 @@ class DetailViewController: UIViewController {
             fatalError("Unexpected destination.")
         }
     }
+    
+    //
    
-    @objc private func savedView(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+    @objc private func savedPhotoCompletion(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
         if let error = error {
             print(error.localizedDescription)
             InfoView.showIn(viewController: self, message: error.localizedDescription)
@@ -124,10 +133,6 @@ class DetailViewController: UIViewController {
             print("Saved!")
             InfoView.showIn(viewController: self, message: "Saved!")
         }
-    }
-    
-    private enum ImageError: Error {
-        case FailedToParseURL, FailedToParseImage
     }
 }
 

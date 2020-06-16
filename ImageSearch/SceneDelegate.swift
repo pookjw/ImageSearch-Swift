@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -20,6 +21,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+        
+        let realmManager = RealmManager()
+        realmManager.realm?.objects(ImageInfoObject.self).forEach {
+            let imageInfo = ImageInfo(
+                display_sitename: $0.display_sitename,
+                doc_url: $0.doc_url,
+                thumbnail_url: $0.thumbnail_url,
+                image_url: $0.image_url
+            )
+            FavoritesManager.shared.update(imageInfo)
+        }
+        FavoritesManager.shared.delegates.append(realmManager)
+    
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

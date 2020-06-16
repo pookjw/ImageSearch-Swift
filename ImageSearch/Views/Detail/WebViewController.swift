@@ -14,6 +14,10 @@ import WebKit
 
 class WebViewController: UIViewController {
     
+    var url: URL!
+    
+    //
+    
     @IBOutlet weak var web: WKWebView!
     
     @IBAction func doneBtn(_ sender: UIBarButtonItem) {
@@ -38,8 +42,7 @@ class WebViewController: UIViewController {
             UIApplication.shared.open(web.url ?? URL(string: "https://smoothy.co/ko")!, options: [:], completionHandler: nil)
         }
     }
-    
-    var url: URL!
+    //
     
     override func viewDidLoad() {
         super.viewDidLoad()

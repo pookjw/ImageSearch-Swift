@@ -11,9 +11,14 @@ import UIKit
 // Favorite된 사진들을 모아보는 View 입니다.
 
 class FavoirtesViewController: ImageBaseViewController {
+    
+    private var FBM_delegate_idx: Int?
+    
+    //
 
     @IBOutlet weak var collectionView: UICollectionView!
-    private var FBM_delegate_idx: Int?
+    
+    //
     
     override func viewDidLoad() {
         super.viewDidLoad()

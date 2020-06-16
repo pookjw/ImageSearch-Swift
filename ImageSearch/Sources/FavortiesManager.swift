@@ -42,3 +42,5 @@ class FavoritesManager {
 protocol FavortiesDelegate {
     func performFavoritesChange(_ new: ImageInfo)
 }
+
+

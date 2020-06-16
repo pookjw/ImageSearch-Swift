@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		8B88F0D61B72E9A873787AE7 /* Pods_ImageSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484E5D114E441FE20F4FCD0A /* Pods_ImageSearch.framework */; };
 		F321EF48249700C600B8699B /* InfoViewSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F321EF47249700C600B8699B /* InfoViewSettingsTableViewController.swift */; };
+		F321EF5F24973F6500B8699B /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F321EF5E24973F6500B8699B /* RealmManager.swift */; };
 		F350AC9A2494C05600311652 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350AC992494C05600311652 /* SettingsTableViewController.swift */; };
 		F350ACAC2494CA3300311652 /* TimerSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350ACAB2494CA3300311652 /* TimerSettingsTableViewController.swift */; };
 		F356B91A2491C92B00703B54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F356B9192491C92B00703B54 /* AppDelegate.swift */; };
@@ -39,6 +40,7 @@
 		484E5D114E441FE20F4FCD0A /* Pods_ImageSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61565CCF8F1DBA4E9927976B /* Pods-ImageSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageSearch.release.xcconfig"; path = "Target Support Files/Pods-ImageSearch/Pods-ImageSearch.release.xcconfig"; sourceTree = "<group>"; };
 		F321EF47249700C600B8699B /* InfoViewSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewSettingsTableViewController.swift; sourceTree = "<group>"; };
+		F321EF5E24973F6500B8699B /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		F350AC992494C05600311652 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		F350ACAB2494CA3300311652 /* TimerSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSettingsTableViewController.swift; sourceTree = "<group>"; };
 		F356B9162491C92B00703B54 /* ImageSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,6 +188,7 @@
 				F3ED65DF2492310B00969F14 /* FavortiesManager.swift */,
 				F3E9D42F24951684004DBC81 /* SearchManager.swift */,
 				F3E9D446249607C7004DBC81 /* SettingsManager.swift */,
+				F321EF5E24973F6500B8699B /* RealmManager.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				F356B9322491CC1400703B54 /* ImageBaseCollectionViewCell.swift in Sources */,
 				F3ED65E02492310B00969F14 /* FavortiesManager.swift in Sources */,
 				F356B91A2491C92B00703B54 /* AppDelegate.swift in Sources */,
+				F321EF5F24973F6500B8699B /* RealmManager.swift in Sources */,
 				F356B91C2491C92B00703B54 /* SceneDelegate.swift in Sources */,
 				F3E9D43024951684004DBC81 /* SearchManager.swift in Sources */,
 			);

@@ -12,21 +12,20 @@ import UIKit
 
 class SearchViewController: ImageBaseViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var activityIndicator: MyActivityIndicator!
-    @IBOutlet weak var bulbButton: UIBarButtonItem!
     let searchController = UISearchController(searchResultsController: nil)
     private var FBM_delegate_idx: Int?
     
     //
-    var current_page = 1
-    var max_page = 1
-    var search_text = ""
-    //
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: MyActivityIndicator!
+    @IBOutlet weak var bulbButton: UIBarButtonItem!
     
     @IBAction func bulbAction(_ sender: Any) {
         self.showActionSheet()
     }
+    
+    //
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +60,31 @@ class SearchViewController: ImageBaseViewController {
         
         present(controller, animated: true, completion: nil)
     }
+}
+
+extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) { }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        searchBar.resignFirstResponder()
+        
+        self.activityIndicator.isHidden = false
+        guard let text = searchBar.text else { return }
+        self.search_text = text
+        self.doSearch(reset: true, show_success: true)
+        self.searchController.isActive = false
+    }
+}
+
+extension SearchViewController {
+    
+    var current_page = 1
+    var max_page = 1
+    var search_text = ""
     
     // 새로운 검색어가 들어오면 현재 collectionView를 reset 합니다. 만약 next page를 불러오고 싶다면 reset을 안하면 됩니다.
     // show_success는 InfoView로 Success!를 보여줄지 말지 입니다.
@@ -91,40 +115,43 @@ class SearchViewController: ImageBaseViewController {
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
                     self.max_page = decoded.meta.pageable_count
+                    
                     self.collectionView.reloadData()
                     self.activityIndicator.isHidden = true
                     self.title = self.search_text
+                    
+                    self.search_done = true
+                    self.scroll_done = false
+                    
                     if show_success { InfoView.showIn(viewController: self, message: "Success!") }
                 }
         })
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let threshold = 10.0 as CGFloat
-        let contentOffset = scrollView.contentOffset.y
-        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
-        if (maximumOffset - contentOffset <= threshold) && (maximumOffset - contentOffset != -5.0) && self.search_text != "" {
-            self.current_page += 1
-            self.doSearch(reset: false, show_success: false)
+    var search_done = false
+    var scroll_done = false
+    var count = 0
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.item == super.imageInfo.count - 3 {
+            if search_done && scroll_done {
+                search_done = false
+                scroll_done = false
+                
+                count += 1
+                print("Load \(count)")
+                
+                self.activityIndicator.isHidden = false
+                self.current_page += 1
+                self.doSearch(reset: false, show_success: false)
+            } else {
+                scroll_done = false
+            }
         }
     }
-}
-
-extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
-    func updateSearchResults(for searchController: UISearchController) { }
     
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        
-    }
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-    
-        searchBar.resignFirstResponder()
-        
-        self.activityIndicator.isHidden = false
-        guard let text = searchBar.text else { return }
-        self.search_text = text
-        self.doSearch(reset: true, show_success: true)
-        self.searchController.isActive = false
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        scroll_done = decelerate
     }
 }
 
