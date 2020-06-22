@@ -68,12 +68,8 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func starBtn(_ sender: Any) {
-        FavoritesManager.shared.update(self.imageInfo)
-        if FavoritesManager.shared.list.contains(imageInfo) {
-            InfoView.showIn(viewController: self, message: "Favorited!")
-        } else {
-            self.dismiss(animated: true, completion: nil)
-        }
+        RealmFavoritesManager.update(self.imageInfo)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBOutlet weak var starBarBtn: UIBarButtonItem!
@@ -91,16 +87,16 @@ class DetailViewController: UIViewController {
         self.title = imageInfo.display_sitename
         self.largeImage.kf.indicatorType = .activity
         self.largeImage.kf.setImage(with: URL(string: imageInfo.image_url))
-        FBM_delegate_idx = FavoritesManager.shared.delegates.count
-        FavoritesManager.shared.delegates.append(self)
-        self.performFavoritesChange(self.imageInfo)
+//        self.performFavoritesChange(self.imageInfo)
+        
+        if RealmFavoritesManager.didFavorite(self.imageInfo) != nil {
+            self.starBarBtn.image = UIImage(systemName: "star.fill")
+        } else {
+            self.starBarBtn.image = UIImage(systemName: "star")
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        guard let idx = self.FBM_delegate_idx else {
-            fatalError("Failed to deallocate!")
-        }
-        FavoritesManager.shared.delegates[idx] = nil
     }
     
     deinit {
@@ -136,13 +132,13 @@ class DetailViewController: UIViewController {
     }
 }
 
-// 새로운 Favorite이 들어오면 실행
-extension DetailViewController: FavortiesDelegate {
-    func performFavoritesChange(_ new: ImageInfo) {
-        if FavoritesManager.shared.list.contains(new) {
-            self.starBarBtn.image = UIImage(systemName: "star.fill")
-        } else {
-            self.starBarBtn.image = UIImage(systemName: "star")
-        }
-    }
-}
+//// 새로운 Favorite이 들어오면 실행
+//extension DetailViewController: FavortiesDelegate {
+//    func performFavoritesChange(_ new: ImageInfo) {
+//        if FavoritesManager.shared.list.contains(new) {
+//            self.starBarBtn.image = UIImage(systemName: "star.fill")
+//        } else {
+//            self.starBarBtn.image = UIImage(systemName: "star")
+//        }
+//    }
+//}

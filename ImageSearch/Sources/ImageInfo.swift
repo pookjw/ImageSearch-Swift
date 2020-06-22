@@ -30,6 +30,15 @@ class ImageInfo: Object {
         self.image_url = ""
     }
     
+    func newRef() -> ImageInfo {
+        return ImageInfo(
+            display_sitename: self.display_sitename,
+            doc_url: self.doc_url,
+            thumbnail_url: self.thumbnail_url,
+            image_url: self.image_url
+        )
+    }
+    
     deinit {
         if SettingsManager.show_deinit_log_message {
             print("deinit: ImageInfo (\(self.display_sitename))")

@@ -32,7 +32,7 @@ class SettingsTableViewController: UITableViewController {
                 InfoView.showIn(viewController: self, message: "Hi!")
                 tableView.deselectRow(at: indexPath, animated: true)
             case 2:
-                UIPasteboard.general.string = RealmManager.url.path
+                UIPasteboard.general.string = RealmFavoritesManager.url.path
                 InfoView.showIn(viewController: self, message: "Copied!")
                 tableView.deselectRow(at: indexPath, animated: true)
             case 3:

@@ -1,5 +1,5 @@
 //
-//  ImageBaseViewController.swift
+//  FavoirtesViewController.swift
 //  ImageSearch
 //
 //  Created by pook on 6/11/20.
@@ -7,25 +7,48 @@
 //
 
 import UIKit
-import Kingfisher
+import RealmSwift
 
-// ImageBaseViewController는 SearchViewController와 FavoritesViewController가 inherit하는 클래스 입니다.
-// 두 View는 공통적으로 UICollectionView를 사용하기 때문에 서로 공유하는 method를 여기에 넣었습니다.
+// Favorite된 사진들을 모아보는 View 입니다.
 
-class ImageBaseViewController: UIViewController {
+class FavoirtesViewController: UIViewController {
+    
+    private var FBM_delegate_idx: Int?
+    private var token: NotificationToken?
+    
+    //
 
-    var imageInfo: [ImageInfo] = []
-    weak var cv: UICollectionView?
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    //
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        // Do any additional setup after loading the view.
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
+        }
+        
+        let results = RealmFavoritesManager.favorites
+        // MARK: Todo - invalidate on deinit
+        token = results.observe { [weak self] (changes: RealmCollectionChange) in
+            switch changes {
+            case .initial(_):
+                self?.collectionView.reloadData()
+            case .update(_, _, _, _):
+                self?.collectionView.reloadData()
+            case .error(let error):
+                fatalError(error.localizedDescription)
+            }
+        }
     }
 }
 
-extension ImageBaseViewController: UICollectionViewDataSource {
+extension FavoirtesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.imageInfo.count
+        return RealmFavoritesManager.favorites.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -34,13 +57,13 @@ extension ImageBaseViewController: UICollectionViewDataSource {
             fatalError("Failed to load ImageBaseCollectionViewCell on SearchViewController")
         }
         
-        let i = self.imageInfo[indexPath.row]
-        cell.imageInfo = i
+        let imageInfo = RealmFavoritesManager.favorites[indexPath.row]
+        cell.imageInfo = imageInfo
         
         cell.thumbnailImage.kf.indicatorType = .activity
-        cell.thumbnailImage.kf.setImage(with: URL(string: i.thumbnail_url), placeholder: nil)
+        cell.thumbnailImage.kf.setImage(with: URL(string: imageInfo.thumbnail_url), placeholder: nil)
         //cell.contentView.backgroundColor = .red
-        cell.siteName.text = i.display_sitename
+        cell.siteName.text = imageInfo.display_sitename
         let rancom_color = UIColor.getRamdomColor()
         cell.layer.shadowColor = rancom_color.color.cgColor
         cell.siteName.textColor = rancom_color.inverted
@@ -52,7 +75,7 @@ extension ImageBaseViewController: UICollectionViewDataSource {
         cell.layer.borderWidth = 1
         cell.layer.borderColor = rancom_color.inverted.cgColor
         
-        if FavoritesManager.shared.list.contains(i) {
+        if RealmFavoritesManager.didFavorite(imageInfo) != nil {
             cell.starImage.image = UIImage(systemName: "star.fill")
             cell.favorited = true
         } else {
@@ -64,7 +87,7 @@ extension ImageBaseViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cell = self.cv?.cellForItem(at: indexPath) as? ImageBaseCollectionViewCell {
+        if let cell = self.collectionView?.cellForItem(at: indexPath) as? ImageBaseCollectionViewCell {
             self.performSegue(withIdentifier: "ShowDetail", sender: cell)
         }
     }
@@ -73,7 +96,7 @@ extension ImageBaseViewController: UICollectionViewDataSource {
         super.prepare(for: segue, sender: sender)
         switch segue.identifier ?? "" {
         case "ShowDetail":
-            guard let cell = sender as? ImageBaseCollectionViewCell, let indexPath = cv?.indexPath(for: cell) else {
+            guard let cell = sender as? ImageBaseCollectionViewCell, let indexPath = collectionView?.indexPath(for: cell) else {
                 fatalError("Unexpected cell.")
             }
             guard let destNC = segue.destination as? UINavigationController else {
@@ -81,7 +104,7 @@ extension ImageBaseViewController: UICollectionViewDataSource {
             }
             let destVC = destNC.topViewController as! DetailViewController
             
-            destVC.imageInfo = self.imageInfo[indexPath.row]
+            destVC.imageInfo = RealmFavoritesManager.favorites[indexPath.row]
         default:
             fatalError("Unexpected destination.")
         }
@@ -89,7 +112,7 @@ extension ImageBaseViewController: UICollectionViewDataSource {
     
 }
 
-extension ImageBaseViewController: UICollectionViewDelegateFlowLayout {
+extension FavoirtesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let viewWidth = view.frame.width
         let itemsInRow: CGFloat = CGFloat(Int(viewWidth / 115))

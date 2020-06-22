@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 // 검색하는 View 입니다.
 
-class SearchViewController: ImageBaseViewController {
+class SearchViewController: UIViewController {
     
     let searchController = UISearchController(searchResultsController: nil)
-    private var FBM_delegate_idx: Int?
     
     //
     
@@ -22,6 +22,8 @@ class SearchViewController: ImageBaseViewController {
     var search_text = ""
     var search_done = false
     var scroll_done = false
+    var imageInfo: [ImageInfo] = []
+    private var token: NotificationToken?
     
     //
     
@@ -37,15 +39,26 @@ class SearchViewController: ImageBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        super.cv = self.collectionView
         // Do any additional setup after loading the view.
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.searchController.searchResultsUpdater = self
         self.searchController.searchBar.delegate = self
-        FBM_delegate_idx = FavoritesManager.shared.delegates.count
-        FavoritesManager.shared.delegates.append(self)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        
         self.navigationItem.searchController = searchController
+        
+        let results = RealmFavoritesManager.favorites
+        // MARK: Todo - invalidate on deinit
+        self.token = results.observe { [weak self] (changes: RealmCollectionChange) in
+            switch changes {
+            case .initial(_): ()
+            case .update(_, _, _, _):
+                self?.collectionView.reloadData()
+            case .error(let error):
+                fatalError(error.localizedDescription)
+            }
+        }
     }
     
     private func showActionSheet() {
@@ -54,7 +67,7 @@ class SearchViewController: ImageBaseViewController {
         let showInfoViewAction = UIAlertAction(title: "Show InfoView", style: .default, handler: { _ in InfoView.showIn(viewController: self, message: "Test")})
         let showActivitorIndicator = UIAlertAction(title: "Show Activity Indicator", style: .default, handler: { _ in self.activityIndicator.isHidden = false })
         let randomizeAllCellColours = UIAlertAction(title: "Randomize All Colours", style: .default, handler: { _ in
-            for idx in 0..<super.imageInfo.count {
+            for idx in 0..<self.imageInfo.count {
                 let indexPath = IndexPath(row: idx, section: 0)
                 self.collectionView.cellForItem(at: indexPath)?.layer.shadowColor = UIColor.getRamdomColor().color.cgColor
             }
@@ -107,11 +120,11 @@ extension SearchViewController {
             completion: { (decoded) in
                 DispatchQueue.main.async { //[weak super] in
                     if reset {
-                        super.imageInfo = []
+                        self.imageInfo = []
                     }
                     decoded.documents.forEach { foo in
                         let imageInfo = ImageInfo(display_sitename: foo.display_sitename, doc_url: foo.doc_url, thumbnail_url: foo.thumbnail_url, image_url: foo.image_url)
-                        super.imageInfo.append(imageInfo)
+                        self.imageInfo.append(imageInfo)
                     }
                 }
                 DispatchQueue.main.async { [weak self] in
@@ -131,7 +144,7 @@ extension SearchViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.item == super.imageInfo.count - 3 {
+        if indexPath.item == self.imageInfo.count - 3 {
             if search_done && scroll_done {
                 search_done = false
                 scroll_done = false
@@ -150,24 +163,103 @@ extension SearchViewController {
     }
 }
 
-// 새로운 Favorite이 들어오면 실행
-extension SearchViewController: FavortiesDelegate {
-    func performFavoritesChange(_ new: ImageInfo) {
-        guard let cells = self.collectionView.visibleCells as? [ImageBaseCollectionViewCell] else {
-            return
+extension SearchViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.imageInfo.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageBaseCollectionViewCell", for: indexPath) as? ImageBaseCollectionViewCell else {
+            fatalError("Failed to load ImageBaseCollectionViewCell on SearchViewController")
         }
         
-        cells.forEach { cell in
-            if cell.imageInfo == new {
-                cell.favorited.toggle()
-                if cell.favorited {
-                    cell.starImage.image = UIImage(systemName: "star.fill")
-                } else {
-                    cell.starImage.image = UIImage(systemName: "star")
-                }
-                return
-            }
+        let i = self.imageInfo[indexPath.row]
+        cell.imageInfo = i
+        
+        cell.thumbnailImage.kf.indicatorType = .activity
+        cell.thumbnailImage.kf.setImage(with: URL(string: i.thumbnail_url), placeholder: nil)
+        //cell.contentView.backgroundColor = .red
+        cell.siteName.text = i.display_sitename
+        let rancom_color = UIColor.getRamdomColor()
+        cell.layer.shadowColor = rancom_color.color.cgColor
+        cell.siteName.textColor = rancom_color.inverted
+        cell.layer.shadowOpacity = 1
+        cell.layer.shadowOffset = .zero
+        cell.layer.shadowRadius = 8
+        
+        cell.layer.cornerRadius = 8.0
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = rancom_color.inverted.cgColor
+        
+        if RealmFavoritesManager.didFavorite(i) != nil {
+            cell.starImage.image = UIImage(systemName: "star.fill")
+            cell.favorited = true
+        } else {
+            cell.starImage.image = UIImage(systemName: "star")
+            cell.favorited = false
         }
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = self.collectionView?.cellForItem(at: indexPath) as? ImageBaseCollectionViewCell {
+            self.performSegue(withIdentifier: "ShowDetail", sender: cell)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        switch segue.identifier ?? "" {
+        case "ShowDetail":
+            guard let cell = sender as? ImageBaseCollectionViewCell, let indexPath = self.collectionView?.indexPath(for: cell) else {
+                fatalError("Unexpected cell.")
+            }
+            guard let destNC = segue.destination as? UINavigationController else {
+                fatalError("Unexpected destination.")
+            }
+            let destVC = destNC.topViewController as! DetailViewController
+            
+            destVC.imageInfo = self.imageInfo[indexPath.row]
+        default:
+            fatalError("Unexpected destination.")
+        }
+    }
+    
+}
+
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let viewWidth = view.frame.width
+        let itemsInRow: CGFloat = CGFloat(Int(viewWidth / 115))
+        var spacing = (view.frame.width - 115 * itemsInRow) / (2 * itemsInRow)
+
+        if spacing < CGFloat(0) { // minimum spacing
+            spacing = 0 // set to minumum spacing
+        }
+        return UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
     }
 }
 
+
+// 새로운 Favorite이 들어오면 실행
+//extension SearchViewController: FavortiesDelegate {
+//    func performFavoritesChange(_ new: ImageInfo) {
+//        guard let cells = self.collectionView.visibleCells as? [ImageBaseCollectionViewCell] else {
+//            return
+//        }
+//
+//        cells.forEach { cell in
+//            if cell.imageInfo == new {
+//                cell.favorited.toggle()
+//                if cell.favorited {
+//                    cell.starImage.image = UIImage(systemName: "star.fill")
+//                } else {
+//                    cell.starImage.image = UIImage(systemName: "star")
+//                }
+//                return
+//            }
+//        }
+//    }
+//}

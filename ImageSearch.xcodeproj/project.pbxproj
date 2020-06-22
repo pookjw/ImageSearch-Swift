@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		8B88F0D61B72E9A873787AE7 /* Pods_ImageSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484E5D114E441FE20F4FCD0A /* Pods_ImageSearch.framework */; };
 		F321EF48249700C600B8699B /* InfoViewSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F321EF47249700C600B8699B /* InfoViewSettingsTableViewController.swift */; };
-		F321EF5F24973F6500B8699B /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F321EF5E24973F6500B8699B /* RealmManager.swift */; };
+		F321EF5F24973F6500B8699B /* RealmFavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F321EF5E24973F6500B8699B /* RealmFavoritesManager.swift */; };
 		F350AC9A2494C05600311652 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350AC992494C05600311652 /* SettingsTableViewController.swift */; };
 		F350ACAC2494CA3300311652 /* TimerSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350ACAB2494CA3300311652 /* TimerSettingsTableViewController.swift */; };
 		F356B91A2491C92B00703B54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F356B9192491C92B00703B54 /* AppDelegate.swift */; };
@@ -18,6 +18,7 @@
 		F356B9252491C92C00703B54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F356B9242491C92C00703B54 /* Assets.xcassets */; };
 		F356B9282491C92C00703B54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F356B9262491C92C00703B54 /* LaunchScreen.storyboard */; };
 		F356B9322491CC1400703B54 /* ImageBaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F356B9312491CC1400703B54 /* ImageBaseCollectionViewCell.swift */; };
+		F37BE74A24A0D5DC00A60380 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37BE74924A0D5DC00A60380 /* SearchViewModel.swift */; };
 		F3D1BACB2493B4030060FF8B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D1BACA2493B4030060FF8B /* DetailViewController.swift */; };
 		F3D1BACD2493B7FE0060FF8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3D1BACC2493B7FE0060FF8B /* Main.storyboard */; };
 		F3D1BACF2493C5050060FF8B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D1BACE2493C5050060FF8B /* WebViewController.swift */; };
@@ -26,13 +27,11 @@
 		F3E9D43024951684004DBC81 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9D42F24951684004DBC81 /* SearchManager.swift */; };
 		F3E9D447249607C7004DBC81 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9D446249607C7004DBC81 /* SettingsManager.swift */; };
 		F3E9D44924962EA1004DBC81 /* NetworkSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9D44824962EA1004DBC81 /* NetworkSettingsTableViewController.swift */; };
-		F3ED65C32491FD3000969F14 /* ImageBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65C12491FD3000969F14 /* ImageBaseViewController.swift */; };
 		F3ED65C82491FEA800969F14 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65C72491FEA800969F14 /* SearchViewController.swift */; };
 		F3ED65CD2491FF9B00969F14 /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65CC2491FF9B00969F14 /* ImageInfo.swift */; };
 		F3ED65D9249217CC00969F14 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3ED65D8249217CC00969F14 /* InfoView.xib */; };
 		F3ED65DB2492180400969F14 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65DA2492180400969F14 /* InfoView.swift */; };
 		F3ED65DE24922A9500969F14 /* UIColor+getRandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65DD24922A9500969F14 /* UIColor+getRandomColor.swift */; };
-		F3ED65E02492310B00969F14 /* FavortiesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED65DF2492310B00969F14 /* FavortiesManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +39,7 @@
 		484E5D114E441FE20F4FCD0A /* Pods_ImageSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61565CCF8F1DBA4E9927976B /* Pods-ImageSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageSearch.release.xcconfig"; path = "Target Support Files/Pods-ImageSearch/Pods-ImageSearch.release.xcconfig"; sourceTree = "<group>"; };
 		F321EF47249700C600B8699B /* InfoViewSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewSettingsTableViewController.swift; sourceTree = "<group>"; };
-		F321EF5E24973F6500B8699B /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		F321EF5E24973F6500B8699B /* RealmFavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmFavoritesManager.swift; sourceTree = "<group>"; };
 		F350AC992494C05600311652 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		F350ACAB2494CA3300311652 /* TimerSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSettingsTableViewController.swift; sourceTree = "<group>"; };
 		F356B9162491C92B00703B54 /* ImageSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +50,7 @@
 		F356B9272491C92C00703B54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F356B9292491C92C00703B54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F356B9312491CC1400703B54 /* ImageBaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		F37BE74924A0D5DC00A60380 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		F3D1BACA2493B4030060FF8B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F3D1BACC2493B7FE0060FF8B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F3D1BACE2493C5050060FF8B /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -59,14 +59,12 @@
 		F3E9D42F24951684004DBC81 /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
 		F3E9D446249607C7004DBC81 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		F3E9D44824962EA1004DBC81 /* NetworkSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSettingsTableViewController.swift; sourceTree = "<group>"; };
-		F3ED65C12491FD3000969F14 /* ImageBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBaseViewController.swift; sourceTree = "<group>"; };
 		F3ED65C72491FEA800969F14 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F3ED65CC2491FF9B00969F14 /* ImageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInfo.swift; sourceTree = "<group>"; };
 		F3ED65D8249217CC00969F14 /* InfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
 		F3ED65DA2492180400969F14 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		F3ED65DC2492261700969F14 /* ImageSearch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageSearch.entitlements; sourceTree = "<group>"; };
 		F3ED65DD24922A9500969F14 /* UIColor+getRandomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+getRandomColor.swift"; sourceTree = "<group>"; };
-		F3ED65DF2492310B00969F14 /* FavortiesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavortiesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,18 +121,9 @@
 		F350ACA82494CA0300311652 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				F3ED65C72491FEA800969F14 /* SearchViewController.swift */,
 				F3E9D41A2494DC87004DBC81 /* MyActivityIndicator.swift */,
 			);
 			path = Search;
-			sourceTree = "<group>";
-		};
-		F350ACA92494CA0A00311652 /* Favorites */ = {
-			isa = PBXGroup;
-			children = (
-				F356B91F2491C92B00703B54 /* FavoirtesViewController.swift */,
-			);
-			path = Favorites;
 			sourceTree = "<group>";
 		};
 		F350ACAA2494CA1100311652 /* Detail */ = {
@@ -167,8 +156,10 @@
 		F356B9182491C92B00703B54 /* ImageSearch */ = {
 			isa = PBXGroup;
 			children = (
+				F37BE74824A0D54600A60380 /* ViewModels */,
+				F37BE72424A0D35300A60380 /* Models */,
+				F3ED65CA2491FF3C00969F14 /* ViewControllers */,
 				F3ED65DC2492261700969F14 /* ImageSearch.entitlements */,
-				F3ED65CA2491FF3C00969F14 /* Views */,
 				F3ED65C92491FF2400969F14 /* Sources */,
 				F356B9192491C92B00703B54 /* AppDelegate.swift */,
 				F356B91B2491C92B00703B54 /* SceneDelegate.swift */,
@@ -180,36 +171,50 @@
 			path = ImageSearch;
 			sourceTree = "<group>";
 		};
+		F37BE72424A0D35300A60380 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F37BE74824A0D54600A60380 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F37BE74924A0D5DC00A60380 /* SearchViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		F3ED65C92491FF2400969F14 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				F3ED65CC2491FF9B00969F14 /* ImageInfo.swift */,
 				F3ED65DD24922A9500969F14 /* UIColor+getRandomColor.swift */,
-				F3ED65DF2492310B00969F14 /* FavortiesManager.swift */,
 				F3E9D42F24951684004DBC81 /* SearchManager.swift */,
 				F3E9D446249607C7004DBC81 /* SettingsManager.swift */,
-				F321EF5E24973F6500B8699B /* RealmManager.swift */,
+				F321EF5E24973F6500B8699B /* RealmFavoritesManager.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		F3ED65CA2491FF3C00969F14 /* Views */ = {
+		F3ED65CA2491FF3C00969F14 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F3ED65C72491FEA800969F14 /* SearchViewController.swift */,
+				F356B91F2491C92B00703B54 /* FavoirtesViewController.swift */,
 				F3ED65CB2491FF4400969F14 /* Base */,
 				F350ACAA2494CA1100311652 /* Detail */,
-				F350ACA92494CA0A00311652 /* Favorites */,
 				F350ACA82494CA0300311652 /* Search */,
 				F350ACA72494C9F700311652 /* InfoView */,
 				F350ACA62494C9EA00311652 /* Settings */,
 			);
-			path = Views;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		F3ED65CB2491FF4400969F14 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				F3ED65C12491FD3000969F14 /* ImageBaseViewController.swift */,
 				F356B9312491CC1400703B54 /* ImageBaseCollectionViewCell.swift */,
 			);
 			path = Base;
@@ -338,7 +343,6 @@
 				F356B9202491C92B00703B54 /* FavoirtesViewController.swift in Sources */,
 				F3ED65DE24922A9500969F14 /* UIColor+getRandomColor.swift in Sources */,
 				F350ACAC2494CA3300311652 /* TimerSettingsTableViewController.swift in Sources */,
-				F3ED65C32491FD3000969F14 /* ImageBaseViewController.swift in Sources */,
 				F3E9D41B2494DC87004DBC81 /* MyActivityIndicator.swift in Sources */,
 				F3E9D447249607C7004DBC81 /* SettingsManager.swift in Sources */,
 				F321EF48249700C600B8699B /* InfoViewSettingsTableViewController.swift in Sources */,
@@ -346,9 +350,9 @@
 				F3E9D44924962EA1004DBC81 /* NetworkSettingsTableViewController.swift in Sources */,
 				F3D1BACF2493C5050060FF8B /* WebViewController.swift in Sources */,
 				F356B9322491CC1400703B54 /* ImageBaseCollectionViewCell.swift in Sources */,
-				F3ED65E02492310B00969F14 /* FavortiesManager.swift in Sources */,
+				F37BE74A24A0D5DC00A60380 /* SearchViewModel.swift in Sources */,
 				F356B91A2491C92B00703B54 /* AppDelegate.swift in Sources */,
-				F321EF5F24973F6500B8699B /* RealmManager.swift in Sources */,
+				F321EF5F24973F6500B8699B /* RealmFavoritesManager.swift in Sources */,
 				F356B91C2491C92B00703B54 /* SceneDelegate.swift in Sources */,
 				F3E9D43024951684004DBC81 /* SearchManager.swift in Sources */,
 			);

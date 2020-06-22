@@ -21,13 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
-        
-        let realmManager = RealmManager()
-        realmManager.realm?.objects(ImageInfo.self).forEach {
-            FavoritesManager.shared.update($0)
-        }
-        FavoritesManager.shared.delegates.append(realmManager)
-    
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
