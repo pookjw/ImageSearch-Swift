@@ -12,6 +12,7 @@ class InfoViewSettingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.tableView.reloadData()
         self.updateCheckMark()
     }
@@ -48,8 +49,9 @@ class InfoViewSettingsTableViewController: UITableViewController {
     
     // Provide a cell object for each row.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Fetch a cell of the appropriate type.
-        let cell = UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
+            fatalError("Failed to load cell")
+        }
         
         switch indexPath.section {
         case 0:

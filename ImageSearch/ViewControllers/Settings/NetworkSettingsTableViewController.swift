@@ -12,7 +12,8 @@ class NetworkSettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.reloadData()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.reloadData()
         self.updateCheckMark()
     }
     
@@ -24,7 +25,7 @@ class NetworkSettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return SearchManaer.NetworkType.allCases.count
+            return SearchModel.NetworkType.allCases.count
         default:
             return 0
         }
@@ -40,7 +41,7 @@ class NetworkSettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch section {
         case 0:
-            return ""
+            return "Only applies on SearchViewController."
         default:
             return ""
         }
@@ -48,8 +49,9 @@ class NetworkSettingsTableViewController: UITableViewController {
     
     // Provide a cell object for each row.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Fetch a cell of the appropriate type.
-        let cell = UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
+            fatalError("Failed to load cell")
+        }
         
         switch indexPath.section {
         case 0:
@@ -71,7 +73,7 @@ class NetworkSettingsTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let newValue = SearchManaer.NetworkType(rawValue: indexPath.row) else {
+        guard let newValue = SearchModel.NetworkType(rawValue: indexPath.row) else {
             fatalError("Invalid NetworkType index.")
         }
         SettingsManager.nekwork_type = newValue

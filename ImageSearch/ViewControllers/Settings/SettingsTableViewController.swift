@@ -36,7 +36,6 @@ class SettingsTableViewController: UITableViewController {
                 InfoView.showIn(viewController: self, message: "Copied!")
                 tableView.deselectRow(at: indexPath, animated: true)
             case 3:
-                SearchManaer.shared.request(text: "Hi", page: 1, errorHandler: {_ in}, completion: {_ in})
                 tableView.deselectRow(at: indexPath, animated: true)
             default:
                 ()
