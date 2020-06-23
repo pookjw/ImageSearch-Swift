@@ -13,8 +13,8 @@ class InfoViewSettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        self.tableView.reloadData()
-        self.updateCheckMark()
+        tableView.reloadData()
+        updateCheckMark()
     }
     
     // Return the number of rows for the table.
@@ -79,7 +79,7 @@ class InfoViewSettingsTableViewController: UITableViewController {
             fatalError("Invalid ViewType index.")
         }
         SettingsManager.infoview_type = newValue
-        self.updateCheckMark()
+        updateCheckMark()
         InfoView.showIn(viewController: self, message: "Updated!")
         tableView.deselectRow(at: indexPath, animated: true)
     }

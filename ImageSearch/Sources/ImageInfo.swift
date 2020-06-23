@@ -24,24 +24,24 @@ class ImageInfo: Object {
     }
     
     required init() {
-        self.display_sitename = ""
-        self.doc_url = ""
-        self.thumbnail_url = ""
-        self.image_url = ""
+        display_sitename = ""
+        doc_url = ""
+        thumbnail_url = ""
+        image_url = ""
     }
     
     func newRef() -> ImageInfo {
         return ImageInfo(
-            display_sitename: self.display_sitename,
-            doc_url: self.doc_url,
-            thumbnail_url: self.thumbnail_url,
-            image_url: self.image_url
+            display_sitename: display_sitename,
+            doc_url: doc_url,
+            thumbnail_url: thumbnail_url,
+            image_url: image_url
         )
     }
     
     deinit {
         if SettingsManager.show_deinit_log_message {
-            print("deinit: ImageInfo (\(self.display_sitename))")
+            print("deinit: ImageInfo (\(display_sitename))")
         }
     }
 }

@@ -11,12 +11,11 @@ import UIKit
 // InfoView의 Timer를 설정하는 View 입니다. 설정값은 SearchManager에게 전달됩니다.
 
 class TimerSettingsTableViewController: UITableViewController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        self.tableView.reloadData()
-        self.updateCheckMark()
+        tableView.reloadData()
+        updateCheckMark()
     }
     
     // Return the number of rows for the table.
@@ -89,7 +88,7 @@ class TimerSettingsTableViewController: UITableViewController {
             fatalError("Invalid TimerType index.")
         }
         SettingsManager.infoview_timer = newValue
-        self.updateCheckMark()
+        updateCheckMark()
         InfoView.showIn(viewController: self, message: "Updated to a new Timer!")
         tableView.deselectRow(at: indexPath, animated: true)
     }

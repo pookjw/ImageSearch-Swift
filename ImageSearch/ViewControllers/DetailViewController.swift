@@ -17,30 +17,30 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var starBarBtn: UIBarButtonItem!
     @IBOutlet weak var activityIndicator: MyActivityIndicator!
     @IBAction func closeButton(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: {})
+        dismiss(animated: true, completion: {})
     }
     @IBAction func saveButton(_ sender: Any) {
-        self.activityIndicator.isHidden = false
+        activityIndicator.isHidden = false
         detailModel.savePhoto(self)
     }
     @IBAction func starBtn(_ sender: Any) {
         RealmFavoritesManager.update(detailModel.imageInfo)
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     @IBAction func safariBtn(_ sender: Any) {
-        self.performSegue(withIdentifier: "ShowWeb", sender: self)
+        performSegue(withIdentifier: "ShowWeb", sender: self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = detailModel.imageInfo.display_sitename
-        self.largeImage.kf.indicatorType = .activity
-        self.largeImage.kf.setImage(with: URL(string: detailModel.imageInfo.image_url))
+        title = detailModel.imageInfo.display_sitename
+        largeImage.kf.indicatorType = .activity
+        largeImage.kf.setImage(with: URL(string: detailModel.imageInfo.image_url))
         
         if RealmFavoritesManager.didFavorite(detailModel.imageInfo) != nil {
-            self.starBarBtn.image = UIImage(systemName: "star.fill")
+            starBarBtn.image = UIImage(systemName: "star.fill")
         } else {
-            self.starBarBtn.image = UIImage(systemName: "star")
+            starBarBtn.image = UIImage(systemName: "star")
         }
     }
     

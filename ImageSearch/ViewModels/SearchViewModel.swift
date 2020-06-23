@@ -38,9 +38,9 @@ class SearchViewModel {
         }
         
         if currentPage == nil {
-            self.currentPage = 1
+            currentPage = 1
         } else {
-            self.currentPage! += 1
+            currentPage! += 1
         }
         
         if maxPage != nil {

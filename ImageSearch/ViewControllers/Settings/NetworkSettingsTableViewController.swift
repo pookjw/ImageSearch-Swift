@@ -14,7 +14,7 @@ class NetworkSettingsTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.reloadData()
-        self.updateCheckMark()
+        updateCheckMark()
     }
     
     // Return the number of rows for the table.
@@ -77,7 +77,7 @@ class NetworkSettingsTableViewController: UITableViewController {
             fatalError("Invalid NetworkType index.")
         }
         SettingsManager.nekwork_type = newValue
-        self.updateCheckMark()
+        updateCheckMark()
         InfoView.showIn(viewController: self, message: "Updated!")
         tableView.deselectRow(at: indexPath, animated: true)
     }

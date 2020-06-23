@@ -13,17 +13,12 @@ import WebKit
 // URL Scheme를 통해 Chrome 앱으로 이동시키는 것도 넣어볼까 생각 중입니다.
 
 class WebViewController: UIViewController {
-    
     var url: URL!
     
-    //
-    
     @IBOutlet weak var web: WKWebView!
-    
     @IBAction func doneBtn(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
-    
     @IBAction func reloadBtn(_ sender: UIBarButtonItem) {
         web.reload()
     }
@@ -42,7 +37,6 @@ class WebViewController: UIViewController {
             UIApplication.shared.open(web.url ?? URL(string: "https://smoothy.co/ko")!, options: [:], completionHandler: nil)
         }
     }
-    //
     
     override func viewDidLoad() {
         super.viewDidLoad()

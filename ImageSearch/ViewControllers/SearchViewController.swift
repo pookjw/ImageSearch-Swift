@@ -21,15 +21,15 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationItem.searchController = searchController
-        self.searchController.searchResultsUpdater = self
-        self.searchController.searchBar.delegate = self
-        self.collectionView.dataSource = self
-        self.collectionView.delegate = self
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.searchController = searchController
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        collectionView.dataSource = self
+        collectionView.delegate = self
         
         let results = RealmFavoritesManager.favorites
-        self.token = results.observe { [weak self] (changes: RealmCollectionChange) in
+        token = results.observe { [weak self] (changes: RealmCollectionChange) in
             switch changes {
             case .initial(_): ()
             case .update(_, _, _, _):
@@ -44,7 +44,7 @@ class SearchViewController: UIViewController {
         super.prepare(for: segue, sender: sender)
         switch segue.identifier ?? "" {
         case "ShowDetail":
-            guard let cell = sender as? ImageCollectionViewCell, let indexPath = self.collectionView?.indexPath(for: cell) else {
+            guard let cell = sender as? ImageCollectionViewCell, let indexPath = collectionView?.indexPath(for: cell) else {
                 fatalError("Unexpected cell.")
             }
             guard let destNC = segue.destination as? UINavigationController else {
@@ -88,11 +88,11 @@ extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        self.activityIndicator.isHidden = false
+        activityIndicator.isHidden = false
         guard let text = searchBar.text else { return }
         searchViewModel.searchText = text
         searchViewModel.request(errorHandler: searchErrorHandler, completion: searchCompletion)
-        self.searchController.isActive = false
+        searchController.isActive = false
     }
 }
 
@@ -136,7 +136,7 @@ extension SearchViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = self.collectionView?.cellForItem(at: indexPath) as? ImageCollectionViewCell {
-            self.performSegue(withIdentifier: "ShowDetail", sender: cell)
+            performSegue(withIdentifier: "ShowDetail", sender: cell)
         }
     }
 }

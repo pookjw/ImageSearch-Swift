@@ -43,7 +43,7 @@ class SearchModel {
     func request(text: String, page: Int, errorHandler: @escaping ((Error) -> ()), completion: @escaping ((SearchResult) -> ())) {
         switch SettingsManager.nekwork_type {
         case .urlsession:
-            guard let url = URL(string: self.API), var components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+            guard let url = URL(string: API), var components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
                 errorHandler(SearchError.invalidURL)
                 return
             }
@@ -107,7 +107,7 @@ class SearchModel {
                 "Authorization": "KakaoAK \(KakaoAK)"
             ]
             
-            AF.request(self.API, method: .get, parameters: parameters, headers: headers, requestModifier: { $0.timeoutInterval = 10 })
+            AF.request(API, method: .get, parameters: parameters, headers: headers, requestModifier: { $0.timeoutInterval = 10 })
                 .validate(statusCode: 200...299)
                 .responseJSON(queue: DispatchQueue.global(), completionHandler: { response in
                     switch response.result {

@@ -17,9 +17,8 @@ class FavoirtesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        self.collectionView.dataSource = self
-        self.collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.delegate = self
         DispatchQueue.main.async { [weak self] in
             self?.collectionView.reloadData()
         }
@@ -103,7 +102,7 @@ extension FavoirtesViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = self.collectionView?.cellForItem(at: indexPath) as? ImageCollectionViewCell {
-            self.performSegue(withIdentifier: "ShowDetail", sender: cell)
+            performSegue(withIdentifier: "ShowDetail", sender: cell)
         }
     }
 }
