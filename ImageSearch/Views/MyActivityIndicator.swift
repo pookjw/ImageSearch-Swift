@@ -10,7 +10,7 @@ import UIKit
 
 // SearchViewController, DetailViewController에서 사용됩니다.
 
-class MyActivityIndicator: UIActivityIndicatorView {
+final class MyActivityIndicator: UIActivityIndicatorView {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        self.isHidden = true
     }

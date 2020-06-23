@@ -3,13 +3,13 @@ import SnapKit
 
 // 화면에 알림창을 띄우는 View 입니다.
 
-class InfoView: UIView {
+final class InfoView: UIView {
     
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     
     static var view_idx: [Int] = []
-    var current_view_idx = 0
+    private var current_view_idx = 0
     
     enum TimerType: Int, CaseIterable {
         case one = 0, two, three, four, five
@@ -92,7 +92,7 @@ class InfoView: UIView {
         fadeOut()
     }
     
-    func fadeIn() {
+    private func fadeIn() {
         UIView.animate(withDuration: 0.33, animations: { [weak self] in
             self?.alpha = 1.0
         })
@@ -107,7 +107,7 @@ class InfoView: UIView {
         }
     }
     
-    func fadeOut_Timer() {
+    private func fadeOut_Timer() {
         switch SettingsManager.infoview_timer {
         case .one:
             var count = 0
@@ -140,7 +140,7 @@ class InfoView: UIView {
         }
     }
     
-    @objc func fadeOut() {
+    @objc private func fadeOut() {
         UIView.animate(withDuration: 0.33, animations: { [weak self] in
             self?.alpha = 0.0
             }, completion: { [weak self] _ in

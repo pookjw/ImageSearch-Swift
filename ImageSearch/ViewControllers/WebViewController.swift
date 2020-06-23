@@ -12,7 +12,7 @@ import WebKit
 // DetailViewController에서 문서를 열여주는 View 입니다. Safari 앱으로 이동시킬 수도 있습니다.
 // URL Scheme를 통해 Chrome 앱으로 이동시키는 것도 넣어볼까 생각 중입니다.
 
-class WebViewController: UIViewController {
+final class WebViewController: UIViewController {
     var url: URL!
     
     @IBOutlet weak var web: WKWebView!

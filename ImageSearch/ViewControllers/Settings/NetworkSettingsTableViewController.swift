@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NetworkSettingsTableViewController: UITableViewController {
+final class NetworkSettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

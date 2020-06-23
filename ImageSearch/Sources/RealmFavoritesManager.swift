@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class RealmFavoritesManager {
+final class RealmFavoritesManager {
     
     static let url: URL = {
         do {
@@ -33,7 +33,7 @@ class RealmFavoritesManager {
         }
     }()
     
-    fileprivate enum RealmManagerError: Error {
+    private enum RealmManagerError: Error {
         case FailedToFindDocumentDirectory
     }
     

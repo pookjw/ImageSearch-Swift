@@ -10,7 +10,7 @@ import UIKit
 import Photos
 import Alamofire
 
-class DetailModel {
+final class DetailModel {
     var imageInfo: ImageInfo!
     
     func savePhoto(_ sender: DetailModelProtocol) {

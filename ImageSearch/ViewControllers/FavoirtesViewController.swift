@@ -11,7 +11,7 @@ import RealmSwift
 
 // Favorite된 사진들을 모아보는 View 입니다.
 
-class FavoirtesViewController: UIViewController {
+final class FavoirtesViewController: UIViewController {
     private var token: NotificationToken?
     @IBOutlet weak var collectionView: UICollectionView!
     

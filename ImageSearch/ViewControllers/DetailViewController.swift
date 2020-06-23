@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 import Photos
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
     let detailModel: DetailModel = DetailModel()
     
     @IBOutlet weak var largeImage: UIImageView!
@@ -66,7 +66,7 @@ class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: DetailModelProtocol {
-    internal func savedPhotoCompletion(_ error: Error? = nil) {
+    func savedPhotoCompletion(_ error: Error? = nil) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             if let error = error {
@@ -78,7 +78,7 @@ extension DetailViewController: DetailModelProtocol {
         }
     }
     
-    @objc internal func savedPhotoCompletion(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+    @objc func savedPhotoCompletion(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
         savedPhotoCompletion(error)
     }
 }

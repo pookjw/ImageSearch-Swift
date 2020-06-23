@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 // 사진 데이터
-class ImageInfo: Object {
+final class ImageInfo: Object {
     @objc dynamic var display_sitename: String
     @objc dynamic var doc_url: String
     @objc dynamic var thumbnail_url: String

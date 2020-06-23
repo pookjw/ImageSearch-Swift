@@ -8,10 +8,10 @@
 
 import Foundation
 
-class SearchViewModel {
+final class SearchViewModel {
     var imageInfo: [ImageInfo] = []
-    var currentPage: Int?
-    var maxPage: Int?
+    private var currentPage: Int?
+    private var maxPage: Int?
     private var _searchText: String? // Backing Storage
     var searchText: String? {
         get {
@@ -26,7 +26,7 @@ class SearchViewModel {
             _searchText = newValue
         }
     }
-    let searchModel: SearchModel
+    private let searchModel: SearchModel
     
     init() {
         searchModel = SearchModel()

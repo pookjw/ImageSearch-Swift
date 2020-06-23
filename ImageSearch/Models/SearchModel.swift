@@ -25,9 +25,9 @@ struct Documents: Decodable {
     var image_url: String
 }
 
-class SearchModel {
-    let API = "https://dapi.kakao.com/v2/search/image"
-    let KakaoAK = "dff576e28ce434796a2329a6a2366d76"
+final class SearchModel {
+    private let API = "https://dapi.kakao.com/v2/search/image"
+    private let KakaoAK = "dff576e28ce434796a2329a6a2366d76"
     
     enum SearchError: Error {
         case invalidURL
@@ -126,5 +126,4 @@ class SearchModel {
                 })
         }
     }
-    
 }

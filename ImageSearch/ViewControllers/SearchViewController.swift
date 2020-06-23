@@ -11,10 +11,10 @@ import RealmSwift
 
 // 검색하는 View 입니다.
 
-class SearchViewController: UIViewController {
+final class SearchViewController: UIViewController {
     
-    let searchController = UISearchController(searchResultsController: nil)
-    let searchViewModel: SearchViewModel = SearchViewModel()
+    private let searchController = UISearchController(searchResultsController: nil)
+    private let searchViewModel: SearchViewModel = SearchViewModel()
     private var token: NotificationToken?
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: MyActivityIndicator!
