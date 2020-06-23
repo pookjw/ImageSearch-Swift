@@ -41,9 +41,6 @@ final class RealmFavoritesManager {
         do {
             let imageInfo = imageInfo.newRef()
             let realm: Realm = try Realm(configuration: RealmFavoritesManager.config)
-//            var deleted: Bool = false
-            
-            
             try realm.write() {
                 if let object = didFavorite(imageInfo) {
                     realm.delete(object)
@@ -51,23 +48,6 @@ final class RealmFavoritesManager {
                     realm.add(imageInfo)
                 }
             }
-            
-//            for object in RealmFavoritesManager.favorites {
-//                if object == imageInfo {
-//                    try realm.write() {
-//                        realm.delete(object)
-//                    }
-//                    deleted = true
-//                    break
-//                }
-//            }
-//
-//            if !deleted {
-//                try realm.write() {
-//                    realm.add(imageInfo)
-//                }
-//                print("added")
-//            }
         } catch {
             fatalError(error.localizedDescription)
         }
