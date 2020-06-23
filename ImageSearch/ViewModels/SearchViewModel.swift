@@ -51,6 +51,9 @@ final class SearchViewModel {
                             page: currentPage!,
                             errorHandler: errorHandler,
                             completion: { [weak self] (decoded) in
+                                if self?.currentPage == 1 {
+                                    self?.imageInfo = []
+                                }
                                 self?.searchCompletion(decoded)
                                 self?.maxPage = decoded.meta.pageable_count
                                 completion()
