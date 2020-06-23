@@ -1,47 +1,43 @@
 //
-//  SearchManager.swift
+//  SearchModel.swift
 //  ImageSearch
 //
-//  Created by pook on 6/13/20.
+//  Created by pook on 6/22/20.
 //  Copyright © 2020 jinwoopeter. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 
-typealias SearchResult = SearchManaer.SearchResult
-typealias SearchError = SearchManaer.SearchError
+struct SearchResult: Decodable {
+    let meta: Meta
+    let documents: [Documents]
+}
 
-// 검색을 담당하는 class 입니다.
-class SearchManaer {
+struct Meta: Decodable {
+    let pageable_count: Int
+}
+
+struct Documents: Decodable {
+    var display_sitename: String
+    var doc_url: String
+    var thumbnail_url: String
+    var image_url: String
+}
+
+class SearchModel {
     let API = "https://dapi.kakao.com/v2/search/image"
     let KakaoAK = "dff576e28ce434796a2329a6a2366d76"
-    
-    static let shared = SearchManaer()
-    
-    struct SearchResult: Decodable {
-        let meta: Meta
-        let documents: [Documents]
-        
-        struct Meta: Decodable {
-            let pageable_count: Int
-        }
-        
-        struct Documents: Decodable {
-            var display_sitename: String
-            var doc_url: String
-            var thumbnail_url: String
-            var image_url: String
-        }
-    }
-    
-    static let emptyResult = SearchResult(meta: SearchResult.Meta.init(pageable_count: 1), documents: [])
     
     enum SearchError: Error {
         case invalidURL
         case invalidHTTPResponse
         case httpResponse(Int)
         case invalidData
+    }
+    
+    enum NetworkType: Int, CaseIterable {
+        case urlsession = 0, alamofire
     }
     
     func request(text: String, page: Int, errorHandler: @escaping ((Error) -> ()), completion: @escaping ((SearchResult) -> ())) {
@@ -98,7 +94,6 @@ class SearchManaer {
                 do {
                     let decoder = JSONDecoder()
                     let decoded = try decoder.decode(SearchResult.self, from: data)
-                    //Thread.sleep(forTimeInterval: 3.0)
                     completion(decoded)
                 } catch {
                     errorHandler(error)
@@ -132,8 +127,4 @@ class SearchManaer {
         }
     }
     
-    enum NetworkType: Int, CaseIterable {
-        case urlsession = 0, alamofire
-    }
 }
-
