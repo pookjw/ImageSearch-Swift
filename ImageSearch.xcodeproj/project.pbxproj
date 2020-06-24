@@ -14,7 +14,7 @@
 		F350ACAC2494CA3300311652 /* TimerSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350ACAB2494CA3300311652 /* TimerSettingsTableViewController.swift */; };
 		F356B91A2491C92B00703B54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F356B9192491C92B00703B54 /* AppDelegate.swift */; };
 		F356B91C2491C92B00703B54 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F356B91B2491C92B00703B54 /* SceneDelegate.swift */; };
-		F356B9202491C92B00703B54 /* FavoirtesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F356B91F2491C92B00703B54 /* FavoirtesViewController.swift */; };
+		F356B9202491C92B00703B54 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F356B91F2491C92B00703B54 /* FavoritesViewController.swift */; };
 		F356B9252491C92C00703B54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F356B9242491C92C00703B54 /* Assets.xcassets */; };
 		F356B9282491C92C00703B54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F356B9262491C92C00703B54 /* LaunchScreen.storyboard */; };
 		F356B9322491CC1400703B54 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F356B9312491CC1400703B54 /* ImageCollectionViewCell.swift */; };
@@ -46,7 +46,7 @@
 		F356B9162491C92B00703B54 /* ImageSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F356B9192491C92B00703B54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F356B91B2491C92B00703B54 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F356B91F2491C92B00703B54 /* FavoirtesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoirtesViewController.swift; sourceTree = "<group>"; };
+		F356B91F2491C92B00703B54 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		F356B9242491C92C00703B54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F356B9272491C92C00703B54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F356B9292491C92C00703B54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -199,7 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				F3ED65C72491FEA800969F14 /* SearchViewController.swift */,
-				F356B91F2491C92B00703B54 /* FavoirtesViewController.swift */,
+				F356B91F2491C92B00703B54 /* FavoritesViewController.swift */,
 				F3D1BACA2493B4030060FF8B /* DetailViewController.swift */,
 				F3D1BACE2493C5050060FF8B /* WebViewController.swift */,
 				F350ACA62494C9EA00311652 /* Settings */,
@@ -328,7 +328,7 @@
 				F3ED65DB2492180400969F14 /* InfoView.swift in Sources */,
 				F37BE74C24A0F4E500A60380 /* SearchModel.swift in Sources */,
 				F3ED65C82491FEA800969F14 /* SearchViewController.swift in Sources */,
-				F356B9202491C92B00703B54 /* FavoirtesViewController.swift in Sources */,
+				F356B9202491C92B00703B54 /* FavoritesViewController.swift in Sources */,
 				F3ED65DE24922A9500969F14 /* UIColor+getRandomColor.swift in Sources */,
 				F350ACAC2494CA3300311652 /* TimerSettingsTableViewController.swift in Sources */,
 				F37BE76524A1127600A60380 /* DetailModel.swift in Sources */,

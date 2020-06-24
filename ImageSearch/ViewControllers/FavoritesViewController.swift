@@ -1,5 +1,5 @@
 //
-//  FavoirtesViewController.swift
+//  FavoritesViewController.swift
 //  ImageSearch
 //
 //  Created by pook on 6/11/20.
@@ -11,7 +11,7 @@ import RealmSwift
 
 // Favorite된 사진들을 모아보는 View 입니다.
 
-final class FavoirtesViewController: UIViewController {
+final class FavoritesViewController: UIViewController {
     private var token: NotificationToken?
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -58,12 +58,12 @@ final class FavoirtesViewController: UIViewController {
         guard let token = token else { return }
         token.invalidate()
         if SettingsManager.show_deinit_log_message {
-            print("deinit: FavoirtesViewController")
+            print("deinit: FavoritesViewController")
         }
     }
 }
 
-extension FavoirtesViewController: UICollectionViewDataSource {
+extension FavoritesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return RealmFavoritesManager.favorites.count
     }
@@ -105,7 +105,7 @@ extension FavoirtesViewController: UICollectionViewDataSource {
     }
 }
 
-extension FavoirtesViewController: UICollectionViewDelegateFlowLayout {
+extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let viewWidth = view.frame.width
         let itemsInRow: CGFloat = CGFloat(Int(viewWidth / 115))
