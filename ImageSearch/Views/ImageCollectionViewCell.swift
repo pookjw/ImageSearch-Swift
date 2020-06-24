@@ -13,5 +13,4 @@ final class ImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var siteName: UILabel!
     @IBOutlet weak var starImage: UIImageView!
     var imageInfo: ImageInfo?
-    var favorited: Bool = false
 }

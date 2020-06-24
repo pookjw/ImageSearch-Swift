@@ -91,10 +91,8 @@ extension FavoirtesViewController: UICollectionViewDataSource {
         
         if RealmFavoritesManager.didFavorite(imageInfo) == nil {
             cell.starImage.image = UIImage(systemName: "star")
-            cell.favorited = false
         } else {
             cell.starImage.image = UIImage(systemName: "star.fill")
-            cell.favorited = true
         }
         
         return cell
