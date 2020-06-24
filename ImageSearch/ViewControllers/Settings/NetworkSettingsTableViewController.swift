@@ -17,7 +17,6 @@ final class NetworkSettingsTableViewController: UITableViewController {
         updateCheckMark()
     }
     
-    // Return the number of rows for the table.
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -28,13 +27,6 @@ final class NetworkSettingsTableViewController: UITableViewController {
             return SearchModel.NetworkType.allCases.count
         default:
             return 0
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        default:
-            return ""
         }
     }
     

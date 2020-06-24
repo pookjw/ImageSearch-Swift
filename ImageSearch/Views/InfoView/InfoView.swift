@@ -4,7 +4,6 @@ import SnapKit
 // 화면에 알림창을 띄우는 View 입니다.
 
 final class InfoView: UIView {
-    
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     

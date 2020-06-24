@@ -17,7 +17,6 @@ final class InfoViewSettingsTableViewController: UITableViewController {
         updateCheckMark()
     }
     
-    // Return the number of rows for the table.
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -31,23 +30,6 @@ final class InfoViewSettingsTableViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        default:
-            return ""
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return ""
-        default:
-            return ""
-        }
-    }
-    
-    // Provide a cell object for each row.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
             fatalError("Failed to load cell")
