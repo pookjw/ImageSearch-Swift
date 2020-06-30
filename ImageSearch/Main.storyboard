@@ -483,7 +483,7 @@
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="x5D-HR-Zu1">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="50" height="100"/>
+                                    <size key="footerReferenceSize" width="50" height="50"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
@@ -545,44 +545,25 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SearchFooterCollectionReusableView" id="hjJ-mw-xud" customClass="SearchFooterCollectionReusableView" customModule="ImageSearch" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="145" width="414" height="100"/>
+                                    <rect key="frame" x="0.0" y="145" width="414" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3Rv-1s-uv2">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Page (1/100)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9I-xL-QIR">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                                    <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="UPh-03-rWX"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0Z-7s-Dfe">
-                                                    <rect key="frame" x="0.0" y="50" width="414" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="Eel-iK-1WW"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Load more..."/>
-                                                </button>
-                                            </subviews>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0Z-7s-Dfe">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="100" id="dPz-Sa-PSL"/>
+                                                <constraint firstAttribute="height" constant="50" id="Au1-qh-xy1"/>
                                             </constraints>
-                                        </stackView>
+                                            <state key="normal" title="Load more..."/>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="3Rv-1s-uv2" secondAttribute="trailing" id="78r-nZ-r0T"/>
-                                        <constraint firstItem="3Rv-1s-uv2" firstAttribute="top" secondItem="hjJ-mw-xud" secondAttribute="top" id="Bft-CV-72g"/>
-                                        <constraint firstAttribute="bottom" secondItem="3Rv-1s-uv2" secondAttribute="bottom" id="g2t-5M-KvZ"/>
-                                        <constraint firstItem="3Rv-1s-uv2" firstAttribute="leading" secondItem="hjJ-mw-xud" secondAttribute="leading" id="zwK-6d-WzI"/>
+                                        <constraint firstAttribute="bottom" secondItem="z0Z-7s-Dfe" secondAttribute="bottom" id="9i8-HT-bU5"/>
+                                        <constraint firstItem="z0Z-7s-Dfe" firstAttribute="top" secondItem="hjJ-mw-xud" secondAttribute="top" id="Kc7-sb-THL"/>
+                                        <constraint firstAttribute="trailing" secondItem="z0Z-7s-Dfe" secondAttribute="trailing" id="gW7-Qs-3gw"/>
+                                        <constraint firstItem="z0Z-7s-Dfe" firstAttribute="leading" secondItem="hjJ-mw-xud" secondAttribute="leading" id="w2R-uJ-7BX"/>
                                     </constraints>
                                     <connections>
-                                        <outlet property="currentPage" destination="l9I-xL-QIR" id="HyN-f1-pex"/>
-                                        <outlet property="loadPageButton" destination="z0Z-7s-Dfe" id="4O3-tf-S4U"/>
+                                        <outlet property="loadNextPageButton" destination="z0Z-7s-Dfe" id="S40-Pc-3vM"/>
                                     </connections>
                                 </collectionReusableView>
                             </collectionView>

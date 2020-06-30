@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import RxSwift
+import RxCocoa
 
 // 검색하는 View 입니다.
 
@@ -16,8 +18,10 @@ final class SearchViewController: UIViewController {
     private let searchController = UISearchController(searchResultsController: nil)
     private let searchViewModel: SearchViewModel = SearchViewModel()
     private var token: NotificationToken?
+    private let disposeBag: DisposeBag = DisposeBag()
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: MyActivityIndicator!
+    weak var footerView: SearchFooterCollectionReusableView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +31,16 @@ final class SearchViewController: UIViewController {
         searchController.searchBar.delegate = self
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        searchViewModel.imageInfo
+            .subscribe(onNext: { [weak self] value in
+                guard value != [] else {
+                    return
+                }
+                self?.searchCompletion()
+                },
+                       onError: { [weak self] error in self?.searchErrorHandler(error) })
+            .disposed(by: disposeBag)
         
         let results = RealmFavoritesManager.favorites
         token = results.observe { [weak self] (changes: RealmCollectionChange) in
@@ -51,7 +65,12 @@ final class SearchViewController: UIViewController {
                 fatalError("Unexpected destination.")
             }
             let destVC = destNC.topViewController as! DetailViewController
-            destVC.detailModel.imageInfo = searchViewModel.imageInfo[indexPath.row]
+            //            destVC.detailModel.imageInfo = searchViewModel.imageInfo[indexPath.row]
+            do {
+                destVC.detailModel.imageInfo = try searchViewModel.imageInfo.value()[indexPath.row]
+            } catch {
+                fatalError(error.localizedDescription)
+            }
         default:
             fatalError("Unexpected destination.")
         }
@@ -70,7 +89,8 @@ final class SearchViewController: UIViewController {
             guard let self = self else { return }
             self.collectionView.reloadData()
             self.activityIndicator.isHidden = true
-            self.title = self.searchViewModel.searchText
+            self.footerView?.loadNextPageButton.isHidden = false
+            //            self.title = self.searchViewModel.searchText
             InfoView.showIn(viewController: self, message: "Success!")
         }
     }
@@ -81,6 +101,11 @@ final class SearchViewController: UIViewController {
             InfoView.showIn(viewController: self, message: error.localizedDescription)
         }
     }
+    
+    @objc
+    private func loadNextPage(sender: Any) {
+        searchViewModel.loadNextPage()
+    }
 }
 
 extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
@@ -90,8 +115,7 @@ extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
         searchBar.resignFirstResponder()
         activityIndicator.isHidden = false
         guard let text = searchBar.text else { return }
-        searchViewModel.searchText = text
-        searchViewModel.request(errorHandler: searchErrorHandler, completion: searchCompletion)
+        searchViewModel.searchText.onNext(text)
         searchController.isActive = false
     }
 }
@@ -99,14 +123,23 @@ extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
 
 extension SearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return searchViewModel.imageInfo.count
+        do {
+            return try searchViewModel.imageInfo.value().count
+        } catch {
+            fatalError(error.localizedDescription)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as? ImageCollectionViewCell else {
             fatalError("Failed to load ImageCollectionViewCell on SearchViewController")
         }
-        cell.configure(searchViewModel.imageInfo[indexPath.row])
+        do {
+            let imageInfo: ImageInfo = try searchViewModel.imageInfo.value()[indexPath.row]
+            cell.configure(imageInfo)
+        } catch {
+            fatalError(error.localizedDescription)
+        }
         return cell
     }
     
@@ -118,7 +151,9 @@ extension SearchViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SearchFooterCollectionReusableView", for: indexPath) as! SearchFooterCollectionReusableView
+        footerView = footer
         footer.isHidden = false
+        footer.loadNextPageButton.addTarget(self, action: #selector(loadNextPage(sender:)), for: .touchUpInside)
         return footer
     }
 }

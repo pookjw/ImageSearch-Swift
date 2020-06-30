@@ -7,4 +7,7 @@ target 'ImageSearch' do
  	pod 'Kingfisher'
 	pod 'Alamofire', '~> 5.2'
 	pod 'SnapKit', '~> 5.0.0'
+	pod 'RxSwift'
+	pod 'RxCocoa'
+	pod 'RxAlamofire'
 end

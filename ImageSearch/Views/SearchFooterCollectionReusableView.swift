@@ -9,9 +9,5 @@
 import UIKit
 
 class SearchFooterCollectionReusableView: UICollectionReusableView {
-        
-    @IBOutlet weak var currentPage: UILabel!
-    @IBOutlet weak var loadPageButton: UIButton!
-    
-    
+    @IBOutlet weak var loadNextPageButton: UIButton!
 }

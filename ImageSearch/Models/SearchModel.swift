@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import RxSwift
 
 struct SearchResult: Decodable {
     let meta: Meta
@@ -40,11 +41,11 @@ final class SearchModel {
         case urlsession = 0, alamofire
     }
     
-    func request(text: String, page: Int, errorHandler: @escaping ((Error) -> ()), completion: @escaping ((SearchResult) -> ())) {
+    func request(text: String, page: Int, observable: PublishSubject<SearchResult>) {
         switch SettingsManager.nekwork_type {
         case .urlsession:
             guard let url = URL(string: API), var components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
-                errorHandler(SearchError.invalidURL)
+                observable.onError(SearchError.invalidURL)
                 return
             }
             
@@ -54,7 +55,7 @@ final class SearchModel {
             ]
             
             guard let finalURL = components.url else {
-                errorHandler(SearchError.invalidURL)
+                observable.onError(SearchError.invalidURL)
                 return
             }
             
@@ -72,31 +73,31 @@ final class SearchModel {
             
             let task = session.dataTask(with: request) { (data, response, error) in
                 if let error = error {
-                    errorHandler(error)
+                    observable.onError(error)
                     return
                 }
                 
                 guard let httpResponse = response as? HTTPURLResponse else {
-                    errorHandler(SearchError.invalidHTTPResponse)
+                    observable.onError(SearchError.invalidHTTPResponse)
                     return
                 }
                 
                 guard (200...299).contains(httpResponse.statusCode) else {
-                    errorHandler(SearchError.httpResponse(httpResponse.statusCode))
+                    observable.onError(SearchError.httpResponse(httpResponse.statusCode))
                     return
                 }
                 
                 guard let data = data else {
-                    errorHandler(SearchError.invalidData)
+                    observable.onError(SearchError.invalidData)
                     return
                 }
                 
                 do {
                     let decoder = JSONDecoder()
                     let decoded = try decoder.decode(SearchResult.self, from: data)
-                    completion(decoded)
+                    observable.onNext(decoded)
                 } catch {
-                    errorHandler(error)
+                    observable.onError(error)
                 }
             }
             
@@ -116,12 +117,12 @@ final class SearchModel {
                             guard let data = response.data else { throw SearchError.invalidData }
                             let decoder = JSONDecoder()
                             let decoded = try decoder.decode(SearchResult.self, from: data)
-                            completion(decoded)
+                            observable.onNext(decoded)
                         } catch {
-                            errorHandler(error)
+                            observable.onError(error)
                         }
                     case let .failure(error):
-                        errorHandler(error)
+                        observable.onError(error)
                     }
                 })
         }
