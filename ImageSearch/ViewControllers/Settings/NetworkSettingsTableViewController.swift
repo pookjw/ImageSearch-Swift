@@ -33,7 +33,7 @@ final class NetworkSettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "Only applies on SearchViewController."
+            return "This setting doesn't work anymore."
         default:
             return ""
         }

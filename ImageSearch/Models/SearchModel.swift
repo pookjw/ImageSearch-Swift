@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import RxAlamofire
 import RxSwift
 
 struct SearchResult: Decodable {
@@ -27,7 +28,7 @@ struct Documents: Decodable {
 }
 
 final class SearchModel {
-    private let API = "https://dapi.kakao.com/v2/search/image"
+    private let API = URL(string: "https://dapi.kakao.com/v2/search/image")!
     private let KakaoAK = "dff576e28ce434796a2329a6a2366d76"
     
     enum SearchError: Error {
@@ -44,7 +45,7 @@ final class SearchModel {
     func request(text: String, page: Int, observable: PublishSubject<SearchResult>) {
         switch SettingsManager.nekwork_type {
         case .urlsession:
-            guard let url = URL(string: API), var components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+            guard var components = URLComponents(url: API, resolvingAgainstBaseURL: true) else {
                 observable.onError(SearchError.invalidURL)
                 return
             }
@@ -125,6 +126,33 @@ final class SearchModel {
                         observable.onError(error)
                     }
                 })
+        }
+    }
+    
+    func request(text: String, page: Int) -> Observable<SearchResult> {
+        let parameters = ["query": text, "page": String(page)]
+        let headers: HTTPHeaders = [
+            "Authorization": "KakaoAK \(KakaoAK)"
+        ]
+        return RxAlamofire.requestData(.get, API, parameters: parameters, headers: headers)
+            .flatMap { (response, data) in
+                return Observable<SearchResult>.create { observer in
+                    
+//                    if response.statusCode ~= 200...299 {
+//                        observer.on(SearchError(response.statusCode))
+//                    }
+                    
+                    do {
+                        let decoder = JSONDecoder()
+                        let decoded = try decoder.decode(SearchResult.self, from: data)
+                        observer.onNext(decoded)
+                    } catch {
+                        observer.onError(error)
+                    }
+                    
+                    
+                    return Disposables.create()
+                }
         }
     }
 }

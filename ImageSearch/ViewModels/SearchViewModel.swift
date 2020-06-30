@@ -29,8 +29,9 @@ final class SearchViewModel {
                 guard let self = self else { return }
                 self.allowReset = true
                 self.currentPage = 1
-                self.searchModel.request(text: text,
-                                         page: 1, observable: self.searchResult)
+                self.searchModel.request(text: text, page: 1)
+                    .bind(to: self.searchResult)
+                    .disposed(by: self.disposeBag)
             })
             .disposed(by: disposeBag)
         
@@ -76,6 +77,8 @@ final class SearchViewModel {
             fatalError(error.localizedDescription)
         }
         
-        searchModel.request(text: text, page: currentPage+1, observable: searchResult)
+        searchModel.request(text: text, page: currentPage+1)
+            .bind(to: searchResult)
+            .disposed(by: disposeBag)
     }
 }
