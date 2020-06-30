@@ -106,29 +106,7 @@ extension SearchViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as? ImageCollectionViewCell else {
             fatalError("Failed to load ImageCollectionViewCell on SearchViewController")
         }
-        
-        let imageInfo = searchViewModel.imageInfo[indexPath.row]
-        let rancom_color = UIColor.getRamdomColor()
-        
-        cell.imageInfo = imageInfo
-        cell.thumbnailImage.kf.indicatorType = .activity
-        cell.thumbnailImage.kf.setImage(with: URL(string: imageInfo.thumbnail_url), placeholder: nil)
-        cell.siteName.text = imageInfo.display_sitename
-        cell.layer.shadowColor = rancom_color.color.cgColor
-        cell.siteName.textColor = rancom_color.inverted
-        cell.layer.shadowOpacity = 1
-        cell.layer.shadowOffset = .zero
-        cell.layer.shadowRadius = 8
-        cell.layer.cornerRadius = 8.0
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = rancom_color.inverted.cgColor
-        
-        if RealmFavoritesManager.didFavorite(imageInfo) == nil {
-            cell.starImage.image = UIImage(systemName: "star")
-        } else {
-            cell.starImage.image = UIImage(systemName: "star.fill")
-        }
-        
+        cell.configure(searchViewModel.imageInfo[indexPath.row])
         return cell
     }
     
@@ -136,6 +114,12 @@ extension SearchViewController: UICollectionViewDataSource {
         if let cell = self.collectionView?.cellForItem(at: indexPath) as? ImageCollectionViewCell {
             performSegue(withIdentifier: "ShowDetail", sender: cell)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SearchFooterCollectionReusableView", for: indexPath) as! SearchFooterCollectionReusableView
+        footer.isHidden = false
+        return footer
     }
 }
 

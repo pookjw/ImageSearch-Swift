@@ -70,31 +70,9 @@ extension FavoritesViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as? ImageCollectionViewCell else {
-            fatalError("Failed to load ImageCollectionViewCell on SearchViewController")
+            fatalError("Failed to load ImageCollectionViewCell on FavoritesViewController")
         }
-        
-        let imageInfo = RealmFavoritesManager.favorites[indexPath.row]
-        let rancom_color = UIColor.getRamdomColor()
-        
-        cell.imageInfo = imageInfo
-        cell.thumbnailImage.kf.indicatorType = .activity
-        cell.thumbnailImage.kf.setImage(with: URL(string: imageInfo.thumbnail_url), placeholder: nil)
-        cell.siteName.text = imageInfo.display_sitename
-        cell.layer.shadowColor = rancom_color.color.cgColor
-        cell.siteName.textColor = rancom_color.inverted
-        cell.layer.shadowOpacity = 1
-        cell.layer.shadowOffset = .zero
-        cell.layer.shadowRadius = 8
-        cell.layer.cornerRadius = 8.0
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = rancom_color.inverted.cgColor
-        
-        if RealmFavoritesManager.didFavorite(imageInfo) == nil {
-            cell.starImage.image = UIImage(systemName: "star")
-        } else {
-            cell.starImage.image = UIImage(systemName: "star.fill")
-        }
-        
+        cell.configure(RealmFavoritesManager.favorites[indexPath.row])
         return cell
     }
     

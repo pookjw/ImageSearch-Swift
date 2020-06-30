@@ -12,18 +12,10 @@ final class SearchViewModel {
     var imageInfo: [ImageInfo] = []
     private var currentPage: Int?
     private var maxPage: Int?
-    private var _searchText: String? // Backing Storage
     var searchText: String? {
-        get {
-            return _searchText
-        }
-        set {
-            if newValue == nil {
-                return
-            }
+        didSet {
             currentPage = nil
             maxPage = nil
-            _searchText = newValue
         }
     }
     private let searchModel: SearchModel
