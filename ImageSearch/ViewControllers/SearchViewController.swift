@@ -90,7 +90,6 @@ final class SearchViewController: UIViewController {
             self.collectionView.reloadData()
             self.activityIndicator.isHidden = true
             self.footerView?.loadNextPageButton.isHidden = false
-            //            self.title = self.searchViewModel.searchText
             InfoView.showIn(viewController: self, message: "Success!")
         }
     }
